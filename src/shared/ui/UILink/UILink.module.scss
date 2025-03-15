@@ -1,0 +1,19 @@
+.link {
+  text-decoration: none;
+
+  &.primary {
+    color: var(--primary-color);
+
+    &:hover {
+      border-bottom: 1px solid var(--primary-color);
+    }
+  }
+
+  &.secondary {
+    color: var(--inverted-primary-color);
+
+    &:hover {
+      border-bottom: 1px solid var(--inverted-primary-color);
+    }
+  }
+}
