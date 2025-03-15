@@ -2,6 +2,7 @@ import { useTheme } from "app/providers/ThemeProvider";
 import classNames from "classnames";
 import { FC } from "react";
 import UILink from "shared/ui/UILink/UILink";
+import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import styles from "./Navbar.module.scss";
 
 interface NavbarProps {
@@ -17,9 +18,9 @@ const Navbar: FC<NavbarProps> = (props) => {
       <div>Logo</div>
       <div className={styles.links}>
         <UILink to="/">Home</UILink>
-        <UILink theme="secondary" to="/about">About</UILink>
+        <UILink to="/about">About</UILink>
       </div>
-      <button onClick={toggleTheme}>Change theme</button>
+      <ThemeSwitcher />
     </div>
   );
 };
