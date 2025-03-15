@@ -1,5 +1,5 @@
 import React, { FC, useMemo, useState } from 'react';
-import { LS_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
+import { LS_THEME_KEY, Theme, ThemeContext } from '../lib/ThemeContext';
 
 export interface ThemeProviderProps {
   children: React.ReactNode;
