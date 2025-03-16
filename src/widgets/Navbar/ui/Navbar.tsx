@@ -1,8 +1,7 @@
-import { useTheme } from "app/providers/ThemeProvider";
 import classNames from "classnames";
 import { FC } from "react";
+import { useTranslation } from "react-i18next";
 import UILink from "shared/ui/UILink/UILink";
-import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import styles from "./Navbar.module.scss";
 
 interface NavbarProps {
@@ -11,16 +10,15 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = (props) => {
   const { className } = props;
-  const { toggleTheme } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <div className={classNames(styles.navbar, className)}>
       <div>Logo</div>
       <div className={styles.links}>
-        <UILink to="/">Home</UILink>
-        <UILink to="/about">About</UILink>
+        <UILink to="/">{t("common.navbar.links.home")}</UILink>
+        <UILink to="/about">{t("common.navbar.links.about")}</UILink>
       </div>
-      <ThemeSwitcher />
     </div>
   );
 };

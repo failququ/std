@@ -4,6 +4,8 @@ import styles from "./Sidebar.module.scss";
 
 import { useState, type FC } from "react";
 import Button from "shared/ui/Button/Button";
+import { LangSwitcher } from "widgets/LangSwitcher";
+import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 
 interface SidebarProps {
   className?: string;
@@ -20,8 +22,18 @@ interface SidebarProps {
       <div className={classNames(styles.sidebar, className, {
         [styles.collapsed]: collapsed
       })}>
-        sidebar
-        <Button className={styles.collapseBtn} onClick={handleCollapse} theme="clean">toggle</Button>
+        <Button 
+          onClick={handleCollapse} 
+          theme="clean"
+        >
+          toggle
+        </Button>
+        <div className={classNames(styles.switchers, {
+          [styles.collapsed]: collapsed
+        })}>
+          <ThemeSwitcher />
+          <LangSwitcher />
+        </div>
       </div>
     );
   };

@@ -3,14 +3,26 @@
   width: var(--sidebar-width);
   background-color: var(--inverted-bg-color);
   padding: 10px;
+  position: relative;
   transition: width 0.3s ease;
 
   &.collapsed {
     width: var(--sidebar-width-collapsed);
   }
 
-  .collapseBtn {
-    color: var(--primary-color);
-    margin-left: 5px;
+  .switchers {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+
+    &.collapsed {
+      flex-direction: column;
+      gap: 10px;
+      width: auto;
+    }
   }
 }
