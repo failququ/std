@@ -7,15 +7,13 @@ export interface ThemeProviderProps {
 
 const defaultTheme = localStorage.getItem(LS_THEME_KEY) as Theme || Theme.Light;
 
-const ThemeProvider: FC<ThemeProviderProps> = ({children}) => {
-  const [ theme, setTheme ] = useState<Theme>(defaultTheme);
+const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
+  const [theme, setTheme] = useState<Theme>(defaultTheme);
 
-  const defaultProps = useMemo(() => {
-    return {
-      theme,
-      setTheme
-    }
-  }, [theme]);
+  const defaultProps = useMemo(() => ({
+    theme,
+    setTheme,
+  }), [theme]);
 
   return (
     <ThemeContext.Provider value={defaultProps}>

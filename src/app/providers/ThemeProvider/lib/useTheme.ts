@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { LS_THEME_KEY, Theme, ThemeContext } from "./ThemeContext";
+import { useContext } from 'react';
+import { LS_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
 
 interface UseThemeResult {
   toggleTheme: () => void;
@@ -16,6 +16,6 @@ export function useTheme(): UseThemeResult {
 
   return {
     theme,
-    toggleTheme
-  }
+    toggleTheme,
+  };
 }

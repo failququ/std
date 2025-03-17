@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import { FC } from "react";
-import { useTranslation } from "react-i18next";
-import UILink from "shared/ui/UILink/UILink";
-import styles from "./Navbar.module.scss";
+import classNames from 'classnames';
+import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import UILink from 'shared/ui/UILink/UILink';
+import styles from './Navbar.module.scss';
 
 interface NavbarProps {
   className?: string;
@@ -16,8 +16,8 @@ const Navbar: FC<NavbarProps> = (props) => {
     <div className={classNames(styles.navbar, className)}>
       <div>Logo</div>
       <div className={styles.links}>
-        <UILink to="/">{t("common.navbar.links.home")}</UILink>
-        <UILink to="/about">{t("common.navbar.links.about")}</UILink>
+        <UILink to="/">{t('common.navbar.links.home')}</UILink>
+        <UILink to="/about">{t('common.navbar.links.about')}</UILink>
       </div>
     </div>
   );
