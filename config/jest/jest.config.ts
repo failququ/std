@@ -38,6 +38,17 @@ const config: Config = {
   testMatch: [
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
   ],
+  modulePaths: [
+    '<rootDir>src',
+  ],
+  setupFilesAfterEnv: [
+    '<rootDir>/config/jest/setupTests.ts',
+  ],
+  preset: 'ts-jest',
+  moduleNameMapper: {
+    '\\.s?css$': 'identity-obj-proxy',
+    '\\.svg': '<rootDir>/config/jest/svgMock.tsx',
+  },
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
@@ -141,7 +152,6 @@ const config: Config = {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,

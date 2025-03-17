@@ -18,15 +18,19 @@ const Sidebar: FC<SidebarProps> = (props) => {
     setCollapsed((prev) => !prev);
   };
   return (
-    <div className={classNames(styles.sidebar, className, {
-      [styles.collapsed]: collapsed,
-    })}
+    <div
+      className={classNames(styles.sidebar, className, {
+        [styles.collapsed]: collapsed,
+      })}
+      data-testid="sidebar"
     >
       <Button
+        className={styles.toggle}
         onClick={handleCollapse}
         theme="clean"
+        data-testid="sidebar-toggle"
       >
-        toggle
+        {collapsed ? '>' : '<'}
       </Button>
       <div className={classNames(styles.switchers, {
         [styles.collapsed]: collapsed,

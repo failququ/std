@@ -21,7 +21,7 @@ const LangSwitcher: FC<LangSwitcherProps> = (props) => {
     i18n.changeLanguage(lang);
   }, [i18n]);
   return (
-    <div className={classNames(styles.switcher, className)}>
+    <div className={classNames(styles.switcher, className)} data-testid="lang-switcher">
       <LangSwitcherItem
         onClick={() => handleChangeLanguage(Langs.en)}
         isActive={i18n.language === Langs.en}

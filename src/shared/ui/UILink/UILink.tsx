@@ -18,6 +18,7 @@ const UILink: FC<UILinkProps> = (props) => {
     <Link
       to={to}
       className={classNames(styles.link, className, styles[theme])}
+      data-testid="link"
       {...restProps}
     >
       {children}
