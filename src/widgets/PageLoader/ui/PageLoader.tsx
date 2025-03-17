@@ -1,0 +1,20 @@
+import classNames from 'classnames';
+
+import type { FC } from 'react';
+import Spinner from 'shared/ui/Spinner/Spinner';
+import styles from './PageLoader.module.scss';
+
+interface Props {
+  className?: string;
+}
+
+const PageLoader: FC<Props> = (props) => {
+  const { className } = props;
+  return (
+    <div className={classNames(styles.loader, className)}>
+      <Spinner />
+    </div>
+  );
+};
+
+export default PageLoader;

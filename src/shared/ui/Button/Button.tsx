@@ -7,7 +7,7 @@ export type ButtonTheme = 'primary' | 'clean';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  theme: ButtonTheme;
+  theme?: ButtonTheme;
 }
 
 const Button: FC<ButtonProps> = (props) => {

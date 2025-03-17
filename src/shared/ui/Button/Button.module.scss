@@ -2,6 +2,18 @@
   cursor: pointer;
   color: var(--primary-color);
 
+  &.primary {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 7px 15px;
+    border-radius: 20px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
   &.clean {
     padding: 0;
     margin: 0;

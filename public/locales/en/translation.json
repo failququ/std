@@ -5,6 +5,10 @@
         "home": "Home",
         "about": "About"
       }
+    },
+    "page-error": {
+      "title": "Whoops, something went wrong",
+      "reload-button": "Reload page"
     }
   }
 }
