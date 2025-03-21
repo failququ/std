@@ -6,7 +6,5 @@ describe('LangSwitcher', () => {
   it('should render', () => {
     renderWithTranslation(<LangSwitcher />);
     expect(screen.getByTestId('lang-switcher')).toBeInTheDocument();
-
-    screen.debug();
   });
 });

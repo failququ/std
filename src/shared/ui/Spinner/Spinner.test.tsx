@@ -6,6 +6,5 @@ describe('Spinner', () => {
     render(<Spinner />);
 
     expect(screen.getByTestId('spinner')).toBeInTheDocument();
-    screen.debug();
   });
 });
