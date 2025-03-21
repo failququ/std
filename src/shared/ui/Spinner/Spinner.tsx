@@ -1,7 +1,7 @@
-import './Spinner.scss';
+import styles from './Spinner.module.scss';
 
 const Spinner = () => (
-  <div className="lds-grid" data-testid="spinner">
+  <div className={styles.ldsGrid} data-testid="spinner">
     <div />
     <div />
     <div />
