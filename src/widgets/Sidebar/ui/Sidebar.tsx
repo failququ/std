@@ -1,10 +1,13 @@
 import classNames from 'classnames';
 
 import { useState, type FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'shared/ui/Button/Button';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { getSidebarLinksConfig } from '../config/sidebarLinksConfig';
 import styles from './Sidebar.module.scss';
+import { SidebarLinkItem } from './SidebarLinkItem';
 
 interface SidebarProps {
   className?: string;
@@ -13,6 +16,7 @@ interface SidebarProps {
 const Sidebar: FC<SidebarProps> = (props) => {
   const { className } = props;
   const [collapsed, setCollapsed] = useState(false);
+  const { i18n } = useTranslation();
 
   const handleCollapse = () => {
     setCollapsed((prev) => !prev);
@@ -24,6 +28,20 @@ const Sidebar: FC<SidebarProps> = (props) => {
       })}
       data-testid="sidebar"
     >
+      <div className={classNames(styles.links, {
+        [styles.collapsed]: collapsed,
+      })}
+      >
+        {getSidebarLinksConfig(i18n.language).map((link) => (
+          <SidebarLinkItem
+            key={link.path}
+            to={link.path}
+            icon={link.icon}
+            text={link.text}
+            isCollapsed={collapsed}
+          />
+        ))}
+      </div>
       <Button
         className={styles.toggle}
         onClick={handleCollapse}

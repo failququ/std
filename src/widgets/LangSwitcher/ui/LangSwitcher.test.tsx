@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/react';
-import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation';
+import { componentRender } from 'shared/config/test/componentRender/componentRender';
 import LangSwitcher from './LangSwitcher';
 
 describe('LangSwitcher', () => {
   it('should render', () => {
-    renderWithTranslation(<LangSwitcher />);
+    componentRender(<LangSwitcher />);
     expect(screen.getByTestId('lang-switcher')).toBeInTheDocument();
   });
 });
