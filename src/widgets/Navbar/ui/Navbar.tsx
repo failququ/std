@@ -14,7 +14,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 
   return (
     <div className={classNames(styles.navbar, className)}>
-      <div>Logo</div>
+      <div>{t('common.navbar.logo')}</div>
       <div className={styles.links}>
         <UILink to="/">{t('common.navbar.links.home')}</UILink>
         <UILink to="/about">{t('common.navbar.links.about')}</UILink>

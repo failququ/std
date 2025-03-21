@@ -4,7 +4,8 @@
       "links": {
         "home": "Home",
         "about": "About"
-      }
+      },
+      "logo": "Logo"
     },
     "page-error": {
       "title": "Whoops, something went wrong",
