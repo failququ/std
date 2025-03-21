@@ -16,7 +16,7 @@ const NotFoundPage: FC<NotFoundPageProps> = (props) => {
     <div className={classNames(styles.page, className)}>
       <h1>{t('title')}</h1>
       <p>{t('description')}</p>
-      <UILink to="/">{t('Link')}</UILink>
+      <UILink to="/">{t('link')}</UILink>
     </div>
   );
 };

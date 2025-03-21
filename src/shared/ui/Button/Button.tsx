@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import type { ButtonHTMLAttributes, FC } from 'react';
 import styles from './Button.module.scss';
 
-export type ButtonTheme = 'primary' | 'clean';
+export type ButtonTheme = 'primary' | 'clean' | 'outline';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
