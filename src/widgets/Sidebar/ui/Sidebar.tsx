@@ -5,7 +5,9 @@ import { useTranslation } from 'react-i18next';
 import Button from 'shared/ui/Button/Button';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { getSidebarLinksConfig } from '../config/sidebarLinksConfig';
 import styles from './Sidebar.module.scss';
+import { SidebarLinkItem } from './SidebarLinkItem';
 
 interface SidebarProps {
   className?: string;
@@ -30,7 +32,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
         [styles.collapsed]: collapsed,
       })}
       >
-        {/* {getSidebarLinksConfig(i18n.language).map((link) => (
+        {getSidebarLinksConfig(i18n.language).map((link) => (
           <SidebarLinkItem
             key={link.path}
             to={link.path}
@@ -38,7 +40,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
             text={link.text}
             isCollapsed={collapsed}
           />
-        ))} */}
+        ))}
       </div>
       <Button
         className={styles.toggle}
