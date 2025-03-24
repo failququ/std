@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 
+import { useTheme } from 'app/providers/ThemeProvider';
 import type { FC, ReactNode } from 'react';
 import React from 'react';
 import styles from './Modal.module.scss';
@@ -20,6 +21,8 @@ const Modal: FC<ModalProps> = (props) => {
     className, children, title, isVisible, onClose,
   } = props;
 
+  const { theme } = useTheme();
+
   const handleCloseModal = () => {
     onClose?.();
   };
@@ -29,7 +32,15 @@ const Modal: FC<ModalProps> = (props) => {
   };
   return (
     <Portal>
-      <div className={classNames(styles.modal, className, { [styles.visible]: isVisible })}>
+      <div
+        className={classNames(
+          styles.modal,
+          className,
+          theme,
+          { [styles.visible]: isVisible },
+        )}
+        data-testid="modal"
+      >
         <div className={styles.overlay} onClick={handleCloseModal}>
           <div className={styles.content} onClick={handleClickContent}>
             <div className={styles.heading}>
