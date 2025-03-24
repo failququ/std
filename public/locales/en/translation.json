@@ -5,11 +5,17 @@
         "home": "Home",
         "about": "About"
       },
-      "logo": "Logo"
+      "logo": "Logo",
+      "login": "Login"
     },
     "page-error": {
       "title": "Whoops, something went wrong",
       "reload-button": "Reload page"
+    }
+  },
+  "modals": {
+    "auth": {
+      "title": "Authorization"
     }
   }
 }

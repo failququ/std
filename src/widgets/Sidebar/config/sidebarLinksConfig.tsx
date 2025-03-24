@@ -5,12 +5,12 @@ export function getSidebarLinksConfig(lang:string) {
   return [
     {
       path: '/',
-      text: lang === 'en' ? 'Home' : 'Главная',
+      text: lang === 'EN' ? 'Home' : 'Главная',
       icon: <HomeIcon />,
     },
     {
       path: '/about',
-      text: lang === 'en' ? 'About' : 'О нас',
+      text: lang === 'EN' ? 'About' : 'О нас',
       icon: <AboutIcon />,
     },
   ];
