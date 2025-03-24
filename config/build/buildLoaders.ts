@@ -5,7 +5,12 @@ import { BuildOptions } from './types/types';
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const tsLoader = {
     test: /\.tsx?$/,
-    use: 'ts-loader',
+    use: {
+      loader: 'ts-loader',
+      options: {
+        transpileOnly: true,
+      },
+    },
     exclude: /node_modules/,
   };
 
