@@ -39,7 +39,7 @@ const LoginForm: FC<Props> = (props) => {
   }, [dispatch, email, password]);
   return (
     <div className={classNames(styles.form, className)} data-testid="login-form">
-      {error && <Text theme="error" description={error} />}
+      {error && <Text theme="error" description={t('features.authByEmail.error')} />}
       <Input
         autoFocus
         type="email"

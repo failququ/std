@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { User, userActions } from 'entities/User';
-import i18n from 'shared/config/i18n/i18n';
 import { setToken } from 'shared/lib/tokenHelper';
 
 interface LoginPayload {
@@ -28,7 +27,7 @@ export const loginByEmail = createAsyncThunk<LoginResponse, LoginPayload, { reje
       thunkAPI.dispatch(userActions.setAuthData(response.data.user));
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(i18n.t('features.authByEmail.error'));
+      return thunkAPI.rejectWithValue('error');
     }
   },
 );
