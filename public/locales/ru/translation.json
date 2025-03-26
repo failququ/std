@@ -6,7 +6,8 @@
         "about": "О нас"
       },
       "logo": "Лого",
-      "login": "Войти"
+      "login": "Войти",
+      "logout": "Выйти"
     },
     "page-error": {
       "title": "Упс, что-то пошло не так",
@@ -18,7 +19,8 @@
       "modal-title": "Авторизация",
       "form-button": "Войти",
       "email-label": "Почта",
-      "password-label": "Пароль"
+      "password-label": "Пароль",
+      "error": "Вы ввели неверные данные"
     }
   }
 }

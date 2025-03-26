@@ -7,6 +7,7 @@ import styles from './Modal.module.scss';
 
 import Button from '../Button/Button';
 import Portal from '../Portal/Portal';
+import Text from '../Text/Text';
 
 interface ModalProps {
   className?: string;
@@ -56,7 +57,7 @@ const Modal: FC<ModalProps> = (props) => {
         <div className={styles.overlay} onClick={handleCloseModal}>
           <div className={styles.content} onClick={handleClickContent}>
             <div className={styles.heading}>
-              <div className={styles.title}>{title}</div>
+              <Text title={title} className={styles.title} />
               {/* eslint-disable-next-line */}
               <Button theme="clean" onClick={handleCloseModal}>X</Button>
             </div>

@@ -9,11 +9,12 @@ export type ButtonTheme = 'primary' | 'clean' | 'outline';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   theme?: ButtonTheme;
+  disabled?: boolean;
 }
 
 const Button: FC<ButtonProps> = (props) => {
   const {
-    className, children, theme = 'primary', ...restProps
+    className, children, theme = 'primary', disabled, ...restProps
   } = props;
   return (
     <button
@@ -21,8 +22,10 @@ const Button: FC<ButtonProps> = (props) => {
         styles.button,
         className,
         styles[theme],
+        { [styles.disabled]: disabled },
       )}
       type="button"
+      disabled={disabled}
       {...restProps}
     >
       {children}

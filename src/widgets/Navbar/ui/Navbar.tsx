@@ -1,8 +1,10 @@
 /* eslint-disable i18next/no-literal-string */
 import classNames from 'classnames';
+import { getUserData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByEmail';
 import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from 'shared/ui/Button/Button';
 import styles from './Navbar.module.scss';
 
@@ -14,6 +16,10 @@ const Navbar: FC<NavbarProps> = (props) => {
   const { className } = props;
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const { isAuth } = useSelector(getUserData);
+
+  const isLoginModalVisible = isModalVisible && !isAuth;
 
   const handleCloseModal = useCallback(() => {
     setIsModalVisible(false);
@@ -23,13 +29,21 @@ const Navbar: FC<NavbarProps> = (props) => {
     setIsModalVisible(true);
   }, []);
 
+  const handleLogout = useCallback(() => {
+    dispatch(userActions.logout());
+  }, [dispatch]);
+
   return (
     <div className={classNames(styles.navbar, className)}>
       <div>{t('common.navbar.logo')}</div>
-      <Button onClick={handleOpenModal}>
-        {t('common.navbar.login')}
-      </Button>
-      <LoginModal isVisible={isModalVisible} onClose={handleCloseModal} />
+      {isAuth ? (
+        <Button onClick={handleLogout}>{t('common.navbar.logout')}</Button>
+      ) : (
+        <Button onClick={handleOpenModal}>
+          {t('common.navbar.login')}
+        </Button>
+      )}
+      <LoginModal isVisible={isLoginModalVisible} onClose={handleCloseModal} />
     </div>
   );
 };

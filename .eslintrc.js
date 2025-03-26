@@ -31,7 +31,7 @@ module.exports = {
     'i18next/no-literal-string': ['error',
       {
         markupOnly: true,
-        ignoreAttribute: ['data-testid', 'to', 'theme', 'size', 'name'],
+        ignoreAttribute: ['data-testid', 'to', 'theme', 'size', 'name', 'title'],
       },
     ],
     'max-len': ['error', { ignoreComments: true, code: 125 }],

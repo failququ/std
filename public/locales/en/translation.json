@@ -6,7 +6,8 @@
         "about": "About"
       },
       "logo": "Logo",
-      "login": "Login"
+      "login": "Login",
+      "logout": "Logout"
     },
     "page-error": {
       "title": "Whoops, something went wrong",
@@ -18,7 +19,8 @@
       "modal-title": "Authorization",
       "form-button": "Login",
       "email-label": "Email",
-      "password-label": "Password"
+      "password-label": "Password",
+      "error": "Wrong credentials"
     }
   }
 }
