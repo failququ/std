@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 
 import { useTheme } from 'app/providers/ThemeProvider';
-import type { FC, ReactNode } from 'react';
-import React from 'react';
+import type { FC, MouseEvent, ReactNode } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Modal.module.scss';
 
 import Button from '../Button/Button';
@@ -13,23 +13,35 @@ interface ModalProps {
   children: ReactNode;
   title: string;
   isVisible?: boolean;
+  isLazy?: boolean;
   onClose?: () => void;
 }
 
 const Modal: FC<ModalProps> = (props) => {
   const {
-    className, children, title, isVisible, onClose,
+    className, children, title, isVisible, onClose, isLazy,
   } = props;
 
   const { theme } = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
 
+  useEffect(() => {
+    if (isVisible) {
+      setIsMounted(true);
+    }
+  }, [isVisible]);
   const handleCloseModal = () => {
     onClose?.();
   };
 
-  const handleClickContent = (e: React.MouseEvent) => {
+  const handleClickContent = (e: MouseEvent) => {
     e.stopPropagation();
   };
+
+  if (isLazy && !isMounted) {
+    return null;
+  }
+
   return (
     <Portal>
       <div

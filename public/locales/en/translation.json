@@ -13,9 +13,12 @@
       "reload-button": "Reload page"
     }
   },
-  "modals": {
-    "auth": {
-      "title": "Authorization"
+  "features": {
+    "authByEmail": {
+      "modal-title": "Authorization",
+      "form-button": "Login",
+      "email-label": "Email",
+      "password-label": "Password"
     }
   }
 }

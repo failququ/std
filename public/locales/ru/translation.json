@@ -13,9 +13,12 @@
       "reload-button": "Перезагрузить страницу"
     }
   },
-  "modals": {
-    "auth": {
-      "title": "Авторизация"
+  "features": {
+    "authByEmail": {
+      "modal-title": "Авторизация",
+      "form-button": "Войти",
+      "email-label": "Почта",
+      "password-label": "Пароль"
     }
   }
 }

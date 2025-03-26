@@ -1,0 +1,19 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input {
+  padding: 7px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  margin: 1px;
+  
+  &:focus {
+    border: 1px solid var(--primary-color);
+    outline: none;
+    margin: 0;
+  }
+}

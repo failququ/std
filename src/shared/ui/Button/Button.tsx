@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 
 import type { ButtonHTMLAttributes, FC } from 'react';
+import { memo } from 'react';
 import styles from './Button.module.scss';
 
 export type ButtonTheme = 'primary' | 'clean' | 'outline';
@@ -29,4 +30,4 @@ const Button: FC<ButtonProps> = (props) => {
   );
 };
 
-export default Button;
+export default memo(Button);

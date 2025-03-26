@@ -1,9 +1,9 @@
 /* eslint-disable i18next/no-literal-string */
 import classNames from 'classnames';
+import { LoginModal } from 'features/AuthByEmail';
 import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from 'shared/ui/Button/Button';
-import Modal from 'shared/ui/Modal/Modal';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -15,23 +15,21 @@ const Navbar: FC<NavbarProps> = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { t } = useTranslation();
 
-  const handleToggleModal = useCallback(() => {
-    setIsModalVisible((prev) => !prev);
+  const handleCloseModal = useCallback(() => {
+    setIsModalVisible(false);
+  }, []);
+
+  const handleOpenModal = useCallback(() => {
+    setIsModalVisible(true);
   }, []);
 
   return (
     <div className={classNames(styles.navbar, className)}>
       <div>{t('common.navbar.logo')}</div>
-      <Button onClick={handleToggleModal}>
+      <Button onClick={handleOpenModal}>
         {t('common.navbar.login')}
       </Button>
-      <Modal
-        title={t('modals.auth.title')}
-        isVisible={isModalVisible}
-        onClose={handleToggleModal}
-      >
-        AUTH
-      </Modal>
+      <LoginModal isVisible={isModalVisible} onClose={handleCloseModal} />
     </div>
   );
 };
