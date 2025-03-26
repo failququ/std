@@ -1,10 +1,11 @@
 /* eslint-disable i18next/no-literal-string */
+import { useAppDispatch } from 'app/providers/StoreProvider';
 import classNames from 'classnames';
 import { getUserData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByEmail';
 import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Button from 'shared/ui/Button/Button';
 import styles from './Navbar.module.scss';
 
@@ -16,7 +17,7 @@ const Navbar: FC<NavbarProps> = (props) => {
   const { className } = props;
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { isAuth } = useSelector(getUserData);
 
   const isLoginModalVisible = isModalVisible && !isAuth;

@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 
+import { useAppDispatch } from 'app/providers/StoreProvider';
 import { memo, useCallback, type FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Button from 'shared/ui/Button/Button';
 import Input from 'shared/ui/Input/Input';
 import Text from 'shared/ui/Text/Text';
@@ -18,7 +19,7 @@ interface Props {
 const LoginForm: FC<Props> = (props) => {
   const { className } = props;
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const {
     email, password, isLoading, error,
   } = useSelector(getLoginState);
