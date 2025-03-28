@@ -1,7 +1,8 @@
-import type { FC } from 'react';
+import { Suspense, type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import Modal from 'shared/ui/Modal/Modal';
-import LoginForm from '../LoginForm/LoginForm';
+import Spinner from 'shared/ui/Spinner/Spinner';
+import { LoginFormLazy as LoginForm } from '../LoginForm/LoginForm.lazy';
 
 interface LoginModalProps {
   isVisible?: boolean;
@@ -18,7 +19,9 @@ const LoginModal: FC<LoginModalProps> = (props) => {
       onClose={onClose}
       title={t('features.authByEmail.modal-title')}
     >
-      <LoginForm />
+      <Suspense fallback={<Spinner />}>
+        <LoginForm />
+      </Suspense>
     </Modal>
   );
 };

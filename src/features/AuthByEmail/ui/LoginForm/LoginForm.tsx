@@ -1,28 +1,40 @@
 import classNames from 'classnames';
 
 import { useAppDispatch } from 'app/providers/StoreProvider';
-import { memo, useCallback, type FC } from 'react';
+import {
+  memo, useCallback,
+  type FC,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import Button from 'shared/ui/Button/Button';
 import Input from 'shared/ui/Input/Input';
 import Text from 'shared/ui/Text/Text';
-import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
+import { getLoginEmail } from '../../model/selectors/getLoginEmail/getLoginEmail';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { loginByEmail } from '../../model/services/loginByEmail/loginByEmail';
-import { loginActions } from '../../model/slice/loginSlice';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import styles from './LoginForm.module.scss';
 
-interface Props {
+export interface LoginFormProps {
   className?: string;
 }
 
-const LoginForm: FC<Props> = (props) => {
+const initialReducers: ReducersList = {
+  login: loginReducer,
+};
+
+const LoginForm: FC<LoginFormProps> = (props) => {
   const { className } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  const {
-    email, password, isLoading, error,
-  } = useSelector(getLoginState);
+  const error = useSelector(getLoginError);
+  const isLoading = useSelector(getLoginIsLoading);
+  const email = useSelector(getLoginEmail);
+  const password = useSelector(getLoginPassword);
 
   const handleChangeEmail = useCallback(
     (value: string) => dispatch(loginActions.setEmail(value)),
@@ -38,33 +50,35 @@ const LoginForm: FC<Props> = (props) => {
     dispatch(loginByEmail({ email, password }));
   }, [dispatch, email, password]);
   return (
-    <div className={classNames(styles.form, className)} data-testid="login-form">
-      {error && <Text theme="error" description={t('features.authByEmail.error')} />}
-      <Input
-        autoFocus
-        type="email"
-        className={styles.input}
-        label={t('features.authByEmail.email-label')}
-        value={email}
-        onChange={handleChangeEmail}
-        data-testid="email-input"
-      />
-      <Input
-        type="password"
-        className={styles.input}
-        label={t('features.authByEmail.password-label')}
-        value={password}
-        onChange={handleChangePassword}
-        data-testid="password-input"
-      />
-      <Button
-        className={styles.loginBtn}
-        onClick={handleLogin}
-        disabled={isLoading}
-      >
-        {t('features.authByEmail.form-button')}
-      </Button>
-    </div>
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+      <div className={classNames(styles.form, className)} data-testid="login-form">
+        {error && <Text theme="error" description={t('features.authByEmail.error')} />}
+        <Input
+          autoFocus
+          type="email"
+          className={styles.input}
+          label={t('features.authByEmail.email-label')}
+          value={email}
+          onChange={handleChangeEmail}
+          data-testid="email-input"
+        />
+        <Input
+          type="password"
+          className={styles.input}
+          label={t('features.authByEmail.password-label')}
+          value={password}
+          onChange={handleChangePassword}
+          data-testid="password-input"
+        />
+        <Button
+          className={styles.loginBtn}
+          onClick={handleLogin}
+          disabled={isLoading}
+        >
+          {t('features.authByEmail.form-button')}
+        </Button>
+      </div>
+    </DynamicModuleLoader>
   );
 };
 

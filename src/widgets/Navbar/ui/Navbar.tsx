@@ -44,7 +44,12 @@ const Navbar: FC<NavbarProps> = (props) => {
           {t('common.navbar.login')}
         </Button>
       )}
-      <LoginModal isVisible={isLoginModalVisible} onClose={handleCloseModal} />
+      {isLoginModalVisible && (
+        <LoginModal
+          isVisible={isLoginModalVisible}
+          onClose={handleCloseModal}
+        />
+      )}
     </div>
   );
 };
