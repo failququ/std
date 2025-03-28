@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/dom';
-import { componentRender } from 'shared/config/test/componentRender/componentRender';
+import { componentRender } from 'shared/config/tests/componentRender/componentRender';
 import LoginForm from './LoginForm';
 
 describe('Login form', () => {
