@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { ThunkConfig } from 'app/providers/StoreProvider';
 import { User, userActions } from 'entities/User';
-import { setToken } from 'shared/lib/tokenHelper';
+import { setToken } from 'shared/lib/helpers/tokenHelper';
 
 interface LoginPayload {
   email: string;
@@ -13,21 +13,24 @@ interface LoginResponse {
   access_token: string;
 }
 
-export const loginByEmail = createAsyncThunk<LoginResponse, LoginPayload, { rejectValue: string }>(
+export const loginByEmail = createAsyncThunk<LoginResponse, LoginPayload, ThunkConfig<string>>(
   'login/loginByEmail',
   async ({ email, password }, thunkAPI) => {
+    const { dispatch, extra, rejectWithValue } = thunkAPI;
+
     try {
-      const response = await axios.post<LoginResponse>(
-        'http://localhost:5111/auth/login',
+      const response = await extra.api.post<LoginResponse>(
+        '/auth/login',
         { email, password },
       );
       if (!response.data) throw new Error();
 
       setToken(response.data.access_token);
-      thunkAPI.dispatch(userActions.setAuthData(response.data.user));
+      dispatch(userActions.setAuthData(response.data.user));
+      extra.navigate('/profile');
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue('error');
+      return rejectWithValue('error');
     }
   },
 );
