@@ -1,6 +1,9 @@
 import classNames from 'classnames';
 
-import { useState, type FC } from 'react';
+import {
+  memo,
+  useCallback, useMemo, useState, type FC,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from 'shared/ui/Button/Button';
 import { LangSwitcher } from 'widgets/LangSwitcher';
@@ -18,9 +21,20 @@ const Sidebar: FC<SidebarProps> = (props) => {
   const [collapsed, setCollapsed] = useState(false);
   const { i18n } = useTranslation();
 
-  const handleCollapse = () => {
+  const sidebarLinks = useMemo(() => getSidebarLinksConfig(i18n.language).map((link) => (
+    <SidebarLinkItem
+      key={link.path}
+      to={link.path}
+      icon={link.icon}
+      text={link.text}
+      isCollapsed={collapsed}
+    />
+  )), [collapsed, i18n.language]);
+
+  const handleCollapse = useCallback(() => {
     setCollapsed((prev) => !prev);
-  };
+  }, []);
+
   return (
     <div
       className={classNames(styles.sidebar, className, {
@@ -32,15 +46,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
         [styles.collapsed]: collapsed,
       })}
       >
-        {getSidebarLinksConfig(i18n.language).map((link) => (
-          <SidebarLinkItem
-            key={link.path}
-            to={link.path}
-            icon={link.icon}
-            text={link.text}
-            isCollapsed={collapsed}
-          />
-        ))}
+        {sidebarLinks}
       </div>
       <Button
         className={styles.toggle}
@@ -61,4 +67,4 @@ const Sidebar: FC<SidebarProps> = (props) => {
   );
 };
 
-export default Sidebar;
+export default memo(Sidebar);

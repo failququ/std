@@ -20,7 +20,7 @@ const LoginModal: FC<LoginModalProps> = (props) => {
       title={t('features.authByEmail.modal-title')}
     >
       <Suspense fallback={<Spinner />}>
-        <LoginForm />
+        <LoginForm onLoginSuccess={onClose} />
       </Suspense>
     </Modal>
   );

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { useCallback, type FC } from 'react';
+import { memo, useCallback, type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './LangSwitcher.module.scss';
 import LangSwitcherItem from './LangSwitcherItem/LangSwitcherItem';
@@ -37,4 +37,4 @@ const LangSwitcher: FC<LangSwitcherProps> = (props) => {
   );
 };
 
-export default LangSwitcher;
+export default memo(LangSwitcher);

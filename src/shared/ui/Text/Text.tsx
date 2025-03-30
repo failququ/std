@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 
 import type { FC } from 'react';
+import { memo } from 'react';
 import styles from './Text.module.scss';
 
 type TextTheme = 'primary' | 'error';
@@ -24,4 +25,4 @@ const Text: FC<TextProps> = (props) => {
   );
 };
 
-export default Text;
+export default memo(Text);

@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 
 import type { FC } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import UILink from 'shared/ui/UILink/UILink';
 import styles from './NotFoundPage.module.scss';
@@ -21,4 +22,4 @@ const NotFoundPage: FC<NotFoundPageProps> = (props) => {
   );
 };
 
-export default NotFoundPage;
+export default memo(NotFoundPage);

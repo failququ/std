@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 
-import { useAppDispatch } from 'app/providers/StoreProvider';
 import {
   memo, useCallback,
   type FC,
@@ -8,6 +7,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import Button from 'shared/ui/Button/Button';
 import Input from 'shared/ui/Input/Input';
 import Text from 'shared/ui/Text/Text';
@@ -21,6 +21,7 @@ import styles from './LoginForm.module.scss';
 
 export interface LoginFormProps {
   className?: string;
+  onLoginSuccess?: () => void
 }
 
 const initialReducers: ReducersList = {
@@ -28,7 +29,7 @@ const initialReducers: ReducersList = {
 };
 
 const LoginForm: FC<LoginFormProps> = (props) => {
-  const { className } = props;
+  const { className, onLoginSuccess } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const error = useSelector(getLoginError);
@@ -46,9 +47,13 @@ const LoginForm: FC<LoginFormProps> = (props) => {
     [dispatch],
   );
 
-  const handleLogin = useCallback(() => {
-    dispatch(loginByEmail({ email, password }));
-  }, [dispatch, email, password]);
+  const handleLogin = useCallback(async () => {
+    const res = await dispatch(loginByEmail({ email, password }));
+
+    if (res.meta.requestStatus === 'fulfilled') {
+      onLoginSuccess?.();
+    }
+  }, [dispatch, email, onLoginSuccess, password]);
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <div className={classNames(styles.form, className)} data-testid="login-form">

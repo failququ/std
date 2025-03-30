@@ -1,9 +1,9 @@
 import { userActions } from 'entities/User';
 import { useEffect } from 'react';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { AppRouter } from './providers/router';
-import { useAppDispatch } from './providers/StoreProvider';
 import { useTheme } from './providers/ThemeProvider';
 
 const App = () => {

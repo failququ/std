@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 
 import type { FC } from 'react';
+import { memo } from 'react';
 import Spinner from 'shared/ui/Spinner/Spinner';
 import styles from './PageLoader.module.scss';
 
@@ -17,4 +18,4 @@ const PageLoader: FC<Props> = (props) => {
   );
 };
 
-export default PageLoader;
+export default memo(PageLoader);

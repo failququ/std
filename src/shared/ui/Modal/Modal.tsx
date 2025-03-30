@@ -33,6 +33,7 @@ const Modal: FC<ModalProps> = (props) => {
   }, [isVisible]);
   const handleCloseModal = () => {
     onClose?.();
+    setIsMounted(false);
   };
 
   const handleClickContent = (e: MouseEvent) => {

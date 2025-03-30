@@ -1,11 +1,12 @@
-/* eslint-disable i18next/no-literal-string */
-import { useAppDispatch } from 'app/providers/StoreProvider';
 import classNames from 'classnames';
 import { getUserData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByEmail';
-import { FC, useCallback, useState } from 'react';
+import {
+  FC, memo, useCallback, useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import Button from 'shared/ui/Button/Button';
 import styles from './Navbar.module.scss';
 
@@ -44,14 +45,12 @@ const Navbar: FC<NavbarProps> = (props) => {
           {t('common.navbar.login')}
         </Button>
       )}
-      {isLoginModalVisible && (
-        <LoginModal
-          isVisible={isLoginModalVisible}
-          onClose={handleCloseModal}
-        />
-      )}
+      <LoginModal
+        isVisible={isLoginModalVisible}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

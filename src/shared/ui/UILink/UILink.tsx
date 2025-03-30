@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 
 import type { FC } from 'react';
+import { memo } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import styles from './UILink.module.scss';
 
@@ -26,4 +27,4 @@ const UILink: FC<UILinkProps> = (props) => {
   );
 };
 
-export default UILink;
+export default memo(UILink);
