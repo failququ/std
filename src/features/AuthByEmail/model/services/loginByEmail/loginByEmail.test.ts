@@ -6,8 +6,10 @@ import { loginByEmail } from './loginByEmail';
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
+const mockNavigate = jest.fn();
+
 describe('getLoginEmail', () => {
-  const thunk = new TestAsyncThunk(loginByEmail);
+  const thunk = new TestAsyncThunk(loginByEmail, { api: mockedAxios, navigate: mockNavigate });
 
   beforeEach(() => {
     mockedAxios.post.mockReturnValue(Promise.resolve({
