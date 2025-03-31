@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { getToken, removeToken } from 'shared/lib/helpers/tokenHelper';
-import { User, UserSchema } from '../types/user';
+import { UserSchema } from '../types/user';
 
 const initialState: UserSchema = {
   isAuth: false,
@@ -11,10 +11,6 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setAuthData: (state, action:PayloadAction<User>) => {
-      state.authData = action.payload;
-      state.isAuth = true;
-    },
     initAuthData: (state) => {
       const token = getToken();
       if (token) {

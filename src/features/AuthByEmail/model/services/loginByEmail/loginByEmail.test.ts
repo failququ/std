@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/config/tests/testAsyncThunk/testAsyncThunk';
 import { loginByEmail } from './loginByEmail';
 
@@ -45,14 +44,5 @@ describe('getLoginEmail', () => {
     const result = await thunk.callThunk({ email: 'email', password: 'password' });
 
     expect(result.meta.requestStatus).toBe('rejected');
-  });
-
-  test('should dispatch set auth data action with correct data', async () => {
-    await thunk.callThunk({ email: 'email', password: 'password' });
-
-    expect(thunk.dispatch).toHaveBeenNthCalledWith(2, userActions.setAuthData({
-      id: '1',
-      email: 'email',
-    }));
   });
 });
