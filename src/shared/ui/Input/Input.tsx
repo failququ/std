@@ -6,11 +6,14 @@ import styles from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'>
 
+export type InputVariant = 'default' | 'clean';
 interface InputProps extends HTMLInputProps {
   className?: string;
   label?: string;
   value?: string;
   autoFocus?: boolean;
+  variant?: InputVariant;
+  readOnly?: boolean;
   onChange?: (value: string) => void;
 }
 
@@ -21,7 +24,9 @@ const Input: FC<InputProps > = (props) => {
     value,
     onChange,
     type = 'text',
+    variant = 'default',
     autoFocus,
+    readOnly,
     ...restProps
   } = props;
 
@@ -35,9 +40,10 @@ const Input: FC<InputProps > = (props) => {
   }, [autoFocus]);
 
   return (
-    <div className={classNames(styles.inputWrapper, className)}>
+    <div className={classNames(styles.inputWrapper, className, styles[variant])}>
       <div data-testid="input-label" className={styles.label}>{label}</div>
       <input
+        readOnly={readOnly}
         data-testid="input"
         ref={ref}
         className={styles.input}

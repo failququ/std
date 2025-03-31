@@ -6,7 +6,7 @@ const initialState: LoginSchema = {
   email: '',
   password: '',
   isLoading: false,
-  error: null,
+  error: '',
 };
 
 const loginSlice = createSlice({
@@ -23,7 +23,7 @@ const loginSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(loginByEmail.pending, (state) => {
       state.isLoading = true;
-      state.error = null;
+      state.error = undefined;
     });
     builder.addCase(loginByEmail.fulfilled, (state) => {
       state.isLoading = false;

@@ -1,0 +1,15 @@
+{
+  "card": {
+    "header": {
+      "title": "Profile",
+      "edit": {
+        "editOn": "Save",
+        "editOff": "Edit"
+      }
+    },
+    "data": {
+      "firstName": "Your name",
+      "lastName": "Your last name"
+    }
+  }
+}

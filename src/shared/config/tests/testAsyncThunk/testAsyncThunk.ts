@@ -13,7 +13,7 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
 
   extra: ThunkExtraArgs;
 
-  constructor(actionCreator: ActionCreatorType<Return, Arg, RejectedValue>, extra?: ThunkExtraArgs) {
+  constructor(actionCreator: ActionCreatorType<Return, Arg, RejectedValue>, extra: ThunkExtraArgs) {
     this.actionCreator = actionCreator;
     this.extra = extra;
     this.dispatch = jest.fn();

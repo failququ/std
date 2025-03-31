@@ -31,7 +31,16 @@ module.exports = {
     'i18next/no-literal-string': ['error',
       {
         markupOnly: true,
-        ignoreAttribute: ['data-testid', 'to', 'theme', 'size', 'name', 'title', 'reducerKey'],
+        ignoreAttribute: [
+          'data-testid',
+          'variant',
+          'to',
+          'theme',
+          'size',
+          'name',
+          'title',
+          'reducerKey',
+        ],
       },
     ],
     'max-len': ['error', { ignoreComments: true, code: 125 }],
@@ -40,6 +49,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'no-param-reassign': 'off',
+    'no-undef': 'off',
   },
   globals: {
     __IS_DEV__: true,

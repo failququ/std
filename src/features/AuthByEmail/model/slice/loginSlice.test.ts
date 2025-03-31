@@ -1,4 +1,3 @@
-import { DeepPartial } from 'app/types/util';
 import { LoginSchema } from '../types/loginSchema';
 import { loginActions, loginReducer } from './loginSlice';
 
@@ -8,7 +7,7 @@ describe('loginSlice', () => {
       email: '',
       password: '',
       isLoading: false,
-      error: null,
+      error: '',
     };
 
     expect(loginReducer(initialState as LoginSchema, { type: 'unknown' }))

@@ -1,5 +1,4 @@
 import { ReducersMapObject } from '@reduxjs/toolkit';
-import { DeepPartial } from 'app/types/util';
 import type { FC } from 'react';
 import React from 'react';
 import { Provider } from 'react-redux';

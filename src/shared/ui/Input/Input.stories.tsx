@@ -17,13 +17,32 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: 'Modal label',
+    label: 'Input label',
   },
 };
 
-export const Dark: Story = {
+export const DefaultDark: Story = {
   args: {
-    label: 'Modal label',
+    label: 'Input label',
   },
 };
-Dark.decorators = [ThemeDecorator(Theme.Dark)];
+DefaultDark.decorators = [ThemeDecorator(Theme.Dark)];
+
+export const CleanReadOnly: Story = {
+  args: {
+    label: 'Input label',
+    variant: 'clean',
+    value: 'Input value',
+    readOnly: true,
+  },
+};
+
+export const CleanReadOnlyDark: Story = {
+  args: {
+    label: 'Input label',
+    variant: 'clean',
+    value: 'Input value',
+    readOnly: true,
+  },
+};
+CleanReadOnlyDark.decorators = [ThemeDecorator(Theme.Dark)];

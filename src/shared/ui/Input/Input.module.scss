@@ -17,3 +17,17 @@
     margin: 0;
   }
 }
+
+.clean {
+  cursor: default;
+  
+  .input {
+    padding: 7px;
+    margin: 1px;
+    color: var(--secondary-color);
+    border: none;
+    background: none;
+    outline: none;
+    cursor: default;
+  }
+}
