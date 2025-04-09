@@ -6,7 +6,7 @@ import { getProfileReadonly } from './model/selectors/getProfileReadonly/getProf
 import { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
 import { updateProfileData } from './model/services/updateProfileData/updateProfileData';
 import { profileActions, profileReducer } from './model/slice/profileSlice';
-import type { Profile, ProfileSchema } from './model/types/profile';
+import { ValidateProfileError, type Profile, type ProfileSchema } from './model/types/profile';
 import ProfileCard from './ui/ProfileCard/ProfileCard';
 
 export {
@@ -15,6 +15,5 @@ export {
   getProfileReadonly, Profile,
   profileActions,
   ProfileCard,
-  profileReducer,
-  ProfileSchema, updateProfileData,
+  profileReducer, ProfileSchema, updateProfileData, ValidateProfileError,
 };

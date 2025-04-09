@@ -1,14 +1,12 @@
 import axios from 'axios';
-import { TestAsyncThunk } from 'shared/config/tests/testAsyncThunk/testAsyncThunk';
+import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk/TestAsyncThunk';
 import { loginByEmail } from './loginByEmail';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-const mockNavigate = jest.fn();
-
 describe('getLoginEmail', () => {
-  const thunk = new TestAsyncThunk(loginByEmail, { api: mockedAxios, navigate: mockNavigate });
+  const thunk = new TestAsyncThunk(loginByEmail);
 
   beforeEach(() => {
     mockedAxios.post.mockReturnValue(Promise.resolve({

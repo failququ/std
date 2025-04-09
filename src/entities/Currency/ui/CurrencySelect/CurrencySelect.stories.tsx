@@ -4,7 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorato
 import CurrencySelect from './CurrencySelect';
 
 const meta = {
-  title: 'Shared/CurrencySelect',
+  title: 'Entities/CurrencySelect',
   component: CurrencySelect,
 
 } satisfies Meta<typeof CurrencySelect>;

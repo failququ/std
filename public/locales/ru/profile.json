@@ -23,6 +23,14 @@
     "getProfile": {
       "title": "Произошла ошибка при загрузке профиля",
       "description": "Попробуйте обновить страницу"
+    },
+    "validationErrors": {
+      "incorrectUserData": "Некорректные данные пользователя",
+      "incorrectAge": "Некорректный возраст",
+      "incorrectCountry": "Некорректная страна",
+      "incorrectCurrency": "Некорректная валюта",
+      "serverError": "Произошла ошибка на сервере",
+      "noData": "Нет данных"
     }
   }
 }

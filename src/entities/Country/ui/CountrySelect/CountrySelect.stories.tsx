@@ -4,7 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorato
 import CountrySelect from './CountrySelect';
 
 const meta = {
-  title: 'Shared/CountrySelect',
+  title: 'Entities/CountrySelect',
   component: CountrySelect,
 
 } satisfies Meta<typeof CountrySelect>;

@@ -18,7 +18,7 @@ export default (env: BuildEnv) => {
 
   const config: webpack.Configuration = BuildWebpackConfig(
     {
-      mode, paths, isDev, port: PORT, apiUrl,
+      mode, paths, isDev, port: PORT, apiUrl, project: 'frontend',
     },
   );
 

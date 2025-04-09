@@ -23,6 +23,14 @@
     "getProfile": {
       "title": "An error occurred while loading the profile",
       "description": "Try to reload page"
+    },
+    "validationErrors": {
+      "incorrectUserData": "Incorrect user data",
+      "incorrectAge": "Incorrect age",
+      "incorrectCountry": "Incorrect country",
+      "incorrectCurrency": "Incorrect currency",
+      "serverError": "Server error occurred",
+      "noData": "No data"
     }
   }
 }

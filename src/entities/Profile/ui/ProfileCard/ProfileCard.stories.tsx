@@ -3,24 +3,21 @@ import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import avatar from 'shared/assets/tests/storybook.jpg';
-import { StoreDecorator } from 'shared/config/storybook/decorators';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator';
-import ProfilePage from './ProfilePage';
+import ProfileCard from './ProfileCard';
 
 const meta = {
-  title: 'Pages/ProfilePage',
-  component: ProfilePage,
+  title: 'Entities/ProfileCard',
+  component: ProfileCard,
 
-} satisfies Meta<typeof ProfilePage>;
+} satisfies Meta<typeof ProfileCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
-Default.decorators = [StoreDecorator({
-  profile: {
-    readonly: true,
-    form: {
+export const Default: Story = {
+  args: {
+    data: {
       username: 'admin',
       age: 22,
       country: Country.Russia,
@@ -31,13 +28,11 @@ Default.decorators = [StoreDecorator({
       avatar,
     },
   },
-})];
+};
 
-export const Dark: Story = {};
-Dark.decorators = [ThemeDecorator(Theme.Dark), StoreDecorator({
-  profile: {
-    readonly: true,
-    form: {
+export const Dark: Story = {
+  args: {
+    data: {
       username: 'admin',
       age: 22,
       country: Country.Russia,
@@ -48,4 +43,31 @@ Dark.decorators = [ThemeDecorator(Theme.Dark), StoreDecorator({
       avatar,
     },
   },
-})];
+};
+Dark.decorators = [ThemeDecorator(Theme.Dark)];
+
+export const WithLoading: Story = {
+  args: {
+    isLoading: true,
+  },
+};
+
+export const WithLoadingDark: Story = {
+  args: {
+    isLoading: true,
+  },
+};
+WithLoadingDark.decorators = [ThemeDecorator(Theme.Dark)];
+
+export const WithError: Story = {
+  args: {
+    error: 'error',
+  },
+};
+
+export const WithErrorDark: Story = {
+  args: {
+    error: 'error',
+  },
+};
+WithErrorDark.decorators = [ThemeDecorator(Theme.Dark)];
