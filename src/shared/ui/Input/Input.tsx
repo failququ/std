@@ -4,16 +4,16 @@ import type { ChangeEvent, FC, InputHTMLAttributes } from 'react';
 import { memo, useEffect, useRef } from 'react';
 import styles from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'readOnly'>
 
 export type InputVariant = 'default' | 'clean';
 interface InputProps extends HTMLInputProps {
   className?: string;
   label?: string;
-  value?: string;
+  value?: string | number;
   autoFocus?: boolean;
   variant?: InputVariant;
-  readOnly?: boolean;
+  readonly?: boolean;
   onChange?: (value: string) => void;
 }
 
@@ -26,7 +26,7 @@ const Input: FC<InputProps > = (props) => {
     type = 'text',
     variant = 'default',
     autoFocus,
-    readOnly,
+    readonly,
     ...restProps
   } = props;
 
@@ -43,7 +43,7 @@ const Input: FC<InputProps > = (props) => {
     <div className={classNames(styles.inputWrapper, className, styles[variant])}>
       <div data-testid="input-label" className={styles.label}>{label}</div>
       <input
-        readOnly={readOnly}
+        readOnly={readonly}
         data-testid="input"
         ref={ref}
         className={styles.input}

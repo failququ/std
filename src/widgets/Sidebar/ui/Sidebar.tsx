@@ -28,6 +28,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
       icon={link.icon}
       text={link.text}
       isCollapsed={collapsed}
+      authOnly={link.authOnly}
     />
   )), [collapsed, i18n.language]);
 

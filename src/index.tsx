@@ -8,7 +8,7 @@ import 'shared/config/i18n/i18n';
 import './app/styles/index.scss';
 
 const domNode = document.getElementById('root');
-const root = createRoot(domNode);
+const root = createRoot(domNode!);
 
 root.render(
   <BrowserRouter>

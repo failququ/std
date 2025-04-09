@@ -9,16 +9,19 @@ export function getSidebarLinksConfig(lang:string) {
       path: RouteUrls.home,
       text: lang === 'EN' ? 'Home' : 'Главная',
       icon: <HomeIcon />,
+      authOnly: false,
     },
     {
       path: RouteUrls.about,
       text: lang === 'EN' ? 'About' : 'О нас',
       icon: <AboutIcon />,
+      authOnly: false,
     },
     {
       path: RouteUrls.profile,
       text: lang === 'EN' ? 'Profile' : 'Профиль',
       icon: <ProfileIcon />,
+      authOnly: true,
     },
   ];
 }

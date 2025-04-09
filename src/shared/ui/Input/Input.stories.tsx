@@ -33,7 +33,7 @@ export const CleanReadOnly: Story = {
     label: 'Input label',
     variant: 'clean',
     value: 'Input value',
-    readOnly: true,
+    readonly: true,
   },
 };
 
@@ -42,7 +42,7 @@ export const CleanReadOnlyDark: Story = {
     label: 'Input label',
     variant: 'clean',
     value: 'Input value',
-    readOnly: true,
+    readonly: true,
   },
 };
 CleanReadOnlyDark.decorators = [ThemeDecorator(Theme.Dark)];

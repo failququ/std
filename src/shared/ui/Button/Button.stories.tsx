@@ -55,6 +55,21 @@ export const OutlineDark: Story = {
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.Dark)];
 
+export const OutlineRedLight: Story = {
+  args: {
+    children: 'Button',
+    theme: 'outline_red',
+  },
+};
+
+export const OutlineRedDark: Story = {
+  args: {
+    children: 'Button',
+    theme: 'outline_red',
+  },
+};
+OutlineRedDark.decorators = [ThemeDecorator(Theme.Dark)];
+
 export const DisabledLight: Story = {
   args: {
     children: 'Button',

@@ -40,6 +40,7 @@ module.exports = {
           'name',
           'title',
           'reducerKey',
+          'align',
         ],
       },
     ],

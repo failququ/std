@@ -30,6 +30,13 @@
     background: none;
   }
 
+  &.outline_red {
+    padding: 10px 15px;
+    border: 1px solid var(--red-dark);
+    color: var(--red-dark);
+    background: none;
+  }
+
   &.disabled {
     cursor: not-allowed;
     opacity: 0.5;

@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 200px;
+}
+
+.select {
+  background: none;
+  outline: none;
+  color: var(--secondary-color);
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--secondary-color)
+}

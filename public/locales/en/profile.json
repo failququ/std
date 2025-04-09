@@ -1,15 +1,28 @@
 {
+  "header": {
+    "title": "Profile",
+    "edit": {
+      "save": "Save",
+      "edit": "Edit",
+      "cancel": "Cancel"
+    }
+  },
   "card": {
-    "header": {
-      "title": "Profile",
-      "edit": {
-        "editOn": "Save",
-        "editOff": "Edit"
-      }
-    },
     "data": {
       "firstName": "Your name",
-      "lastName": "Your last name"
+      "lastName": "Your last name",
+      "age": "Your age",
+      "city": "your city",
+      "avatar": "Your avatar",
+      "username": "Your username",
+      "currency": "Your currency",
+      "country": "Your country"
+    }
+  },
+  "errors": {
+    "getProfile": {
+      "title": "An error occurred while loading the profile",
+      "description": "Try to reload page"
     }
   }
 }
