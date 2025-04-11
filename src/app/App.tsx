@@ -1,5 +1,6 @@
-import { userActions } from 'entities/User';
+import { getIsInit, userActions } from 'entities/User';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
@@ -9,6 +10,8 @@ import { useTheme } from './providers/ThemeProvider';
 const App = () => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
+
+  const isInit = useSelector(getIsInit);
 
   useEffect(() => {
     dispatch(userActions.initAuthData());
@@ -20,7 +23,7 @@ const App = () => {
       <div className="content-page">
         <Sidebar />
         <div className="page-wrapper">
-          <AppRouter />
+          {isInit && <AppRouter />}
         </div>
       </div>
     </div>
