@@ -3,6 +3,7 @@
     "title": "Articles"
   },
   "details-page": {
-    "title": "Details"
+    "article-not-found": "Unable to find the article",
+    "error": "An error occurred while loading the article"
   }
 }

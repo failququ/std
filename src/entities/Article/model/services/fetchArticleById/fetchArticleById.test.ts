@@ -1,20 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
-import { Article } from 'entities/Article';
-import { StoreDecorator } from 'shared/config/storybook/decorators';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator';
-import ArticleDetailsPage from './ArticleDetailsPage';
+import axios from 'axios';
+import { TestAsyncThunk } from 'shared/config/tests/testAsyncThunk/testAsyncThunk';
+import { Article } from '../../types/article';
+import { fetchArticleById } from './fetchArticleById';
 
-const meta = {
-  title: 'Pages/ArticleDetailsPage',
-  component: ArticleDetailsPage,
+jest.mock('axios');
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-} satisfies Meta<typeof ArticleDetailsPage>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-const article: Article = {
+const data: Article = {
   id: '1',
   title: 'Javascript news',
   subtitle: 'Что нового в JS за 2022 год?',
@@ -87,16 +79,26 @@ const article: Article = {
   createdAt: '02.02.2022',
 };
 
-export const Default: Story = {
-  args: {
-  },
-};
+describe('fetchArticleById', () => {
+  const thunk = new TestAsyncThunk(fetchArticleById);
 
-Default.decorators = [StoreDecorator({
-  articleDetails: {
-    data: article,
-  },
-})];
+  beforeEach(() => {
+    mockedAxios.get.mockReturnValue(Promise.resolve({
+      data,
+    }));
+  });
 
-export const Dark: Story = {};
-Dark.decorators = [ThemeDecorator(Theme.Dark)];
+  test('should return data', async () => {
+    const result = await thunk.callThunk();
+    expect(mockedAxios.get).toHaveBeenCalledTimes(1);
+    expect(result.meta.requestStatus).toEqual('fulfilled');
+    expect(result.payload).toEqual(data);
+  });
+
+  test('should return reject status', async () => {
+    mockedAxios.get.mockReturnValue(Promise.reject(new Error()));
+    const result = await thunk.callThunk();
+
+    expect(result.meta.requestStatus).toBe('rejected');
+  });
+});

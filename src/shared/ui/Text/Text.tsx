@@ -7,12 +7,18 @@ import styles from './Text.module.scss';
 type TextTheme = 'primary' | 'error';
 type AlignOptions = 'center' | 'left' | 'right';
 
+export const enum TextSize {
+  M = 'size_m',
+  L = 'size_l',
+}
+
 interface TextProps {
   className?: string;
   title?: string;
   description?: string
   theme?: TextTheme;
-  align?: AlignOptions
+  align?: AlignOptions;
+  size?: TextSize;
 }
 
 const Text: FC<TextProps> = (props) => {
@@ -22,6 +28,7 @@ const Text: FC<TextProps> = (props) => {
     description,
     theme = 'primary',
     align = 'left',
+    size = 'size_m',
   } = props;
 
   return (
@@ -30,6 +37,7 @@ const Text: FC<TextProps> = (props) => {
       className,
       styles[theme],
       styles[align],
+      styles[size],
     )}
     >
       <div className={styles.title}>{title}</div>

@@ -1,15 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
-import { Article } from 'entities/Article';
-import { StoreDecorator } from 'shared/config/storybook/decorators';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator';
-import ArticleDetailsPage from './ArticleDetailsPage';
+import { Article } from 'entities/Article/model/types/article';
+import { StoreDecorator, ThemeDecorator } from 'shared/config/storybook/decorators';
+import ArticleDetails from './ArticleDetails';
 
 const meta = {
-  title: 'Pages/ArticleDetailsPage',
-  component: ArticleDetailsPage,
-
-} satisfies Meta<typeof ArticleDetailsPage>;
+  title: 'Entities/ArticleDetails',
+  component: ArticleDetails,
+} satisfies Meta<typeof ArticleDetails>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -89,6 +87,7 @@ const article: Article = {
 
 export const Default: Story = {
   args: {
+    id: '1',
   },
 };
 
@@ -98,5 +97,58 @@ Default.decorators = [StoreDecorator({
   },
 })];
 
-export const Dark: Story = {};
-Dark.decorators = [ThemeDecorator(Theme.Dark)];
+export const DefaultDark: Story = {
+  args: {
+    id: '1',
+  },
+};
+DefaultDark.decorators = [ThemeDecorator(Theme.Dark), StoreDecorator({
+  articleDetails: {
+    data: article,
+  },
+})];
+
+export const Loading: Story = {
+  args: {
+    id: '1',
+  },
+};
+Loading.decorators = [StoreDecorator({
+  articleDetails: {
+    isLoading: true,
+  },
+})];
+
+export const LoadingDark: Story = {
+  args: {
+    id: '1',
+  },
+};
+
+LoadingDark.decorators = [ThemeDecorator(Theme.Dark), StoreDecorator({
+  articleDetails: {
+    isLoading: true,
+  },
+})];
+
+export const Error: Story = {
+  args: {
+    id: '1',
+  },
+};
+Error.decorators = [StoreDecorator({
+  articleDetails: {
+    error: 'error',
+  },
+})];
+
+export const ErrorDark: Story = {
+  args: {
+    id: '1',
+  },
+};
+ErrorDark.decorators = [ThemeDecorator(Theme.Dark), StoreDecorator({
+  articleDetails: {
+    error: 'error',
+  },
+})];

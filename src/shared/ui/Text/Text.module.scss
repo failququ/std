@@ -15,10 +15,6 @@
   }
 }
 
-.title {
-  font-size: var(--font-size-l);
-}
-
 .description {
   color: var(--secondary-color);
 }
@@ -30,5 +26,25 @@
 
   .description {
     color: var(--red-dark);
+  }
+}
+
+.size_m {
+  .description{
+    font-size: var(--font-size-m);
+  }
+
+  .title {
+    font-size: var(--font-size-l);
+  }
+}
+
+.size_l {
+  .description{
+    font-size: var(--font-size-l);
+  }
+
+  .title {
+    font-size: var(--font-size-xl);
   }
 }
