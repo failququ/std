@@ -99,4 +99,8 @@ Default.decorators = [StoreDecorator({
 })];
 
 export const Dark: Story = {};
-Dark.decorators = [ThemeDecorator(Theme.Dark)];
+Dark.decorators = [ThemeDecorator(Theme.Dark), StoreDecorator({
+  articleDetails: {
+    data: article,
+  },
+})];
