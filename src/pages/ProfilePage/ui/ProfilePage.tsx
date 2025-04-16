@@ -15,11 +15,12 @@ import {
 } from 'entities/Profile';
 import { getValidationErrors } from 'entities/Profile/model/selectors/getValidationErrors/getValidationErrors';
 import type { FC } from 'react';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import Text from 'shared/ui/Text/Text';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
@@ -84,11 +85,10 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
     dispatch(profileActions.updateProfile({ ...formData, country }));
   }, [dispatch, formData]);
 
-  useEffect(() => {
-    if (__PROJECT__ === 'storybook') return;
+  useInitialEffect(() => {
     // @ts-ignore
     dispatch(fetchProfileData());
-  }, [dispatch]);
+  });
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <div className={classNames(className)}>

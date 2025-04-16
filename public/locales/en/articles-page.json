@@ -4,6 +4,10 @@
   },
   "details-page": {
     "article-not-found": "Unable to find the article",
-    "error": "An error occurred while loading the article"
+    "error": "An error occurred while loading the article",
+    "comments": {
+      "title": "Comments",
+      "noData": "No comments yet"
+    }
   }
 }

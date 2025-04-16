@@ -1,3 +1,4 @@
+import type { ArticleDetailsCommentsSchema } from './model/types/ArticleDetailsCommentsSchema';
 import { ArticleDetailsPageLazy } from './ui/ArticleDetailsPage/ArticleDetailsPageLazy';
 
-export { ArticleDetailsPageLazy as ArticleDetailsPage };
+export { ArticleDetailsCommentsSchema, ArticleDetailsPageLazy as ArticleDetailsPage };

@@ -27,6 +27,7 @@ const loginSlice = createSlice({
     });
     builder.addCase(loginByEmail.fulfilled, (state) => {
       state.isLoading = false;
+      state.error = undefined;
     });
     builder.addCase(loginByEmail.rejected, (state, action) => {
       state.isLoading = false;
