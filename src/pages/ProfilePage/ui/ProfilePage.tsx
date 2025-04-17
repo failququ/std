@@ -18,6 +18,7 @@ import type { FC } from 'react';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
@@ -35,6 +36,7 @@ export const initialReducers: ReducersList = {
 const ProfilePage: FC<ProfilePageProps> = (props) => {
   const { className } = props;
   const { t } = useTranslation('profile');
+  const { id } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
   const formData = useSelector(getProfileForm);
   const profileError = useSelector(getProfileError);
@@ -87,7 +89,7 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
 
   useInitialEffect(() => {
     // @ts-ignore
-    dispatch(fetchProfileData());
+    dispatch(fetchProfileData(id));
   });
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>

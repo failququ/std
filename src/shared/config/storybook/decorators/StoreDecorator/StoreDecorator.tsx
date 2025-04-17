@@ -1,13 +1,15 @@
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
+import { articleDetailsReducer } from 'entities/Article';
 import { profileReducer } from 'entities/Profile';
-import { loginReducer } from 'features/AuthByEmail/model/slice/loginSlice';
+import { addNewCommentReducer } from 'features/addNewComment';
+import { loginReducer } from 'features/AuthByEmail';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducers: ReducersList = {
   login: loginReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
+  addNewComment: addNewCommentReducer,
 };
 
 export const StoreDecorator = (

@@ -1,4 +1,9 @@
-import { getIsInit, userActions } from 'entities/User';
+import {
+  getIsAuth,
+  getIsInit,
+  getMe,
+  userActions,
+} from 'entities/User';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -12,10 +17,17 @@ const App = () => {
   const dispatch = useAppDispatch();
 
   const isInit = useSelector(getIsInit);
+  const isAuth = useSelector(getIsAuth);
 
   useEffect(() => {
     dispatch(userActions.initAuthData());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (!isAuth) return;
+    // @ts-ignore
+    dispatch(getMe());
+  }, [dispatch, isAuth]);
 
   return (
     <div className={`app ${theme}`}>

@@ -9,5 +9,9 @@
       "title": "Comments",
       "noData": "No comments yet"
     }
+  },
+  "add-new-comment": {
+    "input-label": "Enter your comment",
+    "send-btn": "Send"
   }
 }

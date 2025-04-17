@@ -1,10 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { getToken, removeToken } from 'shared/lib/helpers/tokenHelper';
-import { UserSchema } from '../types/user';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { getToken, removeToken } from 'shared/lib/helpers/localStorage/tokenHelper';
+import { getMe } from '../services/getMe';
+import { User, UserSchema } from '../types/user';
 
 const initialState: UserSchema = {
   isAuth: false,
-  authData: undefined,
+  userData: undefined,
   _isInit: false,
 };
 
@@ -20,10 +21,24 @@ const userSlice = createSlice({
       state._isInit = true;
     },
     logout: (state) => {
-      state.authData = undefined;
+      state.userData = undefined;
       state.isAuth = false;
       removeToken();
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getMe.fulfilled, (state, action: PayloadAction<User>) => {
+        state.userData = action.payload;
+        const token = getToken();
+        if (token) {
+          state.isAuth = true;
+        }
+        state._isInit = true;
+      })
+      .addCase(getMe.rejected, (state) => {
+        state.isAuth = false;
+      });
   },
 });
 

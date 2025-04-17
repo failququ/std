@@ -1,6 +1,9 @@
 import classNames from 'classnames';
 
-import { getProfileReadonly, profileActions, updateProfileData } from 'entities/Profile';
+import {
+  getProfileData, getProfileReadonly, profileActions, updateProfileData,
+} from 'entities/Profile';
+import { getUserData } from 'entities/User';
 import { useCallback, type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -18,6 +21,11 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
 
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
+
+  const userData = useSelector(getUserData);
+  const profileData = useSelector(getProfileData);
+
+  const isEditable = userData?.id === profileData?._id;
 
   const readonly = useSelector(getProfileReadonly);
 
@@ -39,18 +47,22 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
       <div className={styles.header}>
         <Text title={t('header.title')} />
         <div className={styles.buttonsBlock}>
-          {readonly ? (
-            <Button theme="outline" onClick={() => setEditMode(false)}>
-              { t('header.edit.edit')}
-            </Button>
-          ) : (
-            <div className={styles.buttonsBlock}>
-              <Button theme="outline" onClick={onSave}>
-                { t('header.edit.save')}
-              </Button>
-              <Button theme="outline_red" onClick={onCancelEdit}>
-                {t('header.edit.cancel')}
-              </Button>
+          {isEditable && (
+            <div className={styles.editBtnsWrapper}>
+              {readonly ? (
+                <Button theme="outline" onClick={() => setEditMode(false)}>
+                  { t('header.edit.edit')}
+                </Button>
+              ) : (
+                <div className={styles.buttonsBlock}>
+                  <Button theme="outline" onClick={onSave}>
+                    { t('header.edit.save')}
+                  </Button>
+                  <Button theme="outline_red" onClick={onCancelEdit}>
+                    {t('header.edit.cancel')}
+                  </Button>
+                </div>
+              )}
             </div>
           )}
         </div>

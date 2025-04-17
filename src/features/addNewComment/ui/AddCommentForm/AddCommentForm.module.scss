@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  justify-content: space-between;
+  gap:20px;
+  padding: 10px;
+  align-items: end;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+.input {
+  flex-grow: 1;
+}

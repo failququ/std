@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { getUserData, userActions } from 'entities/User';
+import { getIsAuth, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByEmail';
 import {
   FC, memo, useCallback, useState,
@@ -19,7 +19,7 @@ const Navbar: FC<NavbarProps> = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  const { isAuth } = useSelector(getUserData);
+  const isAuth = useSelector(getIsAuth);
 
   const isLoginModalVisible = isModalVisible && !isAuth;
 

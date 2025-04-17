@@ -2,9 +2,11 @@ import classNames from 'classnames';
 
 import type { FC } from 'react';
 import { memo } from 'react';
+import { RouteUrls } from 'shared/config/routeConfig/routeConfig';
 import Avatar from 'shared/ui/Avatar/Avatar';
 import Skeleton from 'shared/ui/Skeleton/Skeleton';
 import Text from 'shared/ui/Text/Text';
+import UILink from 'shared/ui/UILink/UILink';
 import { Comment } from '../../model/types/comment';
 import styles from './CommentCard.module.scss';
 
@@ -16,7 +18,7 @@ interface CommentCardProps {
 
 const CommentCard: FC<CommentCardProps> = (props) => {
   const { className, comment, isLoading } = props;
-  const { username, avatar } = comment.user;
+  const { username, avatar, id } = comment.user;
 
   if (isLoading) {
     return (
@@ -32,10 +34,10 @@ const CommentCard: FC<CommentCardProps> = (props) => {
 
   return (
     <div className={classNames(styles.card, className)}>
-      <div className={styles.header}>
+      <UILink theme="clean" to={`${RouteUrls.profile}/${id}`} className={styles.header}>
         {avatar && <Avatar size={30} src={avatar} />}
         <Text title={username} />
-      </div>
+      </UILink>
       <Text className={styles.text} description={comment.text} />
     </div>
   );

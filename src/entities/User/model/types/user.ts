@@ -6,7 +6,7 @@ export interface User {
 }
 
 export interface UserSchema {
-  authData?: User;
+  userData?: User;
   isAuth?: boolean;
 
   _isInit: boolean;

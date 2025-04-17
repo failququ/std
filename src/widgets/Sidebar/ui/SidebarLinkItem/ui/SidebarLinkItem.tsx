@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { getIsAuthData } from 'entities/User';
+import { getIsAuth } from 'entities/User';
 import type { FC, ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 import UILink from 'shared/ui/UILink/UILink';
@@ -20,7 +20,7 @@ const SidebarLinkItem: FC<SidebarLinkItemProps> = (props) => {
     className, icon, to, text, isCollapsed, authOnly,
   } = props;
 
-  const isAuth = useSelector(getIsAuthData);
+  const isAuth = useSelector(getIsAuth);
 
   if (authOnly && !isAuth) return null;
 

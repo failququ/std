@@ -1,11 +1,11 @@
-import { getIsAuthData } from 'entities/User';
+import { getIsAuth } from 'entities/User';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 import { RouteUrls } from 'shared/config/routeConfig/routeConfig';
 
 export function RequireAuth({ children }: { children: React.ReactNode }) {
-  const isAuth = useSelector(getIsAuthData);
+  const isAuth = useSelector(getIsAuth);
   const location = useLocation();
 
   if (!isAuth) {

@@ -5,7 +5,7 @@ import { memo } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import styles from './UILink.module.scss';
 
-export type UILinkTheme = 'primary' | 'secondary';
+export type UILinkTheme = 'primary' | 'secondary' | 'clean';
 interface UILinkProps extends LinkProps {
   className?: string;
   theme?: UILinkTheme;

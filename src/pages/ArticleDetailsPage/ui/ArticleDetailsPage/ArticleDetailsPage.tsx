@@ -2,8 +2,10 @@ import classNames from 'classnames';
 
 import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
+import { AddNewCommentForm } from 'features/addNewComment';
+import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
 import type { FC } from 'react';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -35,6 +37,11 @@ const ArticleDetailsPage: FC<ArticleDetailsProps> = (props) => {
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
+  const onSendComment = useCallback((text: string) => {
+    // @ts-ignore
+    dispatch(addCommentForArticle(text));
+  }, [dispatch]);
+
   useInitialEffect(() => {
     // @ts-ignore
     dispatch(fetchCommentByArticleId(id));
@@ -53,6 +60,7 @@ const ArticleDetailsPage: FC<ArticleDetailsProps> = (props) => {
       <div className={classNames(styles.page, className)}>
         <ArticleDetails id={id} />
         <Text className={styles.commentsTitle} title={t('details-page.comments.title')} />
+        <AddNewCommentForm onSendComment={onSendComment} />
         <CommentList comments={comments} isLoading={commentsIsLoading} />
       </div>
     </DynamicModuleLoader>
