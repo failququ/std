@@ -1,3 +1,4 @@
+/* eslint max-len: 0 */
 import classNames from 'classnames';
 
 import { Article, ArticlesView, ArticleType } from 'entities/Article/model/types/article';
