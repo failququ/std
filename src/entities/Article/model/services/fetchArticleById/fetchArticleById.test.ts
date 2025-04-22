@@ -13,6 +13,10 @@ const data: Article = {
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   userId: '1',
+  user: {
+    id: '1',
+    email: 'email',
+  },
   type: [
     'IT',
   ],
