@@ -1,6 +1,8 @@
 {
   "articles-page": {
-    "title": "Статьи"
+    "article-item": {
+      "read-more": "Читать далее"
+    }
   },
   "details-page": {
     "article-not-found": "Не удалось найти статью",
@@ -8,7 +10,8 @@
     "comments": {
       "title": "Комментарии",
       "noData": "Пока нет комментариев"
-    }
+    },
+    "back-to-articles": "Вернуться к статьям"
   },
   "add-new-comment": {
     "input-label": "Введите ваш комментарий",

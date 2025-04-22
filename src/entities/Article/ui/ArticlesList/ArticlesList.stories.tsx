@@ -1,18 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
-import { Article } from 'entities/Article/model/types/article';
-import { StoreDecorator, ThemeDecorator } from 'shared/config/storybook/decorators';
-import ArticleDetails from './ArticleDetails';
+import { Article, ArticlesView } from 'entities/Article/model/types/article';
+import MockAvatar from 'shared/assets/tests/storybook.jpg';
+import { ThemeDecorator } from 'shared/config/storybook/decorators';
+import ArticlesList from './ArticlesList';
 
 const meta = {
-  title: 'Entities/ArticleDetails',
-  component: ArticleDetails,
-} satisfies Meta<typeof ArticleDetails>;
+  title: 'Entities/ArticlesList',
+  component: ArticlesList,
+} satisfies Meta<typeof ArticlesList>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const article: Article = {
+const mockArticle: Article = {
   id: '1',
   title: 'Javascript news',
   subtitle: 'Что нового в JS за 2022 год?',
@@ -22,6 +23,7 @@ const article: Article = {
   user: {
     id: '1',
     email: 'email',
+    avatar: MockAvatar,
   },
   type: [
     'IT',
@@ -89,70 +91,71 @@ const article: Article = {
   createdAt: '02.02.2022',
 };
 
+const articles: Article[] = new Array(9).fill(0).map((item, index) => ({
+  ...mockArticle,
+  id: String(index),
+}));
+
 export const Default: Story = {
   args: {
-    id: '1',
+    articles,
+    view: ArticlesView.BIG,
   },
 };
-
-Default.decorators = [StoreDecorator({
-  articleDetails: {
-    data: article,
-  },
-})];
 
 export const DefaultDark: Story = {
   args: {
-    id: '1',
+    articles,
+    view: ArticlesView.BIG,
   },
+  decorators: [ThemeDecorator(Theme.Dark)],
 };
-DefaultDark.decorators = [ThemeDecorator(Theme.Dark), StoreDecorator({
-  articleDetails: {
-    data: article,
-  },
-})];
 
-export const Loading: Story = {
+export const SMALL: Story = {
   args: {
-    id: '1',
+    articles,
+    view: ArticlesView.SMALL,
   },
 };
-Loading.decorators = [StoreDecorator({
-  articleDetails: {
+
+export const SMALLDark: Story = {
+  args: {
+    articles,
+    view: ArticlesView.SMALL,
+  },
+  decorators: [ThemeDecorator(Theme.Dark)],
+};
+
+export const LoadingBIG: Story = {
+  args: {
+    articles,
     isLoading: true,
-  },
-})];
-
-export const LoadingDark: Story = {
-  args: {
-    id: '1',
+    view: ArticlesView.BIG,
   },
 };
 
-LoadingDark.decorators = [ThemeDecorator(Theme.Dark), StoreDecorator({
-  articleDetails: {
+export const LoadingBIGDark: Story = {
+  args: {
+    articles,
     isLoading: true,
+    view: ArticlesView.BIG,
   },
-})];
+  decorators: [ThemeDecorator(Theme.Dark)],
+};
 
-export const Error: Story = {
+export const LoadingSMALL: Story = {
   args: {
-    id: '1',
+    articles,
+    isLoading: true,
+    view: ArticlesView.SMALL,
   },
 };
-Error.decorators = [StoreDecorator({
-  articleDetails: {
-    error: 'error',
-  },
-})];
 
-export const ErrorDark: Story = {
+export const LoadingSMALLDark: Story = {
   args: {
-    id: '1',
+    articles,
+    isLoading: true,
+    view: ArticlesView.SMALL,
   },
+  decorators: [ThemeDecorator(Theme.Dark)],
 };
-ErrorDark.decorators = [ThemeDecorator(Theme.Dark), StoreDecorator({
-  articleDetails: {
-    error: 'error',
-  },
-})];

@@ -24,7 +24,7 @@ import {
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import ArticleCodeBlockComponent from '../ArticleCodeBlock/ArticleCodeBlock';
 import ArticleImageBlockComponent from '../ArticleImageBlock/ArticleImageBlock';
-import ArticleTextBlockComponent from '../ArticleTextBlock/ArticleTextBlock';
+import ArticleTextBlockComponent from '../ArticleTextBlock/ArticleTextBlockComponent';
 import styles from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {

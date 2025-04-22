@@ -14,6 +14,8 @@ export const enum TextSize {
 
 interface TextProps {
   className?: string;
+  descriptionCn?: string;
+  titleCn?: string;
   title?: string;
   description?: string
   theme?: TextTheme;
@@ -24,6 +26,8 @@ interface TextProps {
 const Text: FC<TextProps> = (props) => {
   const {
     className,
+    descriptionCn,
+    titleCn,
     title,
     description,
     theme = 'primary',
@@ -40,8 +44,8 @@ const Text: FC<TextProps> = (props) => {
       styles[size],
     )}
     >
-      <div className={styles.title}>{title}</div>
-      <div className={styles.description}>{description}</div>
+      <div className={classNames(styles.title, titleCn)}>{title}</div>
+      <div className={classNames(styles.description, descriptionCn)}>{description}</div>
     </div>
   );
 };

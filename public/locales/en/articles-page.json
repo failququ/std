@@ -1,6 +1,8 @@
 {
   "articles-page": {
-    "title": "Articles"
+    "article-item": {
+      "read-more": "Read more"
+    }
   },
   "details-page": {
     "article-not-found": "Unable to find the article",
@@ -8,7 +10,8 @@
     "comments": {
       "title": "Comments",
       "noData": "No comments yet"
-    }
+    },
+    "back-to-articles": "Back to articles"
   },
   "add-new-comment": {
     "input-label": "Enter your comment",
