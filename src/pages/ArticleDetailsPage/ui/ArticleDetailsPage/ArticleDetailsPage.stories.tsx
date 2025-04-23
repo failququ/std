@@ -15,12 +15,16 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const article: Article = {
-  id: '1',
+  _id: '1',
   title: 'Javascript news',
   subtitle: 'Что нового в JS за 2022 год?',
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   userId: '1',
+  user: {
+    id: '1',
+    email: 'email',
+  },
   type: [
     'IT',
   ],

@@ -39,7 +39,7 @@ const ArticlesList: FC<ArticlesListProps> = (props) => {
   const renderArticle = (article: Article) => (
     <ArticlesListItem
       className={styles.card}
-      key={article.id}
+      key={article._id}
       article={article}
       view={view}
     />

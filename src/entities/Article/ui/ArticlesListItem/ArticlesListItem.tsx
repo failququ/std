@@ -32,8 +32,8 @@ const ArticlesListItem: FC<ArticlesListItemProps> = (props) => {
   const [isHovered, hoverBind] = useHover();
 
   const onOpenArticle = useCallback(() => {
-    navigate(`${RouteUrls.article_details}/${article.id}`);
-  }, [navigate, article.id]);
+    navigate(`${RouteUrls.article_details}/${article._id}`);
+  }, [navigate, article._id]);
 
   const renderTypes = (joinBy: string) => (
     <Text className={styles.types} description={article.type.join(joinBy)} />

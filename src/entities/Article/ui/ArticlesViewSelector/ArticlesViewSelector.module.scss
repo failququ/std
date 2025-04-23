@@ -1,0 +1,13 @@
+.selector {
+  display: flex;
+  gap:5px;
+  margin-left: auto;
+}
+
+.icon {
+  fill: var(--secondary-color);
+
+  &.active {
+    fill: var(--primary-color);
+  }
+}

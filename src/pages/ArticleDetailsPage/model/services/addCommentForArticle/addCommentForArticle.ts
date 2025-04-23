@@ -19,13 +19,13 @@ export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfi
 
     try {
       const response = await extra.api.post<Comment>('/comment', {
-        articleId: article.id,
+        articleId: article._id,
         userId: user.id,
         text,
       });
       if (!response.data) throw new Error();
 
-      dispatch(fetchCommentByArticleId(article.id));
+      dispatch(fetchCommentByArticleId(article._id));
 
       return response.data;
     } catch (error) {
