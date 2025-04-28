@@ -16,8 +16,8 @@ import {
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from '../model/selectors/getArticlesPageData';
-import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 import { fetchNextArticles } from '../model/services/fetchNextArticles/fetchNextArticles';
+import { initArticlesPage } from '../model/services/initArtriclesPage/initArticlesPage';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
 import styles from './ArticlesPage.module.scss';
 
@@ -47,9 +47,8 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState());
     // @ts-ignore
-    dispatch(fetchArticlesList({ page: 1 }));
+    dispatch(initArticlesPage());
   });
 
   const handleChangeView = useCallback((newView: ArticlesView) => {
@@ -57,7 +56,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   }, [dispatch]);
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page
         className={classNames(styles.page, className)}
         onIntersection={onLoadNextArticles}

@@ -5,7 +5,6 @@ import axios from 'axios';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
-const mockNavigate = jest.fn();
 
 type ActionCreatorType<Return, Arg = void, RejectedValue = unknown>
   = (arg: Arg) => AsyncThunkAction<Return, Arg, { rejectValue: RejectedValue }>;
@@ -25,7 +24,6 @@ export class TestAsyncThunk<Return, Arg = void, RejectedValue = unknown> {
     this.actionCreator = actionCreator;
     this.extra = {
       api: mockedAxios,
-      navigate: mockNavigate,
     };
     this.dispatch = jest.fn();
     this.getState = jest.fn(() => state as StateSchema);

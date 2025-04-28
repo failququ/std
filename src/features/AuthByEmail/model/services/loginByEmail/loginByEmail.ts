@@ -26,7 +26,6 @@ export const loginByEmail = createAsyncThunk<LoginResponse, LoginPayload, ThunkC
       if (!response.data) throw new Error();
 
       setToken(response.data.access_token);
-      extra.navigate?.('/profile');
       return response.data;
     } catch (error) {
       return rejectWithValue('error');

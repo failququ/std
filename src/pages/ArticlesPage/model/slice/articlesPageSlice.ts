@@ -7,7 +7,6 @@ import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
 const articlesAdapter = createEntityAdapter<Article, string>({
   selectId: (article: Article) => article._id,
-
 });
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(
@@ -24,6 +23,7 @@ const articlesPageSlice = createSlice({
     view: ArticlesView.SMALL,
     page: 1,
     hasMore: true,
+    _inited: false,
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticlesView>) => {
@@ -37,6 +37,7 @@ const articlesPageSlice = createSlice({
       const view = localStorage.getItem(LS_ARTICLES_VIEW_KEY) as ArticlesView || ArticlesView.SMALL;
       state.view = view;
       state.limit = view === ArticlesView.SMALL ? 9 : 4;
+      state._inited = true;
     },
   },
   extraReducers: (builder) => {
