@@ -28,14 +28,6 @@ const ArticlesList: FC<ArticlesListProps> = (props) => {
       />
     ));
 
-  if (isLoading) {
-    return (
-      <div className={classNames(styles.list, className, [styles[view]])}>
-        {getSkeletons()}
-      </div>
-    );
-  }
-
   const renderArticle = (article: Article) => (
     <ArticlesListItem
       className={styles.card}
@@ -50,6 +42,8 @@ const ArticlesList: FC<ArticlesListProps> = (props) => {
       {articles.length > 0
         ? articles.map(renderArticle)
         : null}
+
+      {isLoading && getSkeletons()}
     </div>
   );
 };

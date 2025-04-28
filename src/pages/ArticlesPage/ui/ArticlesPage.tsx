@@ -5,12 +5,19 @@ import { ArticlesView, ArticlesViewSelector } from 'entities/Article';
 import ArticlesList from 'entities/Article/ui/ArticlesList/ArticlesList';
 import type { FC } from 'react';
 import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../model/selectors/getArticlesPageData';
+import Page from 'shared/ui/Page/Page';
+import {
+  getArticlesPageError,
+  getArticlesPageIsLoading,
+  getArticlesPageView,
+} from '../model/selectors/getArticlesPageData';
 import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
+import { fetchNextArticles } from '../model/services/fetchNextArticles/fetchNextArticles';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
 import styles from './ArticlesPage.module.scss';
 
@@ -25,6 +32,8 @@ const reducers: ReducersList = {
 const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const { className } = props;
 
+  const { t } = useTranslation('articles-page');
+
   const dispatch = useAppDispatch();
 
   const articles = useSelector(getArticles.selectAll);
@@ -32,10 +41,15 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
 
-  useInitialEffect(() => {
+  const onLoadNextArticles = useCallback(() => {
     // @ts-ignore
-    dispatch(fetchArticlesList());
+    dispatch(fetchNextArticles());
+  }, [dispatch]);
+
+  useInitialEffect(() => {
     dispatch(articlesPageActions.initState());
+    // @ts-ignore
+    dispatch(fetchArticlesList({ page: 1 }));
   });
 
   const handleChangeView = useCallback((newView: ArticlesView) => {
@@ -44,14 +58,18 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(styles.page, className)}>
+      <Page
+        className={classNames(styles.page, className)}
+        onIntersection={onLoadNextArticles}
+        error={error && t('articles-page.error')}
+      >
         <ArticlesViewSelector view={view} onViewChange={handleChangeView} />
         <ArticlesList
-          isLoading={isLoading}
-          view={view}
           articles={articles}
+          view={view}
+          isLoading={isLoading}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

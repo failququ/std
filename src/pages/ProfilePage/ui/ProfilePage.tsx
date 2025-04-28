@@ -22,6 +22,7 @@ import { useParams } from 'react-router-dom';
 import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import Page from 'shared/ui/Page/Page';
 import Text from 'shared/ui/Text/Text';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
@@ -93,7 +94,7 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
   });
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-      <div className={classNames(className)}>
+      <Page className={classNames(className)}>
         {!profileIsLoading && !profileError && <ProfilePageHeader />}
         {!!validationErrors?.length && validationErrors.map((err) => (
           <Text
@@ -116,7 +117,7 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
           onChangeCurrency={handleChangeCurrency}
           onChangeCountry={handleChangeCountry}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

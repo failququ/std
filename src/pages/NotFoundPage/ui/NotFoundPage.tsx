@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import type { FC } from 'react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import Page from 'shared/ui/Page/Page';
 import UILink from 'shared/ui/UILink/UILink';
 import styles from './NotFoundPage.module.scss';
 
@@ -14,11 +15,11 @@ const NotFoundPage: FC<NotFoundPageProps> = (props) => {
   const { className } = props;
   const { t } = useTranslation('not-found-page');
   return (
-    <div className={classNames(styles.page, className)}>
+    <Page className={classNames(styles.page, className)}>
       <h1>{t('title')}</h1>
       <p>{t('description')}</p>
       <UILink to="/">{t('link')}</UILink>
-    </div>
+    </Page>
   );
 };
 

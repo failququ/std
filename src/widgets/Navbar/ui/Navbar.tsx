@@ -36,7 +36,7 @@ const Navbar: FC<NavbarProps> = (props) => {
   }, [dispatch]);
 
   return (
-    <div className={classNames(styles.navbar, className)}>
+    <header className={classNames(styles.navbar, className)}>
       <div>{t('common.navbar.logo')}</div>
       {isAuth ? (
         <Button onClick={handleLogout}>{t('common.navbar.logout')}</Button>
@@ -49,7 +49,7 @@ const Navbar: FC<NavbarProps> = (props) => {
         isVisible={isLoginModalVisible}
         onClose={handleCloseModal}
       />
-    </div>
+    </header>
   );
 };
 

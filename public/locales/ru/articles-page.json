@@ -2,7 +2,8 @@
   "articles-page": {
     "article-item": {
       "read-more": "Читать далее"
-    }
+    },
+    "error": "Не удалось загрузить статьи"
   },
   "details-page": {
     "article-not-found": "Не удалось найти статью",

@@ -13,6 +13,7 @@ import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/Dynamic
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import Button from 'shared/ui/Button/Button';
+import Page from 'shared/ui/Page/Page';
 import Text from 'shared/ui/Text/Text';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
@@ -64,7 +65,7 @@ const ArticleDetailsPage: FC<ArticleDetailsProps> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(styles.page, className)}>
+      <Page className={classNames(styles.page, className)}>
         <Button theme="outline" onClick={handleBackToList}>
           {t('details-page.back-to-articles')}
         </Button>
@@ -72,7 +73,7 @@ const ArticleDetailsPage: FC<ArticleDetailsProps> = (props) => {
         <Text className={styles.commentsTitle} title={t('details-page.comments.title')} />
         <AddNewCommentForm onSendComment={onSendComment} />
         <CommentList comments={comments} isLoading={commentsIsLoading} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

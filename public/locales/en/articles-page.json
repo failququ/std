@@ -2,7 +2,8 @@
   "articles-page": {
     "article-item": {
       "read-more": "Read more"
-    }
+    },
+    "error": "An error occurred while loading articles"
   },
   "details-page": {
     "article-not-found": "Unable to find the article",
