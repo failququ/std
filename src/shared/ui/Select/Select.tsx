@@ -1,24 +1,24 @@
 import classNames from 'classnames';
 
-import { ChangeEvent, useMemo, type FC } from 'react';
+import { ChangeEvent, useMemo } from 'react';
 import styles from './Select.module.scss';
 
-interface SelectOption {
-  value: string;
+export interface SelectOption<T extends string> {
+  value: T;
   content: string;
   readonly?: boolean;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
   className?: string;
   label?: string;
-  options?: SelectOption[];
-  value?: string;
+  options?: SelectOption<T>[];
+  value?: T;
   readonly?: boolean;
-  onChange?: (value: string) => void;
+  onChange?: (value: T) => void;
 }
 
-const Select: FC<SelectProps> = (props) => {
+const Select = <T extends string> (props: SelectProps<T>) => {
   const {
     className, label, options, value, readonly, onChange,
   } = props;
@@ -30,7 +30,7 @@ const Select: FC<SelectProps> = (props) => {
   )), [options]);
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e.target.value);
+    onChange?.(e.target.value as T);
   };
 
   return (

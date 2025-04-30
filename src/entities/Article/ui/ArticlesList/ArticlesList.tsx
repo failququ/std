@@ -2,6 +2,8 @@ import classNames from 'classnames';
 
 import type { FC } from 'react';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import Text, { TextSize } from 'shared/ui/Text/Text';
 import { Article, ArticlesView } from '../../model/types/article';
 import ArticleListItemSkeleton from '../ArticlesListItem/ArticleListItemSkeleton';
 import ArticlesListItem from '../ArticlesListItem/ArticlesListItem';
@@ -18,6 +20,8 @@ const ArticlesList: FC<ArticlesListProps> = (props) => {
   const {
     className, articles, view = ArticlesView.SMALL, isLoading,
   } = props;
+
+  const { t } = useTranslation('articles-page');
 
   const getSkeletons = () => new Array(view === ArticlesView.SMALL ? 9 : 3)
     .fill(0).map((item, index) => (
@@ -36,6 +40,15 @@ const ArticlesList: FC<ArticlesListProps> = (props) => {
       view={view}
     />
   );
+
+  if (!isLoading && !articles.length) {
+    return (
+      <Text
+        size={TextSize.L}
+        title={t('articles-page.no-articles')}
+      />
+    );
+  }
 
   return (
     <div className={classNames(styles.list, className, [styles[view]])}>

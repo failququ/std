@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
-import { Article, ArticlesView } from 'entities/Article/model/types/article';
 import MockAvatar from 'shared/assets/tests/storybook.jpg';
 import { ThemeDecorator } from 'shared/config/storybook/decorators';
+import { Article, ArticlesView, ArticleType } from '../../model/types/article';
 import ArticlesListItem from './ArticlesListItem';
 
 const meta = {
@@ -14,7 +14,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const mockArticle: Article = {
-  id: '1',
+  _id: '1',
   title: 'Javascript news',
   subtitle: 'Что нового в JS за 2022 год?',
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
@@ -26,7 +26,7 @@ const mockArticle: Article = {
     avatar: MockAvatar,
   },
   type: [
-    'IT',
+    ArticleType.IT,
   ],
   blocks: [
     {

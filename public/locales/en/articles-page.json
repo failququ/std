@@ -1,9 +1,26 @@
 {
   "articles-page": {
+    "no-articles": "No articles",
     "article-item": {
       "read-more": "Read more"
     },
-    "error": "An error occurred while loading articles"
+    "error": "An error occurred while loading articles",
+    "filters": {
+      "sort": "Sort by",
+      "search": "Search",
+      "by": "by",
+      "asc": "asc",
+      "desc": "desc",
+      "byCreatedAt": "creation date",
+      "byTitle": "title",
+      "byView": "view",
+      "tabs": {
+        "all": "All",
+        "it": "IT",
+        "economics": "Economics",
+        "science": "Science"
+      }
+    }
   },
   "details-page": {
     "article-not-found": "Unable to find the article",

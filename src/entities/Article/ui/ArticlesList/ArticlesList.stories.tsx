@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
-import { Article, ArticlesView } from 'entities/Article/model/types/article';
 import MockAvatar from 'shared/assets/tests/storybook.jpg';
 import { ThemeDecorator } from 'shared/config/storybook/decorators';
+import { Article, ArticlesView, ArticleType } from '../../model/types/article';
 import ArticlesList from './ArticlesList';
 
 const meta = {
@@ -26,7 +26,7 @@ const mockArticle: Article = {
     avatar: MockAvatar,
   },
   type: [
-    'IT',
+    ArticleType.IT,
   ],
   blocks: [
     {

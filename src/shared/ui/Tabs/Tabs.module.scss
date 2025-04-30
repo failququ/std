@@ -1,0 +1,10 @@
+.tabs {
+  display: flex;
+  gap: 12px;
+}
+
+.tab {
+  padding: 5px 9px;
+  border-radius: 5px;
+  cursor: pointer;
+}

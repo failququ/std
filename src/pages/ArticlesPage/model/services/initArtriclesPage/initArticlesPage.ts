@@ -4,17 +4,22 @@ import { getArticlesPageInited } from '../../selectors/getArticlesPageData';
 import { articlesPageActions } from '../../slice/articlesPageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
-export const initArticlesPage = createAsyncThunk<void, undefined, ThunkConfig<string>>(
+export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>(
   'articlesPage/initArticlesPage',
-  async (_, thunkAPI) => {
+  async (searchParams, thunkAPI) => {
     const { getState, dispatch } = thunkAPI;
 
     const isInited = getArticlesPageInited(getState());
 
+    searchParams.forEach((value, key) => {
+      const actionName = `set${key[0].toUpperCase()}${key.slice(1)}`;
+
+      // @ts-ignore
+      dispatch(articlesPageActions[actionName](value));
+    });
     if (!isInited) {
       dispatch(articlesPageActions.initState());
-      // @ts-ignore
-      dispatch(fetchArticlesList({ page: 1 }));
+      dispatch(fetchArticlesList({}));
     }
   },
 );

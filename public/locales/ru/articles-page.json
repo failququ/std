@@ -1,9 +1,26 @@
 {
   "articles-page": {
+    "no-articles": "Нет статей",
     "article-item": {
       "read-more": "Читать далее"
     },
-    "error": "Не удалось загрузить статьи"
+    "error": "Не удалось загрузить статьи",
+    "filters": {
+      "sort": "Сортировать по",
+      "search": "Поиск",
+      "by": "по",
+      "asc": "возрастанию",
+      "desc": "убыванию",
+      "byCreatedAt": "дате создания",
+      "byTitle": "названию",
+      "byView": "просмотрам",
+      "tabs": {
+        "all": "Все",
+        "it": "IT",
+        "economics": "Экономика",
+        "science": "Наука"
+      }
+    }
   },
   "details-page": {
     "article-not-found": "Не удалось найти статью",

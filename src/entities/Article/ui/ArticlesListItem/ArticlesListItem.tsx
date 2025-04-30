@@ -87,6 +87,7 @@ const ArticlesListItem: FC<ArticlesListItemProps> = (props) => {
           {renderViews()}
         </div>
         <Text description={article.title} className={styles.title} descriptionCn={styles.titleCn} />
+        <Text description={article.subtitle} className={styles.title} descriptionCn={styles.titleCn} />
       </Card>
     </div>
   );

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { TestAsyncThunk } from 'shared/config/tests/testAsyncThunk/testAsyncThunk';
-import { Article } from '../../types/article';
+import { Article, ArticleType } from '../../types/article';
 import { fetchArticleById } from './fetchArticleById';
 
 jest.mock('axios');
@@ -18,7 +18,7 @@ const data: Article = {
     email: 'email',
   },
   type: [
-    'IT',
+    ArticleType.IT,
   ],
   blocks: [
     {

@@ -7,7 +7,7 @@ jest.mock('../fetchArticlesList/fetchArticlesList');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe('fetchNextArticles', () => {
-  test('should have correct dispatch numbers and call fetch with correct argument', async () => {
+  test('should have correct dispatch numbers', async () => {
     const thunk = new TestAsyncThunk(fetchNextArticles, {
       articlesPage: {
         page: 2,
@@ -22,7 +22,6 @@ describe('fetchNextArticles', () => {
     await thunk.callThunk();
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(4);
-    expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 });
   });
 
   test('should not call fetch and dispatch only two times', async () => {

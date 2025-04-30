@@ -1,9 +1,22 @@
 import { getArticleDetailsData } from './model/selectors/articleDetails';
 import { articleDetailsReducer } from './model/slice/articleDetailsSlice';
-import { ArticlesView, type Article } from './model/types/article';
+import {
+  ArticleSortField, ArticlesView, ArticleType, type Article,
+} from './model/types/article';
 import ArticleDetails from './ui/ArticleDetails/ArticleDetails';
+import ArticlesSortSelector from './ui/ArticlesSortSelector/ArticlesSortSelector';
 import ArticlesViewSelector from './ui/ArticlesViewSelector/ArticlesViewSelector';
+import ArticleTypesTabs from './ui/ArticleTypesTabs/ArticleTypesTabs';
 
 export {
-  Article, ArticleDetails, articleDetailsReducer, ArticlesView, ArticlesViewSelector, getArticleDetailsData,
+  Article,
+  ArticleDetails,
+  articleDetailsReducer,
+  ArticleSortField,
+  ArticlesSortSelector,
+  ArticlesView,
+  ArticlesViewSelector,
+  ArticleType,
+  ArticleTypesTabs,
+  getArticleDetailsData,
 };
