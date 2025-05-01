@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticlesList, ArticlesView } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { AddNewCommentForm } from 'features/addNewComment';
 import type { FC } from 'react';
@@ -16,9 +16,13 @@ import Button from 'shared/ui/Button/Button';
 import Text from 'shared/ui/Text/Text';
 import Page from 'widgets/Page/Page';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { fetchCommentByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
+import { articleDetailsPageReducer } from '../../model/slice';
+import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
+import { getArticleRecommendations } from '../../model/slice/articleDetailsRecommendationsSlice';
 import styles from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsProps {
@@ -26,7 +30,7 @@ interface ArticleDetailsProps {
 }
 
 const reducers: ReducersList = {
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage: FC<ArticleDetailsProps> = (props) => {
@@ -41,6 +45,9 @@ const ArticleDetailsPage: FC<ArticleDetailsProps> = (props) => {
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
+  const recommendations = useSelector(getArticleRecommendations.selectAll);
+  const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
+
   const handleBackToList = useCallback(() => {
     navigate(RouteUrls.articles);
   }, [navigate]);
@@ -53,6 +60,8 @@ const ArticleDetailsPage: FC<ArticleDetailsProps> = (props) => {
   useInitialEffect(() => {
     // @ts-ignore
     dispatch(fetchCommentByArticleId(id));
+    // @ts-ignore
+    dispatch(fetchArticleRecommendations());
   });
 
   if (!id) {
@@ -70,6 +79,14 @@ const ArticleDetailsPage: FC<ArticleDetailsProps> = (props) => {
           {t('details-page.back-to-articles')}
         </Button>
         <ArticleDetails id={id} />
+        <Text className={styles.commentsTitle} title={t('details-page.recommends.title')} />
+        <ArticlesList
+          className={styles.recommendations}
+          articles={recommendations}
+          isLoading={recommendationsIsLoading}
+          view={ArticlesView.SMALL}
+          target="_blank"
+        />
         <Text className={styles.commentsTitle} title={t('details-page.comments.title')} />
         <AddNewCommentForm onSendComment={onSendComment} />
         <CommentList comments={comments} isLoading={commentsIsLoading} />

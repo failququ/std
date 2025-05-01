@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
-import { Article } from 'entities/Article';
+import { Article, ArticleType } from 'entities/Article';
 import { StoreDecorator } from 'shared/config/storybook/decorators';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
@@ -8,7 +8,12 @@ import ArticleDetailsPage from './ArticleDetailsPage';
 const meta = {
   title: 'Pages/ArticleDetailsPage',
   component: ArticleDetailsPage,
-
+  parameters: {
+    router: {
+      path: '/articles/:id',
+      initialEntries: ['/articles/1'],
+    },
+  },
 } satisfies Meta<typeof ArticleDetailsPage>;
 
 export default meta;
@@ -26,7 +31,7 @@ const article: Article = {
     email: 'email',
   },
   type: [
-    'IT',
+    ArticleType.IT,
   ],
   blocks: [
     {
@@ -91,14 +96,25 @@ const article: Article = {
   createdAt: '02.02.2022',
 };
 
-export const Default: Story = {
-  args: {
+const recommendations = {
+  ids: ['1', '2', '3'],
+  entities: {
+    1: { ...article, _id: '1' },
+    2: { ...article, _id: '2' },
+    3: { ...article, _id: '3' },
   },
+};
+
+export const Default: Story = {
+
 };
 
 Default.decorators = [StoreDecorator({
   articleDetails: {
     data: article,
+  },
+  articleDetailsPage: {
+    recommendations,
   },
 })];
 
@@ -106,5 +122,15 @@ export const Dark: Story = {};
 Dark.decorators = [ThemeDecorator(Theme.Dark), StoreDecorator({
   articleDetails: {
     data: article,
+  },
+  articleDetailsPage: {
+    recommendations: {
+      ids: ['1', '2', '3'],
+      entities: {
+        1: { ...article, _id: '1' },
+        2: { ...article, _id: '2' },
+        3: { ...article, _id: '3' },
+      },
+    },
   },
 })];

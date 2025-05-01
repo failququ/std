@@ -29,7 +29,11 @@
       "title": "Comments",
       "noData": "No comments yet"
     },
-    "back-to-articles": "Back to articles"
+    "back-to-articles": "Back to articles",
+    "recommends": {
+      "title": "Рекомендуем",
+      "noData": "Пока нет рекомендаций"
+    }
   },
   "add-new-comment": {
     "input-label": "Enter your comment",

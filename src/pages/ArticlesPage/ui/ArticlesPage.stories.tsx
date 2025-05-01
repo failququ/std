@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
+import { ArticleType } from 'entities/Article';
 import { StoreDecorator } from 'shared/config/storybook/decorators';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator';
 import ArticlesPage from './ArticlesPage';
@@ -30,7 +31,7 @@ Default.decorators = [StoreDecorator({
           id: '1',
           username: 'admin',
         },
-        type: ['IT'],
+        type: [ArticleType.IT],
         blocks: [],
       },
     },
@@ -53,7 +54,7 @@ Dark.decorators = [ThemeDecorator(Theme.Dark), StoreDecorator({
           id: '1',
           username: 'admin',
         },
-        type: ['IT'],
+        type: [ArticleType.IT],
         blocks: [],
       },
     },
