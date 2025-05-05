@@ -29,7 +29,10 @@
       "title": "Comments",
       "noData": "No comments yet"
     },
-    "back-to-articles": "Back to articles",
+    "header": {
+      "back-to-articles": "Back to articles",
+      "edit-article": "Edit article"
+    },
     "recommends": {
       "title": "Рекомендуем",
       "noData": "Пока нет рекомендаций"

@@ -1,4 +1,4 @@
-import { getArticleDetailsData } from './model/selectors/articleDetails';
+import { getArticleDetailsData, getArticleDetailsError } from './model/selectors/articleDetails';
 import { articleDetailsReducer } from './model/slice/articleDetailsSlice';
 import {
   ArticleSortField, ArticlesView, ArticleType, type Article,
@@ -12,11 +12,14 @@ import ArticleTypesTabs from './ui/ArticleTypesTabs/ArticleTypesTabs';
 export {
   Article,
   ArticleDetails,
-  articleDetailsReducer, ArticlesList, ArticleSortField,
+  articleDetailsReducer,
+  ArticlesList,
+  ArticleSortField,
   ArticlesSortSelector,
   ArticlesView,
   ArticlesViewSelector,
   ArticleType,
   ArticleTypesTabs,
   getArticleDetailsData,
+  getArticleDetailsError,
 };

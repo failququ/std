@@ -1,10 +1,6 @@
 {
   "common": {
     "navbar": {
-      "links": {
-        "home": "Home",
-        "about": "About"
-      },
       "logo": "Logo",
       "login": "Login",
       "logout": "Logout"

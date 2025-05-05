@@ -1,10 +1,6 @@
 {
   "common": {
     "navbar": {
-      "links": {
-        "home": "Главная",
-        "about": "О нас"
-      },
       "logo": "Лого",
       "login": "Войти",
       "logout": "Выйти"

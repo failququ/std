@@ -10,7 +10,7 @@ import { useSearchParams } from 'react-router-dom';
 import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import Page from 'widgets/Page/Page';
+import { Page } from 'widgets/Page';
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,

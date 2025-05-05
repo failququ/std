@@ -26,10 +26,10 @@ const SidebarLinkItem: FC<SidebarLinkItemProps> = (props) => {
 
   return (
     <div className={classNames(styles.item, className)}>
-      {isCollapsed ? <UILink to={to}>{icon}</UILink> : (
+      {isCollapsed ? <UILink to={to} theme="secondary">{icon}</UILink> : (
         <>
           {icon}
-          <UILink to={to}>{text}</UILink>
+          <UILink to={to} theme="secondary">{text}</UILink>
         </>
       )}
     </div>

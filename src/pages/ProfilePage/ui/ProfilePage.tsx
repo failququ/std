@@ -23,7 +23,7 @@ import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/Dynamic
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import Text from 'shared/ui/Text/Text';
-import Page from 'widgets/Page/Page';
+import { Page } from 'widgets/Page';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
