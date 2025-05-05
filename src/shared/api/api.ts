@@ -3,7 +3,12 @@ import { getToken } from 'shared/lib/helpers/localStorage/tokenHelper';
 
 export const api = axios.create({
   baseURL: __API__,
-  headers: {
-    Authorization: `Bearer ${getToken()}`,
-  },
+});
+
+api.interceptors.request.use((config) => {
+  if (config.headers) {
+    config.headers.Authorization = `Bearer ${getToken()}`;
+  }
+
+  return config;
 });
