@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 
-import { ArticleTextBlock } from 'entities/Article/model/types/article';
 import { memo, type FC } from 'react';
 import Text from 'shared/ui/Text/Text';
+import { ArticleTextBlock } from '../../model/types/article';
 import styles from './ArticleTextBlock.module.scss';
 
 interface ArticleTextBlockProps {

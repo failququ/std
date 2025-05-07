@@ -1,7 +1,5 @@
 import classNames from 'classnames';
 
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { ArticleBlock } from 'entities/Article/model/types/article';
 import type { FC } from 'react';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -22,7 +20,9 @@ import {
   getArticleDetailsLoading,
 } from '../../model/selectors/articleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
-import ArticleCodeBlockComponent from '../ArticleCodeBlock/ArticleCodeBlock';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
+import { ArticleBlock } from '../../model/types/article';
+import ArticleCodeBlock from '../../ui/ArticleCodeBlock/ArticleCodeBlock';
 import ArticleImageBlockComponent from '../ArticleImageBlock/ArticleImageBlock';
 import ArticleTextBlockComponent from '../ArticleTextBlock/ArticleTextBlockComponent';
 import styles from './ArticleDetails.module.scss';
@@ -54,7 +54,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
       case 'TEXT':
         return <ArticleTextBlockComponent className={styles.block} key={block.id} block={block} />;
       case 'CODE':
-        return <ArticleCodeBlockComponent className={styles.block} key={block.id} block={block} />;
+        return <ArticleCodeBlock className={styles.block} key={block.id} block={block} />;
       default:
         return null;
     }

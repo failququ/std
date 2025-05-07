@@ -13,7 +13,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'failququ-plugin'],
   rules: {
     'linebreak-style': 'off',
     'no-unused-vars': 'warn',
@@ -53,6 +53,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
+    'failququ-plugin/path-checker': 'error',
   },
   globals: {
     __IS_DEV__: true,

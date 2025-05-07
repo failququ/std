@@ -16,7 +16,7 @@ export default (env: BuildEnv) => {
   const mode: BuildMode = env.mode || 'development';
   const PORT = env.port || 3000;
   const isDev = mode === 'development';
-  const apiUrl = env.apiUrl || 'http://localhost:5111';
+  const apiUrl = env.apiUrl || 'https://std-backend.vercel.app/';
 
   const config: webpack.Configuration = BuildWebpackConfig(
     {
