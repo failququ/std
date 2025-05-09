@@ -49,21 +49,21 @@ const Page: FC<PageProps> = (props) => {
 
   if (error) {
     return (
-      <section className={classNames(styles.page, className, styles.error)}>
+      <main className={classNames(styles.page, className, styles.error)}>
         <Text theme="error" title={error} />
-      </section>
+      </main>
     );
   }
 
   return (
-    <section
+    <main
       ref={wrapperRef}
       className={classNames(styles.page, className)}
       onScroll={handleScroll}
     >
       {children}
       <div ref={triggerRef} />
-    </section>
+    </main>
   );
 };
 

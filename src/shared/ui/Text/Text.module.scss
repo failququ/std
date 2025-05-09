@@ -29,6 +29,16 @@
   }
 }
 
+.size_s {
+  .description{
+    font-size: var(--font-size-s);
+  }
+
+  .title {
+    font-size: var(--font-size-m);
+  }
+}
+
 .size_m {
   .description{
     font-size: var(--font-size-m);

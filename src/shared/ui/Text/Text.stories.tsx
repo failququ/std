@@ -86,3 +86,37 @@ export const SizeLDark: Story = {
   },
 };
 SizeLDark.decorators = [ThemeDecorator(Theme.Dark)];
+
+export const SizeM: Story = {
+  args: {
+    title: 'Title',
+    description: 'Text component description',
+    size: TextSize.M,
+  },
+};
+
+export const SizeMDark: Story = {
+  args: {
+    title: 'Title',
+    description: 'Text component description',
+    size: TextSize.M,
+  },
+};
+SizeMDark.decorators = [ThemeDecorator(Theme.Dark)];
+
+export const SizeS: Story = {
+  args: {
+    title: 'Title',
+    description: 'Text component description',
+    size: TextSize.S,
+  },
+};
+
+export const SizeSDark: Story = {
+  args: {
+    title: 'Title',
+    description: 'Text component description',
+    size: TextSize.S,
+  },
+};
+SizeSDark.decorators = [ThemeDecorator(Theme.Dark)];
