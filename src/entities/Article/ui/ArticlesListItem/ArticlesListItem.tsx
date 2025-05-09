@@ -11,6 +11,7 @@ import Avatar from 'shared/ui/Avatar/Avatar';
 import Button from 'shared/ui/Button/Button';
 import Card from 'shared/ui/Card/Card';
 import Icon from 'shared/ui/Icon/Icon';
+import { HStack } from 'shared/ui/Stack';
 import Text from 'shared/ui/Text/Text';
 import UILink from 'shared/ui/UILink/UILink';
 import { Article, ArticlesView, ArticleTextBlock } from '../../model/types/article';
@@ -49,27 +50,27 @@ const ArticlesListItem: FC<ArticlesListItemProps> = (props) => {
     return (
       <div className={classNames(styles.item, className, styles[view])}>
         <Card className={styles.card}>
-          <div className={styles.header}>
-            <div className={styles.userInfo}>
+          <HStack justify="between" align="center">
+            <HStack gap="4">
               <Avatar size={30} src={article.user.avatar} />
               <Text description={article.user.username} className={styles.username} />
-            </div>
+            </HStack>
             <Text description={transformDate(article.createdAt)} className={styles.date} />
-          </div>
+          </HStack>
           <Text className={styles.title} title={article.title} />
           {renderTypes(' ')}
           <img className={styles.image} src={article.img} alt={article.title} />
           {textBlock && (
             <ArticleTextBlockComponent className={styles.textBlock} block={textBlock} />
           )}
-          <div className={styles.articleFooter}>
-            <UILink to={`${RouteUrls.article_details}/${article._id}`} target={target}>
+          <HStack className={styles.articleFooter}>
+            <UILink theme="clean" to={`${RouteUrls.article_details}/${article._id}`} target={target}>
               <Button theme="outline">
                 {t('articles-page.article-item.read-more')}
               </Button>
             </UILink>
             {renderViews()}
-          </div>
+          </HStack>
         </Card>
       </div>
     );
@@ -88,10 +89,10 @@ const ArticlesListItem: FC<ArticlesListItemProps> = (props) => {
           <img className={styles.image} src={article.img} alt={article.title} />
           <Text className={styles.date} description={transformDate(article.createdAt)} />
         </div>
-        <div className={styles.infoWrapper}>
+        <HStack className={styles.infoWrapper}>
           {renderTypes(', ')}
           {renderViews()}
-        </div>
+        </HStack>
         <Text description={article.title} className={styles.title} descriptionCn={styles.titleCn} />
         <Text description={article.subtitle} className={styles.title} descriptionCn={styles.titleCn} />
       </Card>

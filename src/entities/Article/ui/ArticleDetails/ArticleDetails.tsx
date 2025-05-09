@@ -13,6 +13,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import Avatar from 'shared/ui/Avatar/Avatar';
 import Icon from 'shared/ui/Icon/Icon';
 import Skeleton from 'shared/ui/Skeleton/Skeleton';
+import { HStack, VStack } from 'shared/ui/Stack';
 import Text, { TextSize } from 'shared/ui/Text/Text';
 import {
   getArticleDetailsData,
@@ -68,31 +69,31 @@ const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
   let content;
   if (isLoading) {
     content = (
-      <div className={styles.skeletonWrapper}>
+      <VStack gap="16" align="center">
         <Skeleton width={200} height={200} border="50%" />
         <Skeleton width={300} height={32} />
         <Skeleton width={600} height={24} />
         <Skeleton width="100%" height={200} />
         <Skeleton width="100%" height={200} />
-      </div>
+      </VStack>
     );
   } else if (error) {
     content = <Text theme="error" title={t('details-page.error')} align="center" />;
   } else {
     content = (
       <>
-        <div className={styles.avatarWrapper}>
+        <HStack max justify="center">
           <Avatar size={200} src={article?.img} alt={article?.title} />
-        </div>
+        </HStack>
         <Text title={article?.title} description={article?.subtitle} size={TextSize.L} />
-        <div className={styles.articleInfo}>
+        <HStack gap="4">
           <Icon Svg={ViewsIcon} />
           <Text description={String(article?.views)} />
-        </div>
-        <div className={styles.articleInfo}>
+        </HStack>
+        <HStack gap="4">
           <Icon Svg={DateIcon} />
           <Text description={transformDate(String(article?.createdAt))} />
-        </div>
+        </HStack>
         {article?.blocks.map(renderBlock)}
       </>
     );

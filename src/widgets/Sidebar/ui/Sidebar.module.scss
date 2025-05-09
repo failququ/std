@@ -36,13 +36,3 @@
   height: 20px;
   font-size: 20px;
 }
-
-.links {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  &.collapsed {
-    align-items: center;
-  }
-}

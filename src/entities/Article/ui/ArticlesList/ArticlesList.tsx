@@ -1,16 +1,13 @@
-import classNames from 'classnames';
-
 import type { FC, HTMLAttributeAnchorTarget } from 'react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { HStack } from 'shared/ui/Stack';
 import Text, { TextSize } from 'shared/ui/Text/Text';
 import { Article, ArticlesView } from '../../model/types/article';
 import ArticleListItemSkeleton from '../ArticlesListItem/ArticleListItemSkeleton';
 import ArticlesListItem from '../ArticlesListItem/ArticlesListItem';
-import styles from './ArticlesList.module.scss';
 
 interface ArticlesListProps {
-  className?: string;
   articles: Article[];
   view?: ArticlesView;
   isLoading?: boolean;
@@ -19,7 +16,7 @@ interface ArticlesListProps {
 
 const ArticlesList: FC<ArticlesListProps> = (props) => {
   const {
-    className, articles, view = ArticlesView.SMALL, isLoading, target,
+    articles, view = ArticlesView.SMALL, isLoading, target,
   } = props;
 
   const { t } = useTranslation('articles-page');
@@ -27,7 +24,6 @@ const ArticlesList: FC<ArticlesListProps> = (props) => {
   const getSkeletons = () => new Array(view === ArticlesView.SMALL ? 9 : 3)
     .fill(0).map((item, index) => (
       <ArticleListItemSkeleton
-        className={styles.card}
         key={index}
         view={view}
       />
@@ -35,7 +31,6 @@ const ArticlesList: FC<ArticlesListProps> = (props) => {
 
   const renderArticle = (article: Article) => (
     <ArticlesListItem
-      className={styles.card}
       key={article._id}
       article={article}
       view={view}
@@ -53,13 +48,13 @@ const ArticlesList: FC<ArticlesListProps> = (props) => {
   }
 
   return (
-    <div className={classNames(styles.list, className, [styles[view]])}>
+    <HStack gap={view === ArticlesView.BIG ? '32' : '16'} wrap>
       {articles.length > 0
         ? articles.map(renderArticle)
         : null}
 
       {isLoading && getSkeletons()}
-    </div>
+    </HStack>
   );
 };
 

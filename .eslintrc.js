@@ -42,6 +42,8 @@ module.exports = {
           'reducerKey',
           'align',
           'target',
+          'direction',
+          'justify',
         ],
       },
     ],

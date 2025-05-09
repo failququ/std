@@ -1,18 +1,6 @@
 .BIG {
   width: 100%;
 
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .userInfo {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-  }
-
   .title {
     margin-top: 10px;
   }
@@ -29,8 +17,6 @@
   }
 
   .articleFooter {
-    display: flex;
-    align-items: center;
     margin-top: 16px;
   }
 
@@ -51,12 +37,6 @@
     top: 0;
   }
 
-  :hover {
-    .date {
-      display: block;
-    }
-  }
-
   .imageWrapper {
     width: 200px;
     height: 200px;
@@ -71,8 +51,6 @@
 
 
   .infoWrapper {
-    display: flex;
-    align-items: center;
     margin-top: 8px;
   }
 
