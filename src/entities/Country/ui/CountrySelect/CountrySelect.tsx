@@ -1,6 +1,6 @@
 import { memo, useCallback, type FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import Select from 'shared/ui/Select/Select';
+import ListBox from 'shared/ui/ListBox/ListBox';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {
@@ -30,13 +30,14 @@ const CurrencySelect: FC<CountrySelectProps> = (props) => {
   }, [onChange]);
 
   return (
-    <Select
+    <ListBox
       className={className}
-      label={t('card.data.country')}
-      options={options}
-      value={value}
-      readonly={readonly}
       onChange={handleOnChange}
+      label={t('card.data.country')}
+      items={options}
+      value={value}
+      defaultValue={t('card.data.country')}
+      readonly={readonly}
     />
   );
 };

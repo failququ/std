@@ -44,6 +44,7 @@ module.exports = {
           'target',
           'direction',
           'justify',
+          'as',
         ],
       },
     ],

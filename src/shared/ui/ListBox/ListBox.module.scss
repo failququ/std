@@ -1,0 +1,30 @@
+.listBox {
+  position: relative;
+  width: fit-content;
+}
+
+.optionsList {
+  background: var(--listbox-bg);
+  position: absolute;
+  z-index: 1000;
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px var(--listbox-bg);
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+}
+
+.optionItem {
+  padding: 7px 14px;
+  cursor: pointer;
+
+  &.active {
+    background: var(--inverted-primary-color);
+  }
+
+  &.disabled {
+    opacity: 0.8;
+  }
+}
