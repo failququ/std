@@ -73,7 +73,6 @@ const ArticleDetailsPage: FC<ArticleDetailsProps> = (props) => {
         <ArticleDetails id={id} />
         <Text className={styles.commentsTitle} title={t('details-page.recommends.title')} />
         <ArticlesList
-          className={styles.recommendations}
           articles={recommendations}
           isLoading={recommendationsIsLoading}
           view={ArticlesView.SMALL}

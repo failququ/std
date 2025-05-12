@@ -3,7 +3,8 @@
     "navbar": {
       "logo": "Лого",
       "login": "Войти",
-      "logout": "Выйти"
+      "logout": "Выйти",
+      "profile": "Профиль"
     },
     "page-error": {
       "title": "Упс, что-то пошло не так",

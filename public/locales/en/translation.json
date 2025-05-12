@@ -3,7 +3,8 @@
     "navbar": {
       "logo": "Logo",
       "login": "Login",
-      "logout": "Logout"
+      "logout": "Logout",
+      "profile": "Profile"
     },
     "page-error": {
       "title": "Whoops, something went wrong",
