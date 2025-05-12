@@ -14,7 +14,8 @@
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
     "chromatic": "npx chromatic --project-token=chpt_a8bd0254ec5320d --build-script-name storybook:build --exit-zero-on-changes",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "keywords": [],
   "author": "",

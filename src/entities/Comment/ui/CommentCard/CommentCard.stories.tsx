@@ -7,7 +7,6 @@ import CommentCard from './CommentCard';
 const meta = {
   title: 'Entities/CommentCard',
   component: CommentCard,
-
 } satisfies Meta<typeof CommentCard>;
 
 export default meta;
