@@ -1,19 +1,22 @@
-import {
-  getProfileData, getProfileReadonly, profileActions, updateProfileData,
-} from 'entities/Profile';
 import { getUserData } from 'entities/User';
-import { useCallback, type FC } from 'react';
+import type { FC } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import Button from 'shared/ui/Button/Button';
 import { HStack } from 'shared/ui/Stack';
 import Text from 'shared/ui/Text/Text';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { profileActions } from '../../model/slice/profileSlice';
 
-interface ProfilePageHeaderProps {
+interface EditableProfileCardHeaderProps {
+  className?: string;
 }
 
-const ProfilePageHeader: FC<ProfilePageHeaderProps> = () => {
+const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) => {
+  const { className } = props;
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
 
@@ -40,7 +43,7 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = () => {
   return (
     <HStack justify="between" max>
       <Text title={t('header.title')} />
-      <div>
+      <div className={className}>
         {isEditable && (
         <div>
           {readonly ? (
@@ -64,4 +67,4 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = () => {
   );
 };
 
-export default ProfilePageHeader;
+export default memo(EditableProfileCardHeader);

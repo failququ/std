@@ -1,7 +1,6 @@
 /* eslint max-len: 0 */
 import classNames from 'classnames';
 
-import ArticlesList from 'entities/Article/ui/ArticlesList/ArticlesList';
 import type { FC } from 'react';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -13,12 +12,11 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Page } from 'widgets/Page';
 import {
   getArticlesPageError,
-  getArticlesPageIsLoading,
-  getArticlesPageView,
 } from '../model/selectors/getArticlesPageData';
 import { fetchNextArticles } from '../model/services/fetchNextArticles/fetchNextArticles';
 import { initArticlesPage } from '../model/services/initArtriclesPage/initArticlesPage';
-import { articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
+import { articlesPageReducer } from '../model/slice/articlesPageSlice';
+import ArticleInfiniteList from './ArticleInfiniteList/ArticleInfiniteList';
 import styles from './ArticlesPage.module.scss';
 import ArticlesPageFilters from './ArticlesPageFilters/ArticlesPageFilters';
 
@@ -37,10 +35,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
 
   const dispatch = useAppDispatch();
 
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlesPageIsLoading);
   const error = useSelector(getArticlesPageError);
-  const view = useSelector(getArticlesPageView);
 
   const [searchParams] = useSearchParams();
 
@@ -62,11 +57,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
         error={error && t('articles-page.error')}
       >
         <ArticlesPageFilters />
-        <ArticlesList
-          articles={articles}
-          view={view}
-          isLoading={isLoading}
-        />
+        <ArticleInfiniteList />
       </Page>
     </DynamicModuleLoader>
   );

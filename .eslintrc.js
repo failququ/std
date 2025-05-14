@@ -57,6 +57,7 @@ module.exports = {
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
     'failququ-plugin/path-checker': 'error',
+    'no-tabs': 'off',
   },
   globals: {
     __IS_DEV__: true,

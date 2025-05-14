@@ -1,4 +1,4 @@
-import { ProfileSchema } from '../types/profile';
+import { ProfileSchema } from '../types/editableProfileCardSchema';
 import { profileReducer } from './profileSlice';
 
 describe('profileSLice', () => {
