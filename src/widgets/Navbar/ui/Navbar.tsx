@@ -1,5 +1,7 @@
 import classNames from 'classnames';
-import { getIsAuth, getUserData, userActions } from 'entities/User';
+import {
+  getIsAuth, getUserData, isUserAdmin, userActions,
+} from 'entities/User';
 import { LoginModal } from 'features/AuthByEmail';
 import {
   FC, memo, useCallback, useMemo, useState,
@@ -27,6 +29,8 @@ const Navbar: FC<NavbarProps> = (props) => {
 
   const isAuth = useSelector(getIsAuth);
   const userData = useSelector(getUserData);
+
+  const isAdmin = useSelector(isUserAdmin);
 
   const links = useMemo(() => getNavbarLinksConfig(i18n.language), [i18n.language]);
 
@@ -61,6 +65,10 @@ const Navbar: FC<NavbarProps> = (props) => {
         <Dropdown
           trigger={<Avatar size={40} src={userData?.avatar} />}
           items={[
+            ...(isAdmin ? [{
+              content: t('common.navbar.adminPanel'),
+              href: RouteUrls.admin_panel,
+            }] : []),
             {
               content: t('common.navbar.profile'),
               href: `${RouteUrls.profile}/${userData?.id}`,

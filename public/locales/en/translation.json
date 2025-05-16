@@ -4,7 +4,8 @@
       "logo": "Logo",
       "login": "Login",
       "logout": "Logout",
-      "profile": "Profile"
+      "profile": "Profile",
+      "adminPanel": "Admin panel"
     },
     "page-error": {
       "title": "Whoops, something went wrong",
