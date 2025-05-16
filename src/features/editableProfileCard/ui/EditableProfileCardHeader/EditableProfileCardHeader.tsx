@@ -9,6 +9,7 @@ import { HStack } from 'shared/ui/Stack';
 import Text from 'shared/ui/Text/Text';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
 
 interface EditableProfileCardHeaderProps {
@@ -47,15 +48,27 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) =>
         {isEditable && (
         <div>
           {readonly ? (
-            <Button theme="outline" onClick={() => setEditMode(false)}>
+            <Button
+              theme="outline"
+              onClick={() => setEditMode(false)}
+              data-testid="EditableProfileCardHeader.Edit"
+            >
               { t('header.edit.edit')}
             </Button>
           ) : (
             <HStack gap="8">
-              <Button theme="outline" onClick={onSave}>
+              <Button
+                theme="outline"
+                onClick={onSave}
+                data-testid="EditableProfileCardHeader.Save"
+              >
                 { t('header.edit.save')}
               </Button>
-              <Button theme="outline_red" onClick={onCancelEdit}>
+              <Button
+                theme="outline_red"
+                onClick={onCancelEdit}
+                data-testid="EditableProfileCardHeader.Cancel"
+              >
                 {t('header.edit.cancel')}
               </Button>
             </HStack>

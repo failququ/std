@@ -81,6 +81,7 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
         value={data?.firstName}
         label={t('card.data.firstName')}
         onChange={onChangeFirstName}
+        data-testid="ProfileCard.firstName"
       />
       <Input
         className={styles.dataField}
@@ -89,6 +90,7 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
         value={data?.lastName}
         label={t('card.data.lastName')}
         onChange={onChangeLastName}
+        data-testid="ProfileCard.lastName"
       />
       <Input
         className={styles.dataField}

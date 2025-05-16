@@ -30,6 +30,8 @@ interface TextProps {
   theme?: TextTheme;
   align?: AlignOptions;
   size?: TextSize;
+
+  'data-testid'?: string
 }
 
 const Text: FC<TextProps> = (props) => {
@@ -42,21 +44,38 @@ const Text: FC<TextProps> = (props) => {
     theme = 'primary',
     align = 'left',
     size = 'size_m',
+    'data-testid': dataTestId = 'Text',
   } = props;
 
   const HeaderTag = mapSizeToHeaderTag[size];
 
   return (
-    <div className={classNames(
-      styles.text,
-      className,
-      styles[theme],
-      styles[align],
-      styles[size],
-    )}
+    <div
+      className={classNames(
+        styles.text,
+        className,
+        styles[theme],
+        styles[align],
+        styles[size],
+      )}
+      data-testid={dataTestId}
     >
-      {title && <HeaderTag className={classNames(styles.title, titleCn)}>{title}</HeaderTag>}
-      {description && <p className={classNames(styles.description, descriptionCn)}>{description}</p>}
+      {title && (
+      <HeaderTag
+        className={classNames(styles.title, titleCn)}
+        data-testid={`${dataTestId}-title`}
+      >
+        {title}
+      </HeaderTag>
+      )}
+      {description && (
+      <p
+        className={classNames(styles.description, descriptionCn)}
+        data-testid={`${dataTestId}-description`}
+      >
+        {description}
+      </p>
+      )}
     </div>
   );
 };
