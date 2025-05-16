@@ -1,10 +1,13 @@
 import type { Preview } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
+import { initialize, mswLoader } from 'msw-storybook-addon';
 import {
   RouterDecorator,
   StyleDecorator, ThemeDecorator,
   TranslationDecorator,
 } from 'shared/config/storybook/decorators';
+
+initialize();
 
 const preview: Preview = {
   parameters: {
@@ -15,6 +18,7 @@ const preview: Preview = {
       },
     },
   },
+  loaders: [mswLoader],
   decorators: [
     StyleDecorator,
     ThemeDecorator(Theme.Light),
