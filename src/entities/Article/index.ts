@@ -1,7 +1,8 @@
+import { ArticleSortField, ArticlesView, ArticleType } from './model/const/const';
 import { getArticleDetailsData, getArticleDetailsError } from './model/selectors/articleDetails';
 import { articleDetailsReducer } from './model/slice/articleDetailsSlice';
-import {
-  ArticleSortField, ArticlesView, ArticleType, type Article,
+import type {
+  Article,
 } from './model/types/article';
 import ArticleDetails from './ui/ArticleDetails/ArticleDetails';
 import ArticlesList from './ui/ArticlesList/ArticlesList';

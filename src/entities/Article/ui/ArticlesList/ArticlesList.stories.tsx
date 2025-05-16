@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import MockAvatar from 'shared/assets/tests/storybook.jpg';
 import { ThemeDecorator } from 'shared/config/storybook/decorators';
-import { Article, ArticlesView, ArticleType } from '../../model/types/article';
+import { ArticlesView, ArticleType } from '../../model/const/const';
+import { Article } from '../../model/types/article';
 import ArticlesList from './ArticlesList';
 
 const meta = {

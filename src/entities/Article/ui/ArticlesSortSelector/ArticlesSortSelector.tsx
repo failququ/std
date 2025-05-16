@@ -5,7 +5,7 @@ import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SortOrder } from 'shared/types/sort';
 import Select, { SelectOption } from 'shared/ui/Select/Select';
-import { ArticleSortField } from '../../model/types/article';
+import { ArticleSortField } from '../../model/const/const';
 import styles from './ArticlesSortSelector.module.scss';
 
 interface ArticlesSortSelectorProps {

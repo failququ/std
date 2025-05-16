@@ -11,6 +11,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { VStack } from 'shared/ui/Stack';
 import Text from 'shared/ui/Text/Text';
+import { ValidateProfileError } from '../../model/const/const';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -18,7 +19,6 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { getValidationErrors } from '../../model/selectors/getValidationErrors/getValidationErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
-import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
 import EditableProfileCardHeader from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import styles from './EditableProfileCard.module.scss';
 

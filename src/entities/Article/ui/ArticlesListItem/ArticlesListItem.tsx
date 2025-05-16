@@ -14,7 +14,8 @@ import Icon from 'shared/ui/Icon/Icon';
 import { HStack } from 'shared/ui/Stack';
 import Text from 'shared/ui/Text/Text';
 import UILink from 'shared/ui/UILink/UILink';
-import { Article, ArticlesView, ArticleTextBlock } from '../../model/types/article';
+import { ArticlesView } from '../../model/const/const';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import ArticleTextBlockComponent from '../ArticleTextBlock/ArticleTextBlockComponent';
 import styles from './ArticlesListItem.module.scss';
 
