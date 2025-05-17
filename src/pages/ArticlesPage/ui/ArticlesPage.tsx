@@ -10,9 +10,8 @@ import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/Dynamic
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Page } from 'widgets/Page';
-import {
-  getArticlesPageError,
-} from '../model/selectors/getArticlesPageData';
+
+import { getArticlesPageError } from '../model/selectors/getArticlesPageData';
 import { fetchNextArticles } from '../model/services/fetchNextArticles/fetchNextArticles';
 import { initArticlesPage } from '../model/services/initArtriclesPage/initArticlesPage';
 import { articlesPageReducer } from '../model/slice/articlesPageSlice';

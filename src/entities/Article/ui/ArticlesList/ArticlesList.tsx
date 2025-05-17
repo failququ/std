@@ -5,8 +5,8 @@ import { HStack } from 'shared/ui/Stack';
 import Text, { TextSize } from 'shared/ui/Text/Text';
 import { ArticlesView } from '../../model/const/const';
 import { Article } from '../../model/types/article';
-import ArticleListItemSkeleton from '../ArticlesListItem/ArticleListItemSkeleton';
-import ArticlesListItem from '../ArticlesListItem/ArticlesListItem';
+import ArticleListItemSkeleton from '../../ui/ArticlesListItem/ArticleListItemSkeleton';
+import ArticlesListItem from '../../ui/ArticlesListItem/ArticlesListItem';
 
 interface ArticlesListProps {
   articles: Article[];
@@ -17,7 +17,10 @@ interface ArticlesListProps {
 
 const ArticlesList: FC<ArticlesListProps> = (props) => {
   const {
-    articles, view = ArticlesView.SMALL, isLoading, target,
+    articles,
+    view = ArticlesView.SMALL,
+    isLoading,
+    target,
   } = props;
 
   const { t } = useTranslation('articles-page');
@@ -53,7 +56,6 @@ const ArticlesList: FC<ArticlesListProps> = (props) => {
       {articles.length > 0
         ? articles.map(renderArticle)
         : null}
-
       {isLoading && getSkeletons()}
     </HStack>
   );
