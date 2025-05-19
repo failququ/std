@@ -1,18 +1,27 @@
 import webpack from 'webpack';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { buildCssLoader } from './loaders/buildCssLoader';
 import { BuildOptions } from './types/types';
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
-  const tsLoader = {
-    test: /\.tsx?$/,
-    use: {
-      loader: 'ts-loader',
-      options: {
-        transpileOnly: true,
-      },
-    },
-    exclude: /node_modules/,
-  };
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+  const { isDev } = options;
+
+  const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+
+  const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
+
+  const babelLoader = buildBabelLoader({ ...options, isTsx: true });
+
+  // const tsLoader = {
+  //   test: /\.tsx?$/,
+  //   use: {
+  //     loader: 'ts-loader',
+  //     options: {
+  //       transpileOnly: true,
+  //     },
+  //   },
+  //   exclude: /node_modules/,
+  // };
 
   const cssLoader = buildCssLoader(isDev);
 
@@ -30,21 +39,11 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     ],
   };
 
-  const babelLoader = {
-    test: /\.(js|jsx|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env'],
-        plugins: [isDev && require.resolve('react-refresh/babel')].filter(Boolean),
-      },
-    },
-  };
-
   return [
-    babelLoader,
-    tsLoader,
+    // babelLoader,
+    // tsLoader,
+    codeBabelLoader,
+    tsxCodeBabelLoader,
     cssLoader,
     svgLoader,
     fileLoader,
