@@ -1,6 +1,9 @@
 .modal {
   position: fixed;
   inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
   pointer-events: none;
   z-index: -1;

@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import styles from './Modal.module.scss';
 
 import Button from '../Button/Button';
+import Overlay from '../Overlay/Overlay';
 import Portal from '../Portal/Portal';
 import Text from '../Text/Text';
 
@@ -55,15 +56,14 @@ const Modal: FC<ModalProps> = (props) => {
         )}
         data-testid="modal"
       >
-        <div className={styles.overlay} onClick={handleCloseModal}>
-          <div className={styles.content} onClick={handleClickContent}>
-            <div className={styles.heading}>
-              <Text title={title} className={styles.title} />
-              {/* eslint-disable-next-line */}
+        <Overlay onClick={handleCloseModal} />
+        <div className={styles.content} onClick={handleClickContent}>
+          <div className={styles.heading}>
+            <Text title={title} className={styles.title} />
+            {/* eslint-disable-next-line */}
               <Button theme="clean" onClick={handleCloseModal}>X</Button>
-            </div>
-            <div className={styles.children}>{children}</div>
           </div>
+          <div className={styles.children}>{children}</div>
         </div>
       </div>
     </Portal>
