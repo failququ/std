@@ -1,6 +1,6 @@
 import { memo, useCallback, type FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import ListBox from 'shared/ui/ListBox/ListBox';
+import { ListBox } from 'shared/ui/Popups';
 import { Country } from '../../model/const/const';
 
 interface CountrySelectProps {

@@ -45,6 +45,7 @@ module.exports = {
           'direction',
           'justify',
           'as',
+          'border',
         ],
       },
     ],
@@ -76,6 +77,7 @@ module.exports = {
       files: ['**/src/**/*.stories.{ts,tsx}'],
       rules: {
         'max-len': 'off',
+        'i18next/no-literal-string': 'off',
       },
     },
   ],

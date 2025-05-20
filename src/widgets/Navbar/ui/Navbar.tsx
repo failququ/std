@@ -1,18 +1,17 @@
 import classNames from 'classnames';
 import {
-  getIsAuth, getUserData, isUserAdmin, userActions,
+  getIsAuth,
 } from 'entities/User';
 import { LoginModal } from 'features/AuthByEmail';
+import { AvatarDropdown } from 'features/avatarDropdown';
+import { NotificationsButton } from 'features/notificationsButton';
 import {
   FC, memo, useCallback, useMemo, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { RouteUrls } from 'shared/config/routeConfig/routeConfig';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import Avatar from 'shared/ui/Avatar/Avatar';
 import Button from 'shared/ui/Button/Button';
-import Dropdown from 'shared/ui/Dropdown/Dropdown';
+import { HStack } from 'shared/ui/Stack';
 import UILink from 'shared/ui/UILink/UILink';
 import { getNavbarLinksConfig } from '../config/linksConfig';
 import styles from './Navbar.module.scss';
@@ -25,12 +24,8 @@ const Navbar: FC<NavbarProps> = (props) => {
   const { className } = props;
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { t, i18n } = useTranslation();
-  const dispatch = useAppDispatch();
 
   const isAuth = useSelector(getIsAuth);
-  const userData = useSelector(getUserData);
-
-  const isAdmin = useSelector(isUserAdmin);
 
   const links = useMemo(() => getNavbarLinksConfig(i18n.language), [i18n.language]);
 
@@ -43,10 +38,6 @@ const Navbar: FC<NavbarProps> = (props) => {
   const handleOpenModal = useCallback(() => {
     setIsModalVisible(true);
   }, []);
-
-  const handleLogout = useCallback(() => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
 
   return (
     <header className={classNames(styles.navbar, className)}>
@@ -62,23 +53,10 @@ const Navbar: FC<NavbarProps> = (props) => {
         ))
       )}
       {isAuth ? (
-        <Dropdown
-          trigger={<Avatar size={40} src={userData?.avatar} />}
-          items={[
-            ...(isAdmin ? [{
-              content: t('common.navbar.adminPanel'),
-              href: RouteUrls.admin_panel,
-            }] : []),
-            {
-              content: t('common.navbar.profile'),
-              href: `${RouteUrls.profile}/${userData?.id}`,
-            },
-            {
-              content: t('common.navbar.logout'),
-              onClick: handleLogout,
-            },
-          ]}
-        />
+        <HStack gap="16">
+          <NotificationsButton direction="bottomLeft" />
+          <AvatarDropdown direction="bottomLeft" />
+        </HStack>
       ) : (
         <Button onClick={handleOpenModal}>
           {t('common.navbar.login')}

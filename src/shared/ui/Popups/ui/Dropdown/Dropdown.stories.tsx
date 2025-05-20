@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import AvatarSrc from 'shared/assets/tests/storybook.jpg';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator';
-import Avatar from '../Avatar/Avatar';
+import Avatar from '../../../Avatar/Avatar';
 import Dropdown from './Dropdown';
 
 const items = [

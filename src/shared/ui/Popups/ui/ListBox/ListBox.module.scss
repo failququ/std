@@ -1,0 +1,9 @@
+.optionsList {
+  background: var(--listbox-bg);
+  position: absolute;
+  z-index: var(--z-index-popup);
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px var(--listbox-bg);
+  width: 100%;
+}
+

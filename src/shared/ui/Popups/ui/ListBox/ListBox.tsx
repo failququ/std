@@ -6,9 +6,10 @@ import type { FC, ReactNode } from 'react';
 import { Fragment, memo } from 'react';
 
 import classNames from 'classnames';
-import Button from '../Button/Button';
-import { VStack } from '../Stack';
-import Text from '../Text/Text';
+import Button from '../../../Button/Button';
+import { VStack } from '../../../Stack';
+import Text from '../../../Text/Text';
+import popupStyles from '../../styles/popups.module.scss';
 import styles from './ListBox.module.scss';
 
 interface ListBoxItem {
@@ -29,7 +30,13 @@ interface ListBoxProps {
 
 const ListBox: FC<ListBoxProps> = (props) => {
   const {
-    className, items, value, label, defaultValue, readonly, onChange,
+    className,
+    items,
+    value,
+    label,
+    defaultValue,
+    readonly,
+    onChange,
   } = props;
 
   return (
@@ -38,12 +45,12 @@ const ListBox: FC<ListBoxProps> = (props) => {
       <HListbox
         disabled={readonly}
         as="div"
-        className={classNames(styles.listBox, className)}
+        className={classNames(popupStyles.wrapper, className)}
         value={value}
         onChange={onChange}
       >
         <ListboxButton as={Fragment}>
-          <Button theme="outline" className={styles.button}>
+          <Button theme="outline" className={popupStyles.trigger}>
             {value ?? defaultValue}
           </Button>
         </ListboxButton>
@@ -56,9 +63,9 @@ const ListBox: FC<ListBoxProps> = (props) => {
               disabled={item.disabled}
             >
               {({ focus, selected }) => (
-                <li className={classNames(styles.optionItem, {
-                  [styles.active]: focus,
-                  [styles.disabled]: item.disabled,
+                <li className={classNames(popupStyles.item, {
+                  [popupStyles.active]: focus,
+                  [popupStyles.disabled]: item.disabled,
                 })}
                 >
                   {selected && '> '}

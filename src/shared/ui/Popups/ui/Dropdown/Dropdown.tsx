@@ -7,8 +7,10 @@ import {
 } from '@headlessui/react';
 import type { FC, ReactNode } from 'react';
 import { Fragment, memo } from 'react';
-import { DropdownDirection } from '../types/ui';
-import UILink from '../UILink/UILink';
+import { DropdownDirection } from '../../../types/ui';
+import UILink from '../../../UILink/UILink';
+import { mapDirectionClass } from '../../const/const';
+import popupStyles from '../../styles/popups.module.scss';
 import styles from './Dropdown.module.scss';
 
 interface DropdownItem {
@@ -25,13 +27,6 @@ interface DropdownProps {
   direction?: DropdownDirection;
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-  bottomLeft: styles.bottomLeft,
-  bottomRight: styles.bottomRight,
-  topLeft: styles.topLeft,
-  topRight: styles.topRight,
-};
-
 const Dropdown: FC<DropdownProps> = (props) => {
   const {
     className, items, trigger, direction = 'bottomLeft',
@@ -40,16 +35,16 @@ const Dropdown: FC<DropdownProps> = (props) => {
   const directionClass = mapDirectionClass[direction];
 
   return (
-    <Menu as="div" className={classNames(styles.dropdown, className)}>
-      <MenuButton className={styles.btn}>
+    <Menu as="div" className={classNames(popupStyles.wrapper, className)}>
+      <MenuButton className={popupStyles.trigger}>
         {trigger}
       </MenuButton>
       <MenuItems className={classNames(styles.items, directionClass)}>
         {items.map((item, idx) => {
           const content = ({ focus }: { focus: boolean }) => (
             <button
-              className={classNames(styles.item, {
-                [styles.active]: focus,
+              className={classNames(popupStyles.item, {
+                [popupStyles.active]: focus,
               })}
               onClick={item.onClick}
               disabled={item.disabled}
