@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getToken, removeToken } from 'shared/lib/helpers/localStorage/tokenHelper';
+import { getToken, removeToken } from '@/shared/lib/helpers/localStorage/tokenHelper';
 import { getMe } from '../services/getMe';
 import { User, UserSchema } from '../types/user';
 

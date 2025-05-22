@@ -1,13 +1,13 @@
-import { getUserData, isUserAdmin, userActions } from 'entities/User';
 import type { FC } from 'react';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { RouteUrls } from 'shared/config/routeConfig/routeConfig';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import Avatar from 'shared/ui/Avatar/Avatar';
-import { Dropdown } from 'shared/ui/Popups';
-import { DropdownDirection } from 'shared/ui/types/ui';
+import { getUserData, isUserAdmin, userActions } from '@/entities/User';
+import { RouteUrls } from '@/shared/config/routeConfig/routeConfig';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import Avatar from '@/shared/ui/Avatar/Avatar';
+import { Dropdown } from '@/shared/ui/Popups';
+import { DropdownDirection } from '@/shared/ui/types/ui';
 
 interface Props {
   className?: string;

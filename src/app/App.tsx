@@ -1,14 +1,14 @@
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import {
   getIsAuth,
   getIsInit,
   getMe,
   userActions,
-} from 'entities/User';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
+} from '@/entities/User';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Navbar } from '@/widgets/Navbar';
+import { Sidebar } from '@/widgets/Sidebar';
 import { AppRouter } from './providers/router';
 import { useTheme } from './providers/ThemeProvider';
 

@@ -1,8 +1,8 @@
-import AboutIcon from 'shared/assets/icons/about-icon.svg';
-import ArticleIcon from 'shared/assets/icons/article-icon.svg';
-import HomeIcon from 'shared/assets/icons/home-icon.svg';
-import ProfileIcon from 'shared/assets/icons/profile-icon.svg';
-import { RouteUrls } from 'shared/config/routeConfig/routeConfig';
+import AboutIcon from '@/shared/assets/icons/about-icon.svg';
+import ArticleIcon from '@/shared/assets/icons/article-icon.svg';
+import HomeIcon from '@/shared/assets/icons/home-icon.svg';
+import ProfileIcon from '@/shared/assets/icons/profile-icon.svg';
+import { RouteUrls } from '@/shared/config/routeConfig/routeConfig';
 
 export function getSidebarLinksConfig(lang:string) {
   return [

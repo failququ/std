@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { User } from '../types/user';
 
 export const getMe = createAsyncThunk<User, void, ThunkConfig<string>>(

@@ -1,18 +1,18 @@
 import classNames from 'classnames';
 import {
-  getIsAuth,
-} from 'entities/User';
-import { LoginModal } from 'features/AuthByEmail';
-import { AvatarDropdown } from 'features/avatarDropdown';
-import { NotificationsButton } from 'features/notificationsButton';
-import {
   FC, memo, useCallback, useMemo, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import Button from 'shared/ui/Button/Button';
-import { HStack } from 'shared/ui/Stack';
-import UILink from 'shared/ui/UILink/UILink';
+import {
+  getIsAuth,
+} from '@/entities/User';
+import { LoginModal } from '@/features/AuthByEmail';
+import { AvatarDropdown } from '@/features/avatarDropdown';
+import { NotificationsButton } from '@/features/notificationsButton';
+import Button from '@/shared/ui/Button/Button';
+import { HStack } from '@/shared/ui/Stack';
+import UILink from '@/shared/ui/UILink/UILink';
 import { getNavbarLinksConfig } from '../config/linksConfig';
 import styles from './Navbar.module.scss';
 

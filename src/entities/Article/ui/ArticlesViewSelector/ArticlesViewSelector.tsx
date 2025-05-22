@@ -2,10 +2,10 @@ import classNames from 'classnames';
 
 import type { FC } from 'react';
 import { memo } from 'react';
-import ListIcon from 'shared/assets/icons/list-icon.svg';
-import TiledIcon from 'shared/assets/icons/tiled-icon.svg';
-import Button from 'shared/ui/Button/Button';
-import Icon from 'shared/ui/Icon/Icon';
+import ListIcon from '@/shared/assets/icons/list-icon.svg';
+import TiledIcon from '@/shared/assets/icons/tiled-icon.svg';
+import Button from '@/shared/ui/Button/Button';
+import Icon from '@/shared/ui/Icon/Icon';
 import { ArticlesView } from '../../model/const/const';
 import styles from './ArticlesViewSelector.module.scss';
 

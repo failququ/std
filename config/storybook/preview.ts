@@ -1,11 +1,11 @@
 import type { Preview } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { initialize, mswLoader } from 'msw-storybook-addon';
+import { Theme } from '@/app/providers/ThemeProvider/lib/ThemeContext';
 import {
   RouterDecorator,
   StyleDecorator, ThemeDecorator,
   TranslationDecorator,
-} from 'shared/config/storybook/decorators';
+} from '@/shared/config/storybook/decorators';
 
 initialize();
 

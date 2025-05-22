@@ -1,7 +1,7 @@
-import { ArticlesList } from 'entities/Article';
 import type { FC } from 'react';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
+import { ArticlesList } from '@/entities/Article';
 import { getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/getArticlesPageData';
 import { getArticles } from '../../model/slice/articlesPageSlice';
 

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import type { FC } from 'react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import Text from 'shared/ui/Text/Text';
+import Text from '@/shared/ui/Text/Text';
 import { Comment } from '../../model/types/comment';
 import CommentCard from '../CommentCard/CommentCard';
 import styles from './CommentList.module.scss';

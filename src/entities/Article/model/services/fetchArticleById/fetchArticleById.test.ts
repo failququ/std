@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { TestAsyncThunk } from 'shared/config/tests/testAsyncThunk/testAsyncThunk';
+import { TestAsyncThunk } from '@/shared/config/tests/testAsyncThunk/testAsyncThunk';
 import { ArticleType } from '../../const/const';
 import { Article } from '../../types/article';
 import { fetchArticleById } from './fetchArticleById';

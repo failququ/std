@@ -1,4 +1,4 @@
-import { LS_TOKEN_KEY } from 'shared/constants/localStorage';
+import { LS_TOKEN_KEY } from '@/shared/constants/localStorage';
 
 export const setToken = (token: string) => {
   localStorage.setItem(LS_TOKEN_KEY, token);

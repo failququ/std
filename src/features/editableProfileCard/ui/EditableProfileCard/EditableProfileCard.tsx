@@ -1,16 +1,16 @@
 import classNames from 'classnames';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-
-import { ProfileCard } from 'entities/Profile';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { VStack } from 'shared/ui/Stack';
-import Text from 'shared/ui/Text/Text';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+
+import { ProfileCard } from '@/entities/Profile';
+import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { VStack } from '@/shared/ui/Stack';
+import Text from '@/shared/ui/Text/Text';
 import { ValidateProfileError } from '../../model/const/const';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';

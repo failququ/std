@@ -4,17 +4,17 @@ import type { FC } from 'react';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import DateIcon from 'shared/assets/icons/calendar-icon.svg';
-import ViewsIcon from 'shared/assets/icons/eye-icon.svg';
-import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { transformDate } from 'shared/lib/helpers/dateHelper';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import Avatar from 'shared/ui/Avatar/Avatar';
-import Icon from 'shared/ui/Icon/Icon';
-import Skeleton from 'shared/ui/Skeleton/Skeleton';
-import { HStack, VStack } from 'shared/ui/Stack';
-import Text, { TextSize } from 'shared/ui/Text/Text';
+import DateIcon from '@/shared/assets/icons/calendar-icon.svg';
+import ViewsIcon from '@/shared/assets/icons/eye-icon.svg';
+import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { transformDate } from '@/shared/lib/helpers/dateHelper';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import Avatar from '@/shared/ui/Avatar/Avatar';
+import Icon from '@/shared/ui/Icon/Icon';
+import Skeleton from '@/shared/ui/Skeleton/Skeleton';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import Text, { TextSize } from '@/shared/ui/Text/Text';
 import {
   getArticleDetailsData,
   getArticleDetailsError,

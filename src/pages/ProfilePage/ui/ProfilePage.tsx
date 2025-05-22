@@ -1,15 +1,15 @@
 import classNames from 'classnames';
 
-import {
-  EditableProfileCard,
-  profileReducer,
-} from 'features/editableProfileCard';
 import type { FC } from 'react';
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
-import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import VStack from 'shared/ui/Stack/VStack/VStack';
-import { Page } from 'widgets/Page';
+import {
+  EditableProfileCard,
+  profileReducer,
+} from '@/features/editableProfileCard';
+import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import VStack from '@/shared/ui/Stack/VStack/VStack';
+import { Page } from '@/widgets/Page';
 
 interface ProfilePageProps {
   className?: string;

@@ -1,12 +1,12 @@
-import { NotificationsList } from 'entities/Notification';
 import type { FC } from 'react';
 import { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
-import NotificationsIcon from 'shared/assets/icons/notifications-icon.svg';
-import Drawer from 'shared/ui/Drawer/Drawer';
-import Icon from 'shared/ui/Icon/Icon';
-import { Popover } from 'shared/ui/Popups';
-import { DropdownDirection } from 'shared/ui/types/ui';
+import { NotificationsList } from '@/entities/Notification';
+import NotificationsIcon from '@/shared/assets/icons/notifications-icon.svg';
+import Drawer from '@/shared/ui/Drawer/Drawer';
+import Icon from '@/shared/ui/Icon/Icon';
+import { Popover } from '@/shared/ui/Popups';
+import { DropdownDirection } from '@/shared/ui/types/ui';
 import styles from './NotificationsButton.module.scss';
 
 interface Props {

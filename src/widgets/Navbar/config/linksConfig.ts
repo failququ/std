@@ -1,4 +1,4 @@
-import { RouteUrls } from 'shared/config/routeConfig/routeConfig';
+import { RouteUrls } from '@/shared/config/routeConfig/routeConfig';
 
 export function getNavbarLinksConfig(lang: string): { to: string; text: string }[] {
   return [

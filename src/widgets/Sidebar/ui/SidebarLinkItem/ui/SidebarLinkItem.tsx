@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 
-import { getIsAuth } from 'entities/User';
 import type { FC, ReactNode } from 'react';
 import { useSelector } from 'react-redux';
-import UILink from 'shared/ui/UILink/UILink';
+import { getIsAuth } from '@/entities/User';
+import UILink from '@/shared/ui/UILink/UILink';
 import styles from './SidebarLinkItem.module.scss';
 
 interface SidebarLinkItemProps {

@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 
-import { useTheme } from 'app/providers/ThemeProvider';
 import type { FC, ReactNode } from 'react';
-import { useModal } from 'shared/lib/hooks/useModal';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { useModal } from '@/shared/lib/hooks/useModal';
 import styles from './Modal.module.scss';
 
 import Button from '../Button/Button';

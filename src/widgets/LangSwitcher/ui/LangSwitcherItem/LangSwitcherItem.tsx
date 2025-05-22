@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
 import type { FC } from 'react';
-import Button from 'shared/ui/Button/Button';
+import Button from '@/shared/ui/Button/Button';
 import styles from './LangSwitcherItem.module.scss';
 
 interface LangSwitcherItemProps {

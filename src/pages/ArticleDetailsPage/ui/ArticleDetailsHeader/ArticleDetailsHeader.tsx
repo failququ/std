@@ -1,13 +1,13 @@
 import classNames from 'classnames';
 
-import { getArticleDetailsData, getArticleDetailsError } from 'entities/Article';
 import type { FC } from 'react';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { RouteUrls } from 'shared/config/routeConfig/routeConfig';
-import Button from 'shared/ui/Button/Button';
+import { getArticleDetailsData, getArticleDetailsError } from '@/entities/Article';
+import { RouteUrls } from '@/shared/config/routeConfig/routeConfig';
+import Button from '@/shared/ui/Button/Button';
 import { getCanUserEditArticle } from '../../model/selectors/article';
 import styles from './ArticleDetailsHeader.module.scss';
 

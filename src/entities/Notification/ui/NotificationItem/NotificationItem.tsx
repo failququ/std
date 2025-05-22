@@ -2,9 +2,9 @@ import classNames from 'classnames';
 
 import type { FC } from 'react';
 import { memo } from 'react';
-import Card, { CardTheme } from 'shared/ui/Card/Card';
-import Text from 'shared/ui/Text/Text';
-import UILink from 'shared/ui/UILink/UILink';
+import Card, { CardTheme } from '@/shared/ui/Card/Card';
+import Text from '@/shared/ui/Text/Text';
+import UILink from '@/shared/ui/UILink/UILink';
 import { Notification } from '../../model/types/notificationSchema';
 import styles from './NotificationItem.module.scss';
 

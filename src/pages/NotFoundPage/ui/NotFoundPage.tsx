@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import type { FC } from 'react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import UILink from 'shared/ui/UILink/UILink';
-import { Page } from 'widgets/Page';
+import UILink from '@/shared/ui/UILink/UILink';
+import { Page } from '@/widgets/Page';
 import styles from './NotFoundPage.module.scss';
 
 interface NotFoundPageProps {

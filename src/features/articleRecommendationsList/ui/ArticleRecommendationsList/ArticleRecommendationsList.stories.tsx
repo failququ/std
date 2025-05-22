@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { http, HttpResponse } from 'msw';
-import { StoreDecorator } from 'shared/config/storybook/decorators';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider/lib/ThemeContext';
+import { StoreDecorator } from '@/shared/config/storybook/decorators';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator';
 import ArticleRecommendationsList from './ArticleRecommendationsList';
 
 const testData = [

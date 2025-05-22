@@ -1,8 +1,8 @@
 import type { FC, HTMLAttributeAnchorTarget } from 'react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { HStack } from 'shared/ui/Stack';
-import Text, { TextSize } from 'shared/ui/Text/Text';
+import { HStack } from '@/shared/ui/Stack';
+import Text, { TextSize } from '@/shared/ui/Text/Text';
 import { ArticlesView } from '../../model/const/const';
 import { Article } from '../../model/types/article';
 import ArticleListItemSkeleton from '../../ui/ArticlesListItem/ArticleListItemSkeleton';

@@ -1,13 +1,13 @@
 import classNames from 'classnames';
 
-import { ArticleDetails } from 'entities/Article';
-import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
 import type { FC } from 'react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from 'widgets/Page';
+import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
+import { ArticleDetails } from '@/entities/Article';
+import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../../model/slice';
 
 import ArticleComments from '../ArticleComments/ArticleComments';

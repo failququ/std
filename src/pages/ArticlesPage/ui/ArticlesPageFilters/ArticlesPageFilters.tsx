@@ -1,19 +1,19 @@
 import classNames from 'classnames';
 
-import {
-  ArticleSortField, ArticlesSortSelector, ArticlesView, ArticlesViewSelector,
-  ArticleType,
-  ArticleTypesTabs,
-} from 'entities/Article';
 import type { FC } from 'react';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useDebounce } from 'shared/lib/hooks/useDebounce';
-import { SortOrder } from 'shared/types/sort';
-import Input from 'shared/ui/Input/Input';
-import { TabItem } from 'shared/ui/Tabs/Tabs';
+import {
+  ArticleSortField, ArticlesSortSelector, ArticlesView, ArticlesViewSelector,
+  ArticleType,
+  ArticleTypesTabs,
+} from '@/entities/Article';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce';
+import { SortOrder } from '@/shared/types/sort';
+import Input from '@/shared/ui/Input/Input';
+import { TabItem } from '@/shared/ui/Tabs/Tabs';
 import {
   getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSelectedArticleType, getArticlesPageSort, getArticlesPageView,
 } from '../../model/selectors/getArticlesPageData';

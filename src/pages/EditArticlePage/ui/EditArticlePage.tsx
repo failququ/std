@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import type { FC } from 'react';
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Page } from 'widgets/Page';
+import { Page } from '@/widgets/Page';
 import styles from './EditArticlePage.module.scss';
 
 interface Props {

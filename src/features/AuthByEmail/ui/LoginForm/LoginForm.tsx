@@ -7,11 +7,11 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import Button from 'shared/ui/Button/Button';
-import Input from 'shared/ui/Input/Input';
-import Text from 'shared/ui/Text/Text';
+import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import Button from '@/shared/ui/Button/Button';
+import Input from '@/shared/ui/Input/Input';
+import Text from '@/shared/ui/Text/Text';
 import { getLoginEmail } from '../../model/selectors/getLoginEmail/getLoginEmail';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
