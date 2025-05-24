@@ -6,9 +6,6 @@ import type {
 } from './model/types/article';
 import ArticleDetails from './ui/ArticleDetails/ArticleDetails';
 import ArticlesList from './ui/ArticlesList/ArticlesList';
-import ArticlesSortSelector from './ui/ArticlesSortSelector/ArticlesSortSelector';
-import ArticlesViewSelector from './ui/ArticlesViewSelector/ArticlesViewSelector';
-import ArticleTypesTabs from './ui/ArticleTypesTabs/ArticleTypesTabs';
 
 export {
   Article,
@@ -16,11 +13,8 @@ export {
   articleDetailsReducer,
   ArticlesList,
   ArticleSortField,
-  ArticlesSortSelector,
   ArticlesView,
-  ArticlesViewSelector,
   ArticleType,
-  ArticleTypesTabs,
   getArticleDetailsData,
   getArticleDetailsError,
 };

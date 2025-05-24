@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Tabs, { TabItem } from '@/shared/ui/Tabs/Tabs';
-import { ArticleType } from '../../model/const/const';
+import { ArticleType } from '@/entities/Article';
 import styles from './ArticleTypesTabs.module.scss';
 
 interface ArticleTypesTabsProps {

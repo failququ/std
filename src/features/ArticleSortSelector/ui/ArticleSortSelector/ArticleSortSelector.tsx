@@ -3,10 +3,10 @@ import classNames from 'classnames';
 import type { FC } from 'react';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ArticleSortField } from '@/entities/Article';
 import { SortOrder } from '@/shared/types/sort';
 import Select, { SelectOption } from '@/shared/ui/Select/Select';
-import { ArticleSortField } from '../../model/const/const';
-import styles from './ArticlesSortSelector.module.scss';
+import styles from './ArticleSortSelector.module.scss';
 
 interface ArticlesSortSelectorProps {
   className?: string;

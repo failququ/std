@@ -5,17 +5,24 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import {
-  ArticleSortField, ArticlesSortSelector, ArticlesView, ArticlesViewSelector,
+  ArticleSortField,
+  ArticlesView,
   ArticleType,
-  ArticleTypesTabs,
 } from '@/entities/Article';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticlesViewSelector } from '@/features/ArticlesViewSelector';
+import { ArticleTypesTabs } from '@/features/ArticleTypesTabs';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import { SortOrder } from '@/shared/types/sort';
 import Input from '@/shared/ui/Input/Input';
 import { TabItem } from '@/shared/ui/Tabs/Tabs';
 import {
-  getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSelectedArticleType, getArticlesPageSort, getArticlesPageView,
+  getArticlesPageOrder,
+  getArticlesPageSearch,
+  getArticlesPageSelectedArticleType,
+  getArticlesPageSort,
+  getArticlesPageView,
 } from '../../model/selectors/getArticlesPageData';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
@@ -76,7 +83,7 @@ const ArticlesPageFilters: FC<Props> = (props) => {
   return (
     <div className={classNames(styles.filters, className)}>
       <div className={styles.sortWrapper}>
-        <ArticlesSortSelector
+        <ArticleSortSelector
           sort={sort}
           order={order}
           onChangeOrder={handleChangeOrder}
