@@ -4,12 +4,13 @@ import type { FC } from 'react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetails } from '@/entities/Article';
+import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../../model/slice';
 
+import { ArticleRating } from '@/features/ArticleRating';
 import ArticleComments from '../ArticleComments/ArticleComments';
 import ArticleDetailsHeader from '../ArticleDetailsHeader/ArticleDetailsHeader';
 import styles from './ArticleDetailsPage.module.scss';
@@ -41,6 +42,7 @@ const ArticleDetailsPage: FC<ArticleDetailsProps> = (props) => {
       <Page className={classNames(styles.page, className)}>
         <ArticleDetailsHeader />
         <ArticleDetails id={id} />
+        <ArticleRating className={styles.rating} articleId={id} />
         <ArticleRecommendationsList className={styles.recommendations} />
         <ArticleComments className={styles.comments} id={id} />
       </Page>

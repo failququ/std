@@ -1,0 +1,12 @@
+.star{
+  cursor: pointer;
+  fill: none;
+}
+
+.filled {
+  fill: var(--primary-color);
+}
+
+.selected {
+  cursor: default;
+}

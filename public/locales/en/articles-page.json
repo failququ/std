@@ -36,6 +36,10 @@
     "recommends": {
       "title": "Рекомендуем",
       "noData": "Пока нет рекомендаций"
+    },
+    "rating": {
+      "noRatesTitle": "Rate the article",
+      "withRatesTitle": "Ratings: "
     }
   },
   "add-new-comment": {
