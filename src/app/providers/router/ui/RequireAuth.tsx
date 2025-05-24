@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { RouteUrls } from '@/shared/config/routeConfig/routeConfig';
+import { getRouteForbidden, getRouteMain } from '@/shared/config/routeConfig/routeConfig';
 import { getIsAuth, getUserRoles, UserRole } from '@/entities/User';
 
 interface RequireAuthProps {
@@ -22,11 +22,11 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
   }, [roles, userRoles]);
 
   if (!isAuth) {
-    return <Navigate to={RouteUrls.home} state={{ from: location }} />;
+    return <Navigate to={getRouteMain()} state={{ from: location }} />;
   }
 
   if (!hasRequiredRoles) {
-    return <Navigate to={RouteUrls.forbidden} state={{ from: location }} />;
+    return <Navigate to={getRouteForbidden()} state={{ from: location }} />;
   }
 
   return children;

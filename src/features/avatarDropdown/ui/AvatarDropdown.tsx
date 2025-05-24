@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getUserData, isUserAdmin, userActions } from '@/entities/User';
-import { RouteUrls } from '@/shared/config/routeConfig/routeConfig';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import Avatar from '@/shared/ui/Avatar/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
@@ -37,11 +37,11 @@ const AvatarDropdown: FC<Props> = (props) => {
         items={[
           ...(isAdmin ? [{
             content: t('common.navbar.adminPanel'),
-            href: RouteUrls.admin_panel,
+            href: getRouteAdminPanel(),
           }] : []),
           {
             content: t('common.navbar.profile'),
-            href: `${RouteUrls.profile}/${userData?.id}`,
+            href: getRouteProfile(userData?.id || ''),
           },
           {
             content: t('common.navbar.logout'),

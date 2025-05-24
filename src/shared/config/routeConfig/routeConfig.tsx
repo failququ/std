@@ -29,72 +29,63 @@ export enum AppRoutes {
   NOT_FOUND = 'not_found',
 }
 
-export const RouteUrls: Record<AppRoutes, string> = {
-  [AppRoutes.HOME]: '/',
-  [AppRoutes.ABOUT]: '/about',
-  [AppRoutes.PROFILE]: '/profile', // + :id
-  [AppRoutes.ARTICLES]: '/articles',
-  [AppRoutes.ARTICLE_DETAILS]: '/articles', // + :id
-  [AppRoutes.ARTICLE_CREATE]: '/articles/create',
-  [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit',
-  [AppRoutes.ADMIN_PANEL]: '/admin',
-  [AppRoutes.FORBIDDEN]: '/forbidden',
-  // last
-  [AppRoutes.NOT_FOUND]: '*',
-};
+export const getRouteMain = () => '/';
+export const getRouteAbout = () => '/about';
+export const getRouteProfile = (id: string) => `/profile/${id}`;
+export const getRouteArticles = () => '/articles';
+export const getRouteArticleDetails = (id: string) => `/articles/${id}`;
+export const getRouteArticleCreate = () => '/articles/create';
+export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`;
+export const getRouteAdminPanel = () => '/admin';
+export const getRouteForbidden = () => '/forbidden';
 
 export const routeConfig: AppRouteProps[] = [
   {
-    path: RouteUrls.home,
+    path: getRouteMain(),
     element: <HomePage />,
   },
   {
-    path: RouteUrls.about,
+    path: getRouteAbout(),
     element: <AboutPage />,
   },
   {
-    path: `${RouteUrls.profile}`,
+    path: getRouteProfile(':id'),
     element: <ProfilePage />,
     authOnly: true,
   },
   {
-    path: `${RouteUrls.profile}/:id`,
-    element: <ProfilePage />,
-    authOnly: true,
-  },
-  {
-    path: RouteUrls.articles,
+    path: getRouteArticles(),
     element: <ArticlesPage />,
     authOnly: true,
   },
   {
-    path: `${RouteUrls.articles}/:id`,
+    path: getRouteArticleDetails(':id'),
     element: <ArticleDetailsPage />,
     authOnly: true,
   },
   {
-    path: `${RouteUrls.article_create}`,
+    path: getRouteArticleCreate(),
     element: <EditArticlePage />,
     authOnly: true,
   },
   {
-    path: `${RouteUrls.article_edit}`,
+    path: getRouteArticleEdit(':id'),
     element: <EditArticlePage />,
     authOnly: true,
   },
   {
-    path: `${RouteUrls.admin_panel}`,
+    path: getRouteAdminPanel(),
     element: <AdminPanelPage />,
     authOnly: true,
     roles: [UserRole.ADMIN],
   },
   {
-    path: RouteUrls.forbidden,
+    path: getRouteForbidden(),
     element: <ForbiddenPage />,
   },
   // last
   {
-    path: RouteUrls.not_found,
+    path: '*',
     element: <NotFoundPage />,
   },
 ];

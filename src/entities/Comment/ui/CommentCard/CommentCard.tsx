@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import type { FC } from 'react';
 import { memo } from 'react';
-import { RouteUrls } from '@/shared/config/routeConfig/routeConfig';
+import { getRouteProfile } from '@/shared/config/routeConfig/routeConfig';
 import Avatar from '@/shared/ui/Avatar/Avatar';
 import Skeleton from '@/shared/ui/Skeleton/Skeleton';
 import Text from '@/shared/ui/Text/Text';
@@ -34,7 +34,7 @@ const CommentCard: FC<CommentCardProps> = (props) => {
 
   return (
     <div className={classNames(styles.card, className)}>
-      <UILink theme="clean" to={`${RouteUrls.profile}/${id}`} className={styles.header}>
+      <UILink theme="clean" to={getRouteProfile(id)} className={styles.header}>
         {avatar && <Avatar size={30} src={avatar} />}
         <Text title={username} />
       </UILink>

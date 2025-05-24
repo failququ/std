@@ -5,9 +5,9 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getArticleDetailsData, getArticleDetailsError } from '@/entities/Article';
-import { RouteUrls } from '@/shared/config/routeConfig/routeConfig';
 import Button from '@/shared/ui/Button/Button';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/config/routeConfig/routeConfig';
+import { getArticleDetailsData, getArticleDetailsError } from '@/entities/Article';
 import { getCanUserEditArticle } from '../../model/selectors/article';
 import styles from './ArticleDetailsHeader.module.scss';
 
@@ -27,11 +27,11 @@ const ArticleDetailsHeader: FC<Props> = (props) => {
   const error = useSelector(getArticleDetailsError);
 
   const handleBackToList = useCallback(() => {
-    navigate(RouteUrls.articles);
+    navigate(getRouteArticles());
   }, [navigate]);
 
   const handleEditArticle = useCallback(() => {
-    navigate(`${RouteUrls.articles}/${article?._id}/edit`);
+    navigate(getRouteArticleEdit(article?._id || ''));
   }, [navigate, article?._id]);
 
   if (error) return null;

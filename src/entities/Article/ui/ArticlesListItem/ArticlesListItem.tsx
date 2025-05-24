@@ -4,7 +4,7 @@ import type { FC, HTMLAttributeAnchorTarget } from 'react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import ViewsIcon from '@/shared/assets/icons/eye-icon.svg';
-import { RouteUrls } from '@/shared/config/routeConfig/routeConfig';
+import { getRouteArticleDetails } from '@/shared/config/routeConfig/routeConfig';
 import { transformDate } from '@/shared/lib/helpers/dateHelper';
 import { useHover } from '@/shared/lib/hooks/useHover';
 import Avatar from '@/shared/ui/Avatar/Avatar';
@@ -65,7 +65,7 @@ const ArticlesListItem: FC<ArticlesListItemProps> = (props) => {
             <ArticleTextBlockComponent className={styles.textBlock} block={textBlock} />
           )}
           <HStack className={styles.articleFooter}>
-            <UILink theme="clean" to={`${RouteUrls.article_details}/${article._id}`} target={target}>
+            <UILink theme="clean" to={getRouteArticleDetails(article._id)} target={target}>
               <Button theme="outline">
                 {t('articles-page.article-item.read-more')}
               </Button>
@@ -79,7 +79,7 @@ const ArticlesListItem: FC<ArticlesListItemProps> = (props) => {
 
   return (
     <UILink
-      to={`${RouteUrls.article_details}/${article._id}`}
+      to={getRouteArticleDetails(article._id)}
       className={classNames(styles.item, className, styles[view])}
       theme="clean"
       target={target}

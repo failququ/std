@@ -5,6 +5,8 @@ import {
   useCallback, useMemo, useState, type FC,
 } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { getUserData } from '@/entities/User';
 import Button from '@/shared/ui/Button/Button';
 import VStack from '@/shared/ui/Stack/VStack/VStack';
 import { LangSwitcher } from '@/widgets/LangSwitcher';
@@ -22,7 +24,9 @@ const Sidebar: FC<SidebarProps> = (props) => {
   const [collapsed, setCollapsed] = useState(false);
   const { i18n } = useTranslation();
 
-  const sidebarLinks = useMemo(() => getSidebarLinksConfig(i18n.language).map((link) => (
+  const userData = useSelector(getUserData);
+
+  const sidebarLinks = useMemo(() => getSidebarLinksConfig(i18n.language, userData!).map((link) => (
     <SidebarLinkItem
       key={link.path}
       to={link.path}
@@ -31,7 +35,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
       isCollapsed={collapsed}
       authOnly={link.authOnly}
     />
-  )), [collapsed, i18n.language]);
+  )), [collapsed, i18n.language, userData]);
 
   const handleCollapse = useCallback(() => {
     setCollapsed((prev) => !prev);
