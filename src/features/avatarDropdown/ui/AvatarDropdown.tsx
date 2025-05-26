@@ -2,9 +2,10 @@ import type { FC } from 'react';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { getUserData, isUserAdmin, userActions } from '@/entities/User';
+import {
+  isUserAdmin, useUserActions, useUserData,
+} from '@/entities/User';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/config/routeConfig/routeConfig';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import Avatar from '@/shared/ui/Avatar/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
 import { DropdownDirection } from '@/shared/ui/types/ui';
@@ -19,14 +20,14 @@ const AvatarDropdown: FC<Props> = (props) => {
 
   const { t } = useTranslation();
 
-  const dispatch = useAppDispatch();
-
-  const userData = useSelector(getUserData);
+  const userData = useUserData();
   const isAdmin = useSelector(isUserAdmin);
 
+  const { logout } = useUserActions();
+
   const handleLogout = useCallback(() => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
+    logout();
+  }, [logout]);
 
   return (
     <div>

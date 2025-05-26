@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PayloadAction } from '@reduxjs/toolkit';
 import { getToken, removeToken } from '@/shared/lib/helpers/localStorage/tokenHelper';
+import { buildSlice } from '@/shared/lib/store';
 import { getMe } from '../services/getMe';
 import { User, UserSchema } from '../types/user';
 
@@ -9,7 +10,7 @@ const initialState: UserSchema = {
   _isInit: false,
 };
 
-const userSlice = createSlice({
+const userSlice = buildSlice({
   name: 'user',
   initialState,
   reducers: {
@@ -42,4 +43,4 @@ const userSlice = createSlice({
   },
 });
 
-export const { actions: userActions, reducer: userReducer } = userSlice;
+export const { actions: userActions, reducer: userReducer, useActions: useUserActions } = userSlice;
