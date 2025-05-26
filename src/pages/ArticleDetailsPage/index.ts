@@ -1,3 +1,4 @@
+import { articleDetailsPageReducer } from './model/slice';
 import {
   articleDetailsRecommendationsActions,
   articleDetailsRecommendationsReducer,
@@ -10,6 +11,7 @@ import { ArticleDetailsPageLazy } from './ui/ArticleDetailsPage/ArticleDetailsPa
 export {
   ArticleDetailsCommentsSchema,
   ArticleDetailsPageLazy as ArticleDetailsPage,
+  articleDetailsPageReducer,
   ArticleDetailsPageSchema,
   articleDetailsRecommendationsActions,
   articleDetailsRecommendationsReducer,

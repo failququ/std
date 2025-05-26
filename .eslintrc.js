@@ -60,6 +60,9 @@ module.exports = {
     'failququ-plugin/path-checker': ['error', {
       alias: '@',
     }],
+    'failququ-plugin/public-api-imports': ['error', {
+      alias: '@',
+    }],
     'no-tabs': 'off',
   },
   globals: {

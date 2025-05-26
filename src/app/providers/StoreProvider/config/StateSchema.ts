@@ -2,7 +2,7 @@ import {
   Action, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema } from '@/entities/Article/model/types/articleDetailsSchema';
+import { ArticleDetailsSchema } from '@/entities/Article';
 import { UserSchema } from '@/entities/User';
 import { AddNewCommentSchema } from '@/features/addNewComment';
 import { LoginSchema } from '@/features/AuthByEmail';
