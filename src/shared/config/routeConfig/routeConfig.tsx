@@ -9,35 +9,22 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { HomePage } from '@/pages/HomePage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
+import {
+  getRouteAbout,
+  getRouteAdminPanel,
+  getRouteArticleCreate,
+  getRouteArticleDetails,
+  getRouteArticleEdit,
+  getRouteArticles,
+  getRouteForbidden,
+  getRouteMain,
+  getRouteProfile,
+} from '@/shared/constants/router';
 
 export type AppRouteProps = RouteProps & {
   authOnly?: boolean;
   roles?: UserRole[];
 }
-
-export enum AppRoutes {
-  HOME = 'home',
-  ABOUT = 'about',
-  PROFILE = 'profile',
-  ARTICLES = 'articles',
-  ARTICLE_DETAILS = 'article_details',
-  ARTICLE_CREATE = 'article_create',
-  ARTICLE_EDIT = 'article_edit',
-  ADMIN_PANEL = 'admin_panel',
-  FORBIDDEN = 'forbidden',
-  // last
-  NOT_FOUND = 'not_found',
-}
-
-export const getRouteMain = () => '/';
-export const getRouteAbout = () => '/about';
-export const getRouteProfile = (id: string) => `/profile/${id}`;
-export const getRouteArticles = () => '/articles';
-export const getRouteArticleDetails = (id: string) => `/articles/${id}`;
-export const getRouteArticleCreate = () => '/articles/create';
-export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`;
-export const getRouteAdminPanel = () => '/admin';
-export const getRouteForbidden = () => '/forbidden';
 
 export const routeConfig: AppRouteProps[] = [
   {

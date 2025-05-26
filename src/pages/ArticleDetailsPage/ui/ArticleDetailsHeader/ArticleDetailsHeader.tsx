@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Button from '@/shared/ui/Button/Button';
-import { getRouteArticleEdit, getRouteArticles } from '@/shared/config/routeConfig/routeConfig';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/constants/router';
 import { getArticleDetailsData, getArticleDetailsError } from '@/entities/Article';
 import { getCanUserEditArticle } from '../../model/selectors/article';
 import styles from './ArticleDetailsHeader.module.scss';

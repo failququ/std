@@ -1,4 +1,4 @@
-import { getRouteArticleCreate } from '@/shared/config/routeConfig/routeConfig';
+import { getRouteArticleCreate } from '@/shared/constants/router';
 
 export function getNavbarLinksConfig(lang: string): { to: string; text: string }[] {
   return [

@@ -4,7 +4,7 @@ import type { FC, HTMLAttributeAnchorTarget } from 'react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import ViewsIcon from '@/shared/assets/icons/eye-icon.svg';
-import { getRouteArticleDetails } from '@/shared/config/routeConfig/routeConfig';
+import { getRouteArticleDetails } from '@/shared/constants/router';
 import { transformDate } from '@/shared/lib/helpers/dateHelper';
 import { useHover } from '@/shared/lib/hooks/useHover';
 import Avatar from '@/shared/ui/Avatar/Avatar';
