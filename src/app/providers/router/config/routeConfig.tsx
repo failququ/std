@@ -1,4 +1,3 @@
-import { RouteProps } from 'react-router-dom';
 import { UserRole } from '@/entities/User';
 import { AboutPage } from '@/pages/AboutPage';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';
@@ -20,11 +19,7 @@ import {
   getRouteMain,
   getRouteProfile,
 } from '@/shared/constants/router';
-
-export type AppRouteProps = RouteProps & {
-  authOnly?: boolean;
-  roles?: UserRole[];
-}
+import { AppRouteProps } from '@/shared/types/router';
 
 export const routeConfig: AppRouteProps[] = [
   {

@@ -3,7 +3,6 @@ import AboutIcon from '@/shared/assets/icons/about-icon.svg';
 import ArticleIcon from '@/shared/assets/icons/article-icon.svg';
 import HomeIcon from '@/shared/assets/icons/home-icon.svg';
 import ProfileIcon from '@/shared/assets/icons/profile-icon.svg';
-import { } from '@/shared/config/routeConfig/routeConfig';
 import {
   getRouteAbout,
   getRouteArticles,
