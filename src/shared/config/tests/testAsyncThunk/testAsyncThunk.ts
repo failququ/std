@@ -1,7 +1,6 @@
 import { AsyncThunkAction } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { StateSchema } from '@/app/providers/StoreProvider';
-import { ThunkExtraArgs } from '@/app/providers/StoreProvider/config/StateSchema';
+import { StateSchema, ThunkExtraArgs } from '@/app/providers/StoreProvider';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;

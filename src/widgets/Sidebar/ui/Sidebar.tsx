@@ -7,10 +7,10 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getUserData } from '@/entities/User';
+import { LangSwitcher } from '@/features/LangSwitcher';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import Button from '@/shared/ui/Button/Button';
 import VStack from '@/shared/ui/Stack/VStack/VStack';
-import { LangSwitcher } from '@/widgets/LangSwitcher';
-import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
 import { getSidebarLinksConfig } from '../config/sidebarLinksConfig';
 import styles from './Sidebar.module.scss';
 import { SidebarLinkItem } from './SidebarLinkItem';

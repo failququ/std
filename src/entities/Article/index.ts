@@ -1,6 +1,5 @@
 import { ArticleSortField, ArticlesView, ArticleType } from './model/const/const';
 import { getArticleDetailsData, getArticleDetailsError } from './model/selectors/articleDetails';
-import { articleDetailsReducer } from './model/slice/articleDetailsSlice';
 import type {
   Article,
 } from './model/types/article';
@@ -11,7 +10,6 @@ import ArticlesList from './ui/ArticlesList/ArticlesList';
 export {
   Article,
   ArticleDetails,
-  articleDetailsReducer,
   ArticleDetailsSchema,
   ArticlesList,
   ArticleSortField,

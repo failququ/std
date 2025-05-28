@@ -2,8 +2,8 @@ import classNames from 'classnames';
 
 import type { FC, ReactNode } from 'react';
 import { memo } from 'react';
-import { useTheme } from '@/app/providers/ThemeProvider';
 import { useModal } from '@/shared/lib/hooks/useModal';
+import { useTheme } from '../../lib/hooks/useTheme';
 import Overlay from '../Overlay/Overlay';
 import Portal from '../Portal/Portal';
 import styles from './Drawer.module.scss';

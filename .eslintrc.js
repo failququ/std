@@ -62,7 +62,15 @@ module.exports = {
     }],
     'failququ-plugin/public-api-imports': ['error', {
       alias: '@',
+      testFilesPatterns: ['**/*.test.{ts,tsx}', '**/*.stories.{ts,tsx}', '**/StoreDecorator.tsx'],
     }],
+    'failququ-plugin/layer-imports': [
+      'error',
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+      },
+    ],
     'no-tabs': 'off',
   },
   globals: {

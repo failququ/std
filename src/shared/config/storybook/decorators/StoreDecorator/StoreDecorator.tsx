@@ -1,10 +1,10 @@
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { articleDetailsReducer } from '@/entities/Article';
-import { addNewCommentReducer } from '@/features/addNewComment';
-import { loginReducer } from '@/features/AuthByEmail';
-import { profileReducer } from '@/features/editableProfileCard';
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage';
-import { articlesPageReducer } from '@/pages/ArticlesPage';
+import { articleDetailsReducer } from '@/entities/Article/testing';
+import { addNewCommentReducer } from '@/features/addNewComment/testing';
+import { loginReducer } from '@/features/AuthByEmail/testing';
+import { profileReducer } from '@/features/editableProfileCard/testing';
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
+import { articlesPageReducer } from '@/pages/ArticlesPage/testing';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducers: ReducersList = {
