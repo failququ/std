@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import type { FC, ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 import { getIsAuth } from '@/entities/User';
-import UILink from '@/shared/ui/UILink/UILink';
+import { UILink } from '@/shared/ui/UILink';
 import styles from './SidebarLinkItem.module.scss';
 
 interface SidebarLinkItemProps {

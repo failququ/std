@@ -4,11 +4,11 @@ import { type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Country, CountrySelect } from '@/entities/Country';
 import { Currency, CurrencySelect } from '@/entities/Currency';
-import Avatar from '@/shared/ui/Avatar/Avatar';
-import Input from '@/shared/ui/Input/Input';
-import Spinner from '@/shared/ui/Spinner/Spinner';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Input } from '@/shared/ui/Input';
+import { Spinner } from '@/shared/ui/Spinner';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import Text from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import type { Profile } from '../../model/types/profile';
 import styles from './ProfileCard.module.scss';
 

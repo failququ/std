@@ -7,10 +7,10 @@ import {
   userActions,
 } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useTheme } from '@/shared/lib/hooks/useTheme';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { AppRouter } from './providers/router';
-import { useTheme } from './providers/ThemeProvider';
 
 const App = () => {
   const { theme } = useTheme();

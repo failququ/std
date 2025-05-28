@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import type { FC } from 'react';
 import { memo } from 'react';
-import Spinner from '@/shared/ui/Spinner/Spinner';
+import { Spinner } from '@/shared/ui/Spinner';
 import styles from './PageLoader.module.scss';
 
 interface Props {

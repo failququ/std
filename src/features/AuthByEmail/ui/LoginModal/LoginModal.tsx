@@ -1,7 +1,7 @@
 import { Suspense, type FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import Modal from '@/shared/ui/Modal/Modal';
-import Spinner from '@/shared/ui/Spinner/Spinner';
+import { Modal } from '@/shared/ui/Modal';
+import { Spinner } from '@/shared/ui/Spinner';
 import { LoginFormLazy as LoginForm } from '../LoginForm/LoginForm.lazy';
 
 interface LoginModalProps {

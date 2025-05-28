@@ -10,11 +10,11 @@ import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/Dynam
 import { transformDate } from '@/shared/lib/helpers/dateHelper';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import Avatar from '@/shared/ui/Avatar/Avatar';
-import Icon from '@/shared/ui/Icon/Icon';
-import Skeleton from '@/shared/ui/Skeleton/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import Text, { TextSize } from '@/shared/ui/Text/Text';
+import { Text, TextSize } from '@/shared/ui/Text';
 import {
   getArticleDetailsData,
   getArticleDetailsError,

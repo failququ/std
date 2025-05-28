@@ -10,9 +10,9 @@ import {
 import { LoginModal } from '@/features/AuthByEmail';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationsButton } from '@/features/notificationsButton';
-import Button from '@/shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
-import UILink from '@/shared/ui/UILink/UILink';
+import { UILink } from '@/shared/ui/UILink';
 import { getNavbarLinksConfig } from '../config/linksConfig';
 import styles from './Navbar.module.scss';
 

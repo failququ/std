@@ -2,8 +2,8 @@ import classNames from 'classnames';
 
 import type { FC } from 'react';
 import { memo } from 'react';
-import Card from '@/shared/ui/Card/Card';
-import Skeleton from '@/shared/ui/Skeleton/Skeleton';
+import { Card } from '@/shared/ui/Card';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { ArticlesView } from '../../model/const/const';
 import styles from './ArticlesListItem.module.scss';
 

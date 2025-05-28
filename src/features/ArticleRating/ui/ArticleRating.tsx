@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import Skeleton from '@/shared/ui/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { getUserData } from '@/entities/User';
 import { RatingCard } from '@/entities/RatingCard';
 import { useGetArticleRating, useRateArticle } from '../api/articleRatingApi';

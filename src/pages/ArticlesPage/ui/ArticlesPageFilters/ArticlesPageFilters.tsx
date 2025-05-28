@@ -15,8 +15,8 @@ import { ArticleTypesTabs } from '@/features/ArticleTypesTabs';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import { SortOrder } from '@/shared/types/sort';
-import Input from '@/shared/ui/Input/Input';
-import { TabItem } from '@/shared/ui/Tabs/Tabs';
+import { Input } from '@/shared/ui/Input';
+import { TabItem } from '@/shared/ui/Tabs';
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,

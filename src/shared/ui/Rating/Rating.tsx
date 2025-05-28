@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import type { FC } from 'react';
 import { memo, useEffect, useState } from 'react';
 import StarIcon from '@/shared/assets/icons/star-icon.svg';
-import Icon from '../Icon/Icon';
+import { Icon } from '../Icon';
 import styles from './Rating.module.scss';
 
 interface RatingProps {

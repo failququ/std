@@ -3,10 +3,10 @@ import { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { NotificationsList } from '@/entities/Notification';
 import NotificationsIcon from '@/shared/assets/icons/notifications-icon.svg';
-import Drawer from '@/shared/ui/Drawer/Drawer';
-import Icon from '@/shared/ui/Icon/Icon';
+import { Drawer } from '@/shared/ui/Drawer';
+import { Icon } from '@/shared/ui/Icon';
 import { Popover } from '@/shared/ui/Popups';
-import { DropdownDirection } from '@/shared/ui/types/ui';
+import { DropdownDirection } from '@/shared/ui/types';
 import styles from './NotificationsButton.module.scss';
 
 interface Props {

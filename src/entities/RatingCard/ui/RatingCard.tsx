@@ -2,9 +2,9 @@ import classNames from 'classnames';
 
 import type { FC } from 'react';
 import { memo } from 'react';
-import Rating from '@/shared/ui/Rating/Rating';
+import { Rating } from '@/shared/ui/Rating';
 import { VStack } from '@/shared/ui/Stack';
-import Text from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import styles from './RatingCard.module.scss';
 
 interface RatingCardProps {

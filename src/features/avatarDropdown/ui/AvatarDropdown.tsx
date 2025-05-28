@@ -6,9 +6,9 @@ import {
   isUserAdmin, useUserActions, useUserData,
 } from '@/entities/User';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/constants/router';
-import Avatar from '@/shared/ui/Avatar/Avatar';
+import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
-import { DropdownDirection } from '@/shared/ui/types/ui';
+import { DropdownDirection } from '@/shared/ui/types';
 
 interface Props {
   className?: string;

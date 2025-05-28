@@ -57,6 +57,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
+    'react/prop-types': 'off',
     'failququ-plugin/path-checker': ['error', {
       alias: '@',
     }],

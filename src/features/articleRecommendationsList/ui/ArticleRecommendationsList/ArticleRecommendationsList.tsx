@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticlesList, ArticlesView } from '@/entities/Article';
 import { VStack } from '@/shared/ui/Stack';
-import Text from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { useGetArticleRecommendations } from '../../api/articleRecommendationsApi';
 
 interface ArticleRecommendationsListProps {

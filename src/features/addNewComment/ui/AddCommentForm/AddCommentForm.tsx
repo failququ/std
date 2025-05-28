@@ -6,8 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import Button from '@/shared/ui/Button/Button';
-import Input from '@/shared/ui/Input/Input';
+import { Button } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input';
 import {
   getAddNewCommentText,
 } from '../../model/selectors/getAddNewCommentData/getAddNewCommentData';

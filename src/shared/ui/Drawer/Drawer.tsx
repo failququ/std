@@ -4,8 +4,8 @@ import type { FC, ReactNode } from 'react';
 import { memo } from 'react';
 import { useModal } from '@/shared/lib/hooks/useModal';
 import { useTheme } from '../../lib/hooks/useTheme';
-import Overlay from '../Overlay/Overlay';
-import Portal from '../Portal/Portal';
+import { Overlay } from '../Overlay';
+import { Portal } from '../Portal';
 import styles from './Drawer.module.scss';
 
 interface DrawerProps {
