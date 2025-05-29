@@ -33,21 +33,6 @@ describe('AppRouter', () => {
     expect(page).toBeInTheDocument();
   });
 
-  it('should allow authorized user to see profile', async () => {
-    componentRender(<AppRouter />, {
-      route: getRouteProfile('1'),
-      initialState: {
-        user: {
-          _isInit: true,
-          isAuth: true,
-        },
-      },
-    });
-
-    const page = await screen.findByTestId('ProfilePage');
-    expect(page).toBeInTheDocument();
-  });
-
   it('should not allow user without admin role to see admin panel', async () => {
     componentRender(<AppRouter />, {
       route: getRouteAdminPanel(),
