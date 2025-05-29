@@ -15,7 +15,7 @@ const NotFoundPage: FC<NotFoundPageProps> = (props) => {
   const { className } = props;
   const { t } = useTranslation('not-found-page');
   return (
-    <Page className={classNames(styles.page, className)}>
+    <Page className={classNames(styles.page, className)} data-testid="NotFoundPage">
       <h1>{t('title')}</h1>
       <p>{t('description')}</p>
       <UILink to="/">{t('link')}</UILink>

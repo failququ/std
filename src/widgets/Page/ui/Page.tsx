@@ -10,10 +10,11 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
+import { TestProps } from '@/shared/types/tests';
 import { Text } from '@/shared/ui/Text';
 import styles from './Page.module.scss';
 
-interface PageProps {
+interface PageProps extends TestProps {
   className?: string;
   children?: React.ReactNode;
   onIntersection?: () => void;
@@ -22,7 +23,7 @@ interface PageProps {
 
 const Page: FC<PageProps> = (props) => {
   const {
-    className, children, onIntersection, error,
+    className, children, onIntersection, error, 'data-testid': dataTestId,
   } = props;
 
   const { pathname } = useLocation();
@@ -59,6 +60,7 @@ const Page: FC<PageProps> = (props) => {
       ref={wrapperRef}
       className={classNames(styles.page, className)}
       onScroll={handleScroll}
+      data-testid={dataTestId ?? 'Page'}
     >
       {children}
       <div ref={triggerRef} />
