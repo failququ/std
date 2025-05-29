@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 import 'intersection-observer';
+import 'resize-observer-polyfill';
 import { TextDecoder, TextEncoder } from 'util';
 
 Object.assign(global, { TextEncoder, TextDecoder });

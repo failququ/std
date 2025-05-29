@@ -8,8 +8,6 @@ import { componentRender } from '@/shared/config/tests/componentRender/component
 import { profileReducer } from '../../model/slice/profileSlice';
 import EditableProfileCard from './EditableProfileCard';
 
-global.ResizeObserver = require('resize-observer-polyfill');
-
 const profile: Profile = {
   _id: '1',
   firstName: 'John',
