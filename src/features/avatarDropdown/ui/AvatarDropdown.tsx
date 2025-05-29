@@ -10,12 +10,12 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
 import { DropdownDirection } from '@/shared/ui/types';
 
-interface Props {
+interface AvatarDropdownProps {
   className?: string;
   direction?: DropdownDirection;
 }
 
-const AvatarDropdown: FC<Props> = (props) => {
+const AvatarDropdown: FC<AvatarDropdownProps> = (props) => {
   const { className, direction = 'bottomRight' } = props;
 
   const { t } = useTranslation();

@@ -7,10 +7,12 @@ import ViewsIcon from '@/shared/assets/icons/eye-icon.svg';
 import { getRouteArticleDetails } from '@/shared/constants/router';
 import { transformDate } from '@/shared/lib/helpers/dateHelper';
 import { useHover } from '@/shared/lib/hooks/useHover';
+import { AppImage } from '@/shared/ui/AppImage';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { UILink } from '@/shared/ui/UILink';
@@ -60,7 +62,12 @@ const ArticlesListItem: FC<ArticlesListItemProps> = (props) => {
           </HStack>
           <Text className={styles.title} title={article.title} />
           {renderTypes(' ')}
-          <img className={styles.image} src={article.img} alt={article.title} />
+          <AppImage
+            className={styles.image}
+            src={article.img}
+            alt={article.title}
+            fallback={<Skeleton width="100%" height={250} />}
+          />
           {textBlock && (
             <ArticleTextBlockComponent className={styles.textBlock} block={textBlock} />
           )}
@@ -87,7 +94,12 @@ const ArticlesListItem: FC<ArticlesListItemProps> = (props) => {
     >
       <Card className={styles.card}>
         <div className={styles.imageWrapper}>
-          <img className={styles.image} src={article.img} alt={article.title} />
+          <AppImage
+            className={styles.image}
+            src={article.img}
+            alt={article.title}
+            fallback={<Skeleton width={200} height={200} />}
+          />
           <Text className={styles.date} description={transformDate(article.createdAt)} />
         </div>
         <HStack className={styles.infoWrapper}>
