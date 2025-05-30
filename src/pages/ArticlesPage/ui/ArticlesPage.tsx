@@ -6,10 +6,10 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { Page } from '@/widgets/Page';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { Page } from '@/widgets/Page';
 
 import { getArticlesPageError } from '../model/selectors/getArticlesPageData';
 import { fetchNextArticles } from '../model/services/fetchNextArticles/fetchNextArticles';
@@ -39,10 +39,12 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const [searchParams] = useSearchParams();
 
   const onLoadNextArticles = useCallback(() => {
+    // @ts-ignore
     dispatch(fetchNextArticles());
   }, [dispatch]);
 
   useInitialEffect(() => {
+    // @ts-ignore
     dispatch(initArticlesPage(searchParams));
   });
 

@@ -46,6 +46,7 @@ const ArticlesPageFilters: FC<Props> = (props) => {
   const selectedArticleType = useSelector(getArticlesPageSelectedArticleType);
 
   const fetchData = useCallback(() => {
+    // @ts-ignore
     dispatch(fetchArticlesList({ replace: true }));
   }, [dispatch]);
 

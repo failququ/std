@@ -24,7 +24,7 @@ import styles from './EditableProfileCard.module.scss';
 
 interface EditableProfileCardProps {
     className?: string;
-		id: string;
+		id?: string;
 }
 
 export const initialReducers: ReducersList = {
@@ -86,6 +86,7 @@ const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
   }, [dispatch, formData]);
 
   useInitialEffect(() => {
+    // @ts-ignore
     dispatch(fetchProfileData(id));
   });
   return (

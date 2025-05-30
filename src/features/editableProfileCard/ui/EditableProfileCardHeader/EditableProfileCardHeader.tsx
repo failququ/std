@@ -37,6 +37,7 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) =>
   }, [dispatch]);
 
   const onSave = useCallback(() => {
+    // @ts-ignore
     dispatch(updateProfileData());
   }, [dispatch]);
 

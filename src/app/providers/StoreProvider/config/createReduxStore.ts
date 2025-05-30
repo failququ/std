@@ -21,10 +21,11 @@ export function createReduxStore(
 
   const extraArg: ThunkExtraArgs = { api };
 
-  const store = configureStore({
+  const store = configureStore<StateSchema>({
     reducer: reducerManager.reduce as Reducer<StateSchema>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
+    // @ts-ignore
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
       thunk: {
         extraArgument: extraArg,
