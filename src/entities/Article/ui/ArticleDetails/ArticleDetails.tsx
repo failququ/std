@@ -62,7 +62,6 @@ const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
   }, []);
 
   useInitialEffect(() => {
-    // @ts-ignore
     dispatch(fetchArticleById(id));
   }, [id]);
 

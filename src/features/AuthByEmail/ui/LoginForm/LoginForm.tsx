@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 
-import { ThunkAction } from '@reduxjs/toolkit';
 import {
   memo, useCallback,
   type FC,
@@ -49,8 +48,7 @@ const LoginForm: FC<LoginFormProps> = (props) => {
   );
 
   const handleLogin = useCallback(async () => {
-    // @ts-ignore
-    const res = await dispatch<ThunkAction>(loginByEmail({ email, password }));
+    const res = await dispatch(loginByEmail({ email, password }));
 
     if (res.meta.requestStatus === 'fulfilled') {
       onLoginSuccess?.();

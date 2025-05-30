@@ -29,12 +29,10 @@ const ArticleComments: FC<ArticleCommentsProps> = (props) => {
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
   const onSendComment = useCallback((text: string) => {
-    // @ts-ignore
     dispatch(addCommentForArticle(text));
   }, [dispatch]);
 
   useInitialEffect(() => {
-    // @ts-ignore
     dispatch(fetchCommentByArticleId(id));
   });
 
