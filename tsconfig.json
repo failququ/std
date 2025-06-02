@@ -16,6 +16,10 @@
     "strict": true,
     "isolatedModules": true
   },
+  "exclude": [
+    "node_modules",
+    "./cypress.config.ts",
+  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
