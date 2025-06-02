@@ -99,6 +99,7 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
         value={data?.age}
         label={t('card.data.age')}
         onChange={onChangeAge}
+        data-testid="ProfileCard.age"
       />
       <Input
         className={styles.dataField}

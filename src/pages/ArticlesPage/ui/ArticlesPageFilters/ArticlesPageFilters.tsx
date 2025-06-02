@@ -96,6 +96,7 @@ const ArticlesPageFilters: FC<Props> = (props) => {
         placeholder={t('articles-page.filters.search')}
         value={search}
         onChange={handleChangeSearch}
+        data-testid="ArticlesPageSearch"
       />
       <ArticleTypesTabs
         className={styles.tabs}

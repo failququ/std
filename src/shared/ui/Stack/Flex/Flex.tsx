@@ -43,6 +43,7 @@ export interface FlexProps {
   gap?: FlexGap;
   max?: boolean;
   wrap?: boolean;
+  'data-testid'?: string;
 }
 
 const Flex: FC<FlexProps> = (props) => {
@@ -55,16 +56,19 @@ const Flex: FC<FlexProps> = (props) => {
     gap,
     max,
     wrap,
+    'data-testid': dataTestId,
   } = props;
   return (
-    <div className={classNames(styles.flex, className, {
-      [justifyClasses[justify]]: true,
-      [alignClasses[align]]: true,
-      [directionClasses[direction]]: true,
-      [gapClasses[gap as FlexGap]]: gap,
-      [styles.max]: max,
-      [styles.wrap]: wrap,
-    })}
+    <div
+      className={classNames(styles.flex, className, {
+        [justifyClasses[justify]]: true,
+        [alignClasses[align]]: true,
+        [directionClasses[direction]]: true,
+        [gapClasses[gap as FlexGap]]: gap,
+        [styles.max]: max,
+        [styles.wrap]: wrap,
+      })}
+      data-testid={dataTestId}
     >
       {children}
     </div>

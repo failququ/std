@@ -81,7 +81,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
     content = <Text theme="error" title={t('details-page.error')} align="center" />;
   } else {
     content = (
-      <>
+      <VStack data-testid="ArticleDetails">
         <HStack max justify="center">
           <Avatar size={200} src={article?.img} alt={article?.title} />
         </HStack>
@@ -95,7 +95,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
           <Text description={transformDate(String(article?.createdAt))} />
         </HStack>
         {article?.blocks.map(renderBlock)}
-      </>
+      </VStack>
     );
   }
 

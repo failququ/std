@@ -52,7 +52,7 @@ const ArticlesList: FC<ArticlesListProps> = (props) => {
   }
 
   return (
-    <HStack gap={view === ArticlesView.BIG ? '32' : '16'} wrap>
+    <HStack gap={view === ArticlesView.BIG ? '32' : '16'} wrap data-testid="ArticlesList">
       {articles.length > 0
         ? articles.map(renderArticle)
         : null}

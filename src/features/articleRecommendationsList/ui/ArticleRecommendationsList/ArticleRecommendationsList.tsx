@@ -17,7 +17,7 @@ export const ArticleRecommendationsList = (props: ArticleRecommendationsListProp
   const { data: recommendations, isLoading } = useGetArticleRecommendations(4);
 
   return (
-    <VStack gap="8" className={classNames(className, [className])}>
+    <VStack gap="8" className={classNames(className, [className])} data-testid="ArticleRecommendationsList">
       <Text title={t('details-page.recommends.title')} />
       <ArticlesList
         articles={recommendations || []}

@@ -51,7 +51,10 @@ const ArticlesListItem: FC<ArticlesListItemProps> = (props) => {
   if (view === ArticlesView.BIG) {
     const textBlock = article.blocks.find((block) => block.type === 'TEXT') as ArticleTextBlock;
     return (
-      <div className={classNames(styles.item, className, styles[view])}>
+      <div
+        className={classNames(styles.item, className, styles[view])}
+        data-testid="ArticlesListItem"
+      >
         <Card className={styles.card}>
           <HStack justify="between" align="center">
             <HStack gap="4">
@@ -90,6 +93,7 @@ const ArticlesListItem: FC<ArticlesListItemProps> = (props) => {
       className={classNames(styles.item, className, styles[view])}
       theme="clean"
       target={target}
+      data-testid="ArticlesListItem"
       {...hoverBind}
     >
       <Card className={styles.card}>
