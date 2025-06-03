@@ -1,6 +1,6 @@
-import { selectByTestId } from 'cypress/helpers/selectByTestId';
 import { User } from '../../../src/entities/User/model/types/user';
 import { setToken } from '../../../src/shared/lib/helpers/localStorage/tokenHelper';
+import { selectByTestId } from '../../helpers/selectByTestId';
 
 export const login = (email: string, password: string) => cy.request({
   method: 'POST',

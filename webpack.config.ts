@@ -13,10 +13,10 @@ export default (env: BuildEnv) => {
     locales: path.resolve(__dirname, 'public', 'locales'),
     buildLocales: path.resolve(__dirname, 'dist', 'locales'),
   };
-  const mode: BuildMode = env.mode || 'development';
-  const PORT = env.port || 3000;
+  const mode: BuildMode = env?.mode || 'development';
+  const PORT = env?.port || 3000;
   const isDev = mode === 'development';
-  const apiUrl = env.apiUrl || 'https://std-backend.vercel.app/';
+  const apiUrl = env?.apiUrl || 'https://std-backend.vercel.app/';
 
   const config: webpack.Configuration = BuildWebpackConfig(
     {
